@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace HotelPmsCore.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class Initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -16,55 +16,55 @@ namespace HotelPmsCore.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "Customer",
+                name: "Customers",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    FirstName = table.Column<string>(type: "longtext", nullable: false)
+                    FirstName = table.Column<string>(type: "VARCHAR(25)", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    LastName = table.Column<string>(type: "longtext", nullable: false)
+                    LastName = table.Column<string>(type: "VARCHAR(25)", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Afm = table.Column<string>(type: "longtext", nullable: false)
+                    Afm = table.Column<string>(type: "VARCHAR(25)", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Email = table.Column<string>(type: "longtext", nullable: true)
+                    Email = table.Column<string>(type: "VARCHAR(255)", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Phone = table.Column<string>(type: "longtext", nullable: true)
+                    Phone = table.Column<string>(type: "VARCHAR(15)", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Address = table.Column<string>(type: "longtext", nullable: true)
+                    Address = table.Column<string>(type: "TEXT", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    City = table.Column<string>(type: "longtext", nullable: true)
+                    City = table.Column<string>(type: "VARCHAR(100)", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Country = table.Column<string>(type: "longtext", nullable: true)
+                    Country = table.Column<string>(type: "VARCHAR(100)", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    ZipCode = table.Column<string>(type: "longtext", nullable: true)
+                    ZipCode = table.Column<string>(type: "VARCHAR(10)", nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4")
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Customer", x => x.Id);
+                    table.PrimaryKey("PK_Customers", x => x.Id);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "Period",
+                name: "Periods",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Name = table.Column<string>(type: "longtext", nullable: false)
+                    Name = table.Column<string>(type: "VARCHAR(25)", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     StartDate = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     EndDate = table.Column<DateTime>(type: "datetime(6)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Period", x => x.Id);
+                    table.PrimaryKey("PK_Periods", x => x.Id);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "TypedCategory",
+                name: "TypedCategories",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false),
@@ -74,12 +74,12 @@ namespace HotelPmsCore.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TypedCategory", x => new { x.Id, x.Type });
+                    table.PrimaryKey("PK_TypedCategories", x => new { x.Id, x.Type });
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "PriceList",
+                name: "PriceLists",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -90,11 +90,11 @@ namespace HotelPmsCore.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_PriceList", x => x.Id);
+                    table.PrimaryKey("PK_PriceLists", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_PriceList_Period_PeriodId",
+                        name: "FK_PriceLists_Periods_PeriodId",
                         column: x => x.PeriodId,
-                        principalTable: "Period",
+                        principalTable: "Periods",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 })
@@ -106,7 +106,7 @@ namespace HotelPmsCore.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    RoomNumber = table.Column<string>(type: "longtext", nullable: false)
+                    RoomNumber = table.Column<string>(type: "VARCHAR(25)", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Floor = table.Column<int>(type: "int", nullable: false),
                     BedNumber = table.Column<int>(type: "int", nullable: false),
@@ -118,34 +118,9 @@ namespace HotelPmsCore.Migrations
                 {
                     table.PrimaryKey("PK_Rooms", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Rooms_TypedCategory_RoomTypeId_RoomTypeType",
+                        name: "FK_Rooms_TypedCategories_RoomTypeId_RoomTypeType",
                         columns: x => new { x.RoomTypeId, x.RoomTypeType },
-                        principalTable: "TypedCategory",
-                        principalColumns: new[] { "Id", "Type" },
-                        onDelete: ReferentialAction.Cascade);
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.CreateTable(
-                name: "Staffs",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    FirstName = table.Column<string>(type: "longtext", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    LastName = table.Column<string>(type: "longtext", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    SpecialityId = table.Column<int>(type: "int", nullable: false),
-                    SpecialityType = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Staffs", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Staffs_TypedCategory_SpecialityId_SpecialityType",
-                        columns: x => new { x.SpecialityId, x.SpecialityType },
-                        principalTable: "TypedCategory",
+                        principalTable: "TypedCategories",
                         principalColumns: new[] { "Id", "Type" },
                         onDelete: ReferentialAction.Cascade);
                 })
@@ -157,41 +132,36 @@ namespace HotelPmsCore.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Username = table.Column<string>(type: "longtext", nullable: false)
+                    Username = table.Column<string>(type: "VARCHAR(25)", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Password = table.Column<string>(type: "longtext", nullable: false)
+                    Password = table.Column<string>(type: "VARCHAR(25)", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     RoleId = table.Column<int>(type: "int", nullable: false),
                     RoleType = table.Column<int>(type: "int", nullable: false),
-                    FullName = table.Column<string>(type: "longtext", nullable: false)
+                    FullName = table.Column<string>(type: "VARCHAR(50)", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4")
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Users", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Users_TypedCategory_RoleId_RoleType",
+                        name: "FK_Users_TypedCategories_RoleId_RoleType",
                         columns: x => new { x.RoleId, x.RoleType },
-                        principalTable: "TypedCategory",
+                        principalTable: "TypedCategories",
                         principalColumns: new[] { "Id", "Type" },
                         onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateIndex(
-                name: "IX_PriceList_PeriodId",
-                table: "PriceList",
+                name: "IX_PriceLists_PeriodId",
+                table: "PriceLists",
                 column: "PeriodId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Rooms_RoomTypeId_RoomTypeType",
                 table: "Rooms",
                 columns: new[] { "RoomTypeId", "RoomTypeType" });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Staffs_SpecialityId_SpecialityType",
-                table: "Staffs",
-                columns: new[] { "SpecialityId", "SpecialityType" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Users_RoleId_RoleType",
@@ -203,25 +173,22 @@ namespace HotelPmsCore.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Customer");
+                name: "Customers");
 
             migrationBuilder.DropTable(
-                name: "PriceList");
+                name: "PriceLists");
 
             migrationBuilder.DropTable(
                 name: "Rooms");
 
             migrationBuilder.DropTable(
-                name: "Staffs");
-
-            migrationBuilder.DropTable(
                 name: "Users");
 
             migrationBuilder.DropTable(
-                name: "Period");
+                name: "Periods");
 
             migrationBuilder.DropTable(
-                name: "TypedCategory");
+                name: "TypedCategories");
         }
     }
 }

@@ -123,9 +123,9 @@ namespace HotelPmsCore.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap room {
+        internal static System.Drawing.Bitmap period {
             get {
-                object obj = ResourceManager.GetObject("room", resourceCulture);
+                object obj = ResourceManager.GetObject("period", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -133,9 +133,9 @@ namespace HotelPmsCore.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap staff {
+        internal static System.Drawing.Bitmap room {
             get {
-                object obj = ResourceManager.GetObject("staff", resourceCulture);
+                object obj = ResourceManager.GetObject("room", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -29,26 +29,31 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            mainpanel = new Panel();
+            MainPanel = new Panel();
             pictureBox1 = new PictureBox();
             label1 = new Label();
             button_rooms = new Button();
             button_categories = new Button();
             button_users = new Button();
             button_customers = new Button();
-            button_staff = new Button();
+            button_period = new Button();
             button_logout = new Button();
-            bttnpanel = new Panel();
+            ButtonPanel = new Panel();
+            EditButton = new Button();
+            DeleteButton = new Button();
+            ExitButton = new Button();
+            NewButton = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ButtonPanel.SuspendLayout();
             SuspendLayout();
             // 
-            // mainpanel
+            // MainPanel
             // 
-            mainpanel.BackColor = Color.WhiteSmoke;
-            mainpanel.Location = new Point(204, 133);
-            mainpanel.Name = "mainpanel";
-            mainpanel.Size = new Size(1495, 727);
-            mainpanel.TabIndex = 0;
+            MainPanel.BackColor = Color.WhiteSmoke;
+            MainPanel.Location = new Point(204, 133);
+            MainPanel.Name = "MainPanel";
+            MainPanel.Size = new Size(1495, 755);
+            MainPanel.TabIndex = 0;
             // 
             // pictureBox1
             // 
@@ -91,6 +96,7 @@
             button_rooms.Text = "Rooms";
             button_rooms.TextAlign = ContentAlignment.BottomCenter;
             button_rooms.UseVisualStyleBackColor = false;
+            button_rooms.Click += button_rooms_Click;
             // 
             // button_categories
             // 
@@ -110,6 +116,7 @@
             button_categories.TextAlign = ContentAlignment.BottomCenter;
             button_categories.TextImageRelation = TextImageRelation.ImageAboveText;
             button_categories.UseVisualStyleBackColor = false;
+            button_categories.Click += button_categories_Click;
             // 
             // button_users
             // 
@@ -127,6 +134,7 @@
             button_users.Text = "Users";
             button_users.TextAlign = ContentAlignment.BottomCenter;
             button_users.UseVisualStyleBackColor = false;
+            button_users.Click += button_users_Click;
             // 
             // button_customers
             // 
@@ -146,22 +154,23 @@
             button_customers.UseVisualStyleBackColor = false;
             button_customers.Click += button_customers_Click;
             // 
-            // button_staff
+            // button_period
             // 
-            button_staff.BackColor = Color.FromArgb(49, 55, 55);
-            button_staff.FlatAppearance.BorderSize = 0;
-            button_staff.FlatStyle = FlatStyle.Flat;
-            button_staff.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
-            button_staff.ForeColor = Color.White;
-            button_staff.Image = Properties.Resources.staff;
-            button_staff.ImageAlign = ContentAlignment.TopCenter;
-            button_staff.Location = new Point(2, 683);
-            button_staff.Name = "button_staff";
-            button_staff.Size = new Size(196, 96);
-            button_staff.TabIndex = 7;
-            button_staff.Text = "Staff";
-            button_staff.TextAlign = ContentAlignment.BottomCenter;
-            button_staff.UseVisualStyleBackColor = false;
+            button_period.BackColor = Color.FromArgb(49, 55, 55);
+            button_period.FlatAppearance.BorderSize = 0;
+            button_period.FlatStyle = FlatStyle.Flat;
+            button_period.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
+            button_period.ForeColor = Color.White;
+            button_period.Image = (Image)resources.GetObject("button_period.Image");
+            button_period.ImageAlign = ContentAlignment.TopCenter;
+            button_period.Location = new Point(2, 683);
+            button_period.Name = "button_period";
+            button_period.Size = new Size(196, 96);
+            button_period.TabIndex = 7;
+            button_period.Text = "Period";
+            button_period.TextAlign = ContentAlignment.BottomCenter;
+            button_period.UseVisualStyleBackColor = false;
+            button_period.Click += button_staff_Click;
             // 
             // button_logout
             // 
@@ -179,14 +188,63 @@
             button_logout.TextAlign = ContentAlignment.MiddleLeft;
             button_logout.TextImageRelation = TextImageRelation.TextBeforeImage;
             button_logout.UseVisualStyleBackColor = false;
+            button_logout.Click += button_logout_Click;
             // 
-            // bttnpanel
+            // ButtonPanel
             // 
-            bttnpanel.BackColor = Color.RosyBrown;
-            bttnpanel.Location = new Point(204, 860);
-            bttnpanel.Name = "bttnpanel";
-            bttnpanel.Size = new Size(1492, 94);
-            bttnpanel.TabIndex = 9;
+            ButtonPanel.BackColor = Color.Transparent;
+            ButtonPanel.Controls.Add(EditButton);
+            ButtonPanel.Controls.Add(DeleteButton);
+            ButtonPanel.Controls.Add(ExitButton);
+            ButtonPanel.Controls.Add(NewButton);
+            ButtonPanel.Location = new Point(204, 894);
+            ButtonPanel.Name = "ButtonPanel";
+            ButtonPanel.Size = new Size(1492, 60);
+            ButtonPanel.TabIndex = 9;
+            // 
+            // EditButton
+            // 
+            EditButton.BackColor = Color.LightSkyBlue;
+            EditButton.Location = new Point(581, 4);
+            EditButton.Name = "EditButton";
+            EditButton.Size = new Size(92, 41);
+            EditButton.TabIndex = 1;
+            EditButton.Text = "Edit";
+            EditButton.UseVisualStyleBackColor = false;
+            EditButton.Click += EditButton_Click;
+            // 
+            // DeleteButton
+            // 
+            DeleteButton.BackColor = Color.LightSkyBlue;
+            DeleteButton.Location = new Point(811, 4);
+            DeleteButton.Name = "DeleteButton";
+            DeleteButton.Size = new Size(92, 41);
+            DeleteButton.TabIndex = 2;
+            DeleteButton.Text = "Delete";
+            DeleteButton.UseVisualStyleBackColor = false;
+            DeleteButton.Click += DeleteButton_Click;
+            // 
+            // ExitButton
+            // 
+            ExitButton.BackColor = Color.LightSkyBlue;
+            ExitButton.Location = new Point(1041, 4);
+            ExitButton.Name = "ExitButton";
+            ExitButton.Size = new Size(92, 41);
+            ExitButton.TabIndex = 3;
+            ExitButton.Text = "Exit";
+            ExitButton.UseVisualStyleBackColor = false;
+            ExitButton.Click += ExitButton_Click;
+            // 
+            // NewButton
+            // 
+            NewButton.BackColor = Color.LightSkyBlue;
+            NewButton.Location = new Point(351, 4);
+            NewButton.Name = "NewButton";
+            NewButton.Size = new Size(92, 41);
+            NewButton.TabIndex = 0;
+            NewButton.Text = "New";
+            NewButton.UseVisualStyleBackColor = false;
+            NewButton.Click += NewButton_Click;
             // 
             // MainForm
             // 
@@ -194,36 +252,41 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(49, 55, 55);
             ClientSize = new Size(1697, 951);
-            Controls.Add(bttnpanel);
+            Controls.Add(ButtonPanel);
             Controls.Add(button_logout);
-            Controls.Add(button_staff);
+            Controls.Add(button_period);
             Controls.Add(button_users);
             Controls.Add(button_customers);
             Controls.Add(button_categories);
             Controls.Add(button_rooms);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
-            Controls.Add(mainpanel);
+            Controls.Add(MainPanel);
             FormBorderStyle = FormBorderStyle.None;
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "MainForm";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ButtonPanel.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Panel mainpanel;
+        private Panel MainPanel;
         private PictureBox pictureBox1;
         private Label label1;
         private Button button_rooms;
         private Button button_categories;
         private Button button_users;
         private Button button_customers;
-        private Button button_staff;
+        private Button button_period;
         private Button button_logout;
-        private Panel bttnpanel;
+        private Panel ButtonPanel;
+        private Button NewButton;
+        private Button EditButton;
+        private Button DeleteButton;
+        private Button ExitButton;
     }
 }
