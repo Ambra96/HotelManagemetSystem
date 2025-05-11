@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace HotelPmsCore.Services
 {
-    class CustomerService
+    public interface MyBase
     {
+        void Add();
+        void Edit();
+        void Delete();
+        void RefreshGrid();
+        bool HasSelection { get; }
     }
 }

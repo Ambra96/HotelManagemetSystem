@@ -22,10 +22,7 @@
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
+     
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
@@ -134,7 +131,6 @@
             button_users.Text = "Users";
             button_users.TextAlign = ContentAlignment.BottomCenter;
             button_users.UseVisualStyleBackColor = false;
-            button_users.Click += button_users_Click;
             // 
             // button_customers
             // 
@@ -170,7 +166,6 @@
             button_period.Text = "Period";
             button_period.TextAlign = ContentAlignment.BottomCenter;
             button_period.UseVisualStyleBackColor = false;
-            button_period.Click += button_staff_Click;
             // 
             // button_logout
             // 

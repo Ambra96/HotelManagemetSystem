@@ -10,7 +10,7 @@ namespace HotelPmsCore.Forms
     {
         private Customer _customer;
         private bool _isNewCustomer = false;
-       
+
         public CustomerEditForm(Customer customer)
         {
             InitializeComponent();
@@ -23,7 +23,7 @@ namespace HotelPmsCore.Forms
         }
 
 
-        // For creating new customers
+
         public CustomerEditForm() : this(new Customer())
         {
             _isNewCustomer = true;
@@ -32,16 +32,16 @@ namespace HotelPmsCore.Forms
 
         private void ConfigureForm()
         {
-         
+
             if (!_isNewCustomer)
             {
-                Text = $"Edit Customer: {_customer.FirstName} {_customer.LastName}";
+                Text = $"Create/Edit Customer: {_customer.FirstName} {_customer.LastName}";
             }
         }
 
         private void InitializeDataBindings()
         {
-            
+
             txtFirstName.DataBindings.Add("Text", _customer, nameof(Customer.FirstName));
             txtLastName.DataBindings.Add("Text", _customer, nameof(Customer.LastName));
             txtAFM.DataBindings.Add("Text", _customer, nameof(Customer.Afm));
@@ -69,51 +69,6 @@ namespace HotelPmsCore.Forms
             DialogResult = DialogResult.Cancel;
             Close();
         }
-
-        // Validation
-        private void txtFirstName_Validating(object sender, CancelEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txtFirstName.Text))
-            {
-                e.Cancel = true;
-                errorProvider.SetError(txtFirstName, "First name is required");
-            }
-            else
-            {
-                errorProvider.SetError(txtFirstName, "");
-            }
-        }
-
-        private void txtLastName_Validating(object sender, CancelEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(txtLastName.Text))
-            {
-                e.Cancel = true;
-                errorProvider.SetError(txtLastName, "Last name is required");
-            }
-            else
-            {
-                errorProvider.SetError(txtLastName, "");
-            }
-        }
-
-        public Customer GetEditedCustomer()
-        {
-            // Validate and update 
-            if (ValidateChildren(ValidationConstraints.Enabled))
-            {
-                //update the customer object
-                foreach (Control control in Controls)
-                {
-                    foreach (Binding binding in control.DataBindings)
-                    {
-                        binding.WriteValue();
-                    }
-                }
-            }
-            return _customer;
-        }
-
 
     }
 }

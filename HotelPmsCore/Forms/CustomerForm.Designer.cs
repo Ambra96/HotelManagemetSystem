@@ -2,15 +2,9 @@
 {
     partial class CustomerForm
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
+
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,12 +14,7 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
-
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
+   
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
@@ -147,7 +136,7 @@
             PreviousButton.TabIndex = 1;
             PreviousButton.Text = "<";
             PreviousButton.UseVisualStyleBackColor = true;
-            PreviousButton.Click += PreviousButton_Click;
+            //PreviousButton.Click += PreviousButton_Click;
             // 
             // NextButton
             // 
@@ -157,7 +146,7 @@
             NextButton.TabIndex = 2;
             NextButton.Text = ">";
             NextButton.UseVisualStyleBackColor = true;
-            NextButton.Click += NextButton_Click;
+            //NextButton.Click += NextButton_Click;
             // 
             // CustomerForm
             // 
@@ -179,8 +168,6 @@
             ((System.ComponentModel.ISupportInitialize)bindingSource1).EndInit();
             ResumeLayout(false);
         }
-
-        #endregion
 
         private DataGridView dataGridViewCustomer;
         private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
