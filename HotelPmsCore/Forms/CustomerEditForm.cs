@@ -8,51 +8,47 @@ namespace HotelPmsCore.Forms
 {
     public partial class CustomerEditForm : Form
     {
-        private Customer _customer;
-        private bool _isNewCustomer = false;
+        private Customer customer;
+        private bool isNewCustomer = false;
 
         public CustomerEditForm(Customer customer)
         {
             InitializeComponent();
 
-            _customer = customer;
+            this.customer = customer;
             this.CancelButton = btnCancel;
 
             InitializeDataBindings();
             ConfigureForm();
         }
 
-
-
         public CustomerEditForm() : this(new Customer())
         {
-            _isNewCustomer = true;
+            isNewCustomer = true;
             Text = "New Customer";
         }
 
         private void ConfigureForm()
         {
-
-            if (!_isNewCustomer)
+            if (!isNewCustomer)
             {
-                Text = $"Create/Edit Customer: {_customer.FirstName} {_customer.LastName}";
+                Text = $"Create/Edit Customer: {customer.FirstName} {customer.LastName}";
             }
         }
 
         private void InitializeDataBindings()
         {
+            txtFirstName.DataBindings.Add("Text", customer, nameof(Customer.FirstName));
+            txtLastName.DataBindings.Add("Text", customer, nameof(Customer.LastName));
+            txtAFM.DataBindings.Add("Text", customer, nameof(Customer.Afm));
 
-            txtFirstName.DataBindings.Add("Text", _customer, nameof(Customer.FirstName));
-            txtLastName.DataBindings.Add("Text", _customer, nameof(Customer.LastName));
-            txtAFM.DataBindings.Add("Text", _customer, nameof(Customer.Afm));
+            txtEmail.DataBindings.Add("Text", customer, nameof(Customer.Email));
+            txtPhone.DataBindings.Add("Text", customer, nameof(Customer.Phone));
 
-            txtEmail.DataBindings.Add("Text", _customer, nameof(Customer.Email));
-            txtPhone.DataBindings.Add("Text", _customer, nameof(Customer.Phone));
-
-            txtAddress.DataBindings.Add("Text", _customer, nameof(Customer.Address));
-            txtCity.DataBindings.Add("Text", _customer, nameof(Customer.City));
-            txtCountry.DataBindings.Add("Text", _customer, nameof(Customer.Country));
-            txtZipCode.DataBindings.Add("Text", _customer, nameof(Customer.ZipCode));
+            txtAddress.DataBindings.Add("Text", customer, nameof(Customer.Address));
+            txtCity.DataBindings.Add("Text", customer, nameof(Customer.City));
+            txtCountry.DataBindings.Add("Text", customer, nameof(Customer.Country));
+            txtZipCode.DataBindings.Add("Text", customer, nameof(Customer.ZipCode));
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
@@ -69,6 +65,5 @@ namespace HotelPmsCore.Forms
             DialogResult = DialogResult.Cancel;
             Close();
         }
-
     }
 }

@@ -6,31 +6,27 @@ using HotelPmsCore.Data;
 
 namespace HotelPmsCore.Services
 {
-    
     public class CrudServices<T> : Form, MyBase
         where T : class, new()
     {
+        protected readonly HotelPmsCoreContext context = new();
+        protected readonly BindingSource binding = new();
 
-        protected readonly HotelPmsCoreContext _context = new();
-        protected readonly BindingSource _binding = new();
-
-       
         public virtual bool HasSelection => Grid.SelectedRows.Count > 0;
 
-    
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-            Grid.DataSource = _binding;
+            Grid.DataSource = binding;
             LoadAll();
         }
 
         private void LoadAll()
         {
-            var items = _context.Set<T>()
+            var items = context.Set<T>()
                 .OrderBy(x => EF.Property<object>(x, "Id"))
                 .ToList();
-            _binding.DataSource = items;
+            binding.DataSource = items;
         }
 
         public virtual void Add()
@@ -39,8 +35,8 @@ namespace HotelPmsCore.Services
             using (var dlg = CreateEditForm(entity))
                 if (dlg.ShowDialog() == DialogResult.OK)
                 {
-                    _context.Set<T>().Add(entity);
-                    _context.SaveChanges();
+                    context.Set<T>().Add(entity);
+                    context.SaveChanges();
                     LoadAll();
                 }
         }
@@ -56,8 +52,8 @@ namespace HotelPmsCore.Services
             using (var dlg = CreateEditForm(copy))
                 if (dlg.ShowDialog() == DialogResult.OK)
                 {
-                    _context.Entry(original).CurrentValues.SetValues(copy);
-                    _context.SaveChanges();
+                    context.Entry(original).CurrentValues.SetValues(copy);
+                    context.SaveChanges();
                     LoadAll();
                 }
         }
@@ -68,8 +64,8 @@ namespace HotelPmsCore.Services
             var entity = (T)Grid.SelectedRows[0].DataBoundItem;
             if (MessageBox.Show($"Delete this {typeof(T).Name}?", "Confirm", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                _context.Set<T>().Remove(entity);
-                _context.SaveChanges();
+                context.Set<T>().Remove(entity);
+                context.SaveChanges();
                 LoadAll();
             }
         }
@@ -77,9 +73,9 @@ namespace HotelPmsCore.Services
         public virtual void RefreshGrid() => LoadAll();
 
         protected virtual DataGridView Grid
-            => throw new NotImplementedException("Override Grid in your derived form");
+            => throw new NotImplementedException("Override Grid ");
 
         protected virtual Form CreateEditForm(T entity)
-            => throw new NotImplementedException("Override CreateEditForm in your derived form");
+            => throw new NotImplementedException("Override CreateEditForm ");
     }
 }

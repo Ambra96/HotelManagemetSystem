@@ -99,7 +99,5 @@ namespace HotelPmsCore.Forms
             DeleteButton.Enabled = has;
             EditButton.Enabled = has;
         }
-
-     
     }
 }

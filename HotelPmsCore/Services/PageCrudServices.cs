@@ -6,29 +6,25 @@ using HotelPmsCore.Data;
 
 namespace HotelPmsCore.Services
 {
- 
     public class PageCrudServices<T> : CrudServices<T>
         where T : class, new()
     {
-        private int _pageSize = 10;
-        private int _currentPage = 0;
-        private int _totalPages = 0;
-
-        protected PageCrudServices() { }
+        private int pageSize = 10;
+        private int currentPage = 0;
+        private int totalPages = 0;
 
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
 
-
             PrevBtn.Click += (s, ev) =>
             {
-                if (_currentPage > 0) _currentPage--;
+                if (currentPage > 0) currentPage--;
                 LoadPage();
             };
             NextBtn.Click += (s, ev) =>
             {
-                if (_currentPage < _totalPages) _currentPage++;
+                if (currentPage < totalPages) currentPage++;
                 LoadPage();
             };
 
@@ -38,21 +34,21 @@ namespace HotelPmsCore.Services
 
         private void LoadPage(bool reset = false)
         {
-            if (reset) _currentPage = 0;
+            if (reset) currentPage = 0;
 
-            var set = _context.Set<T>();
+            var set = context.Set<T>();
             var total = set.Count();
-            _totalPages = (int)Math.Ceiling(total / (double)_pageSize) - 1;
+            totalPages = (int)Math.Ceiling(total / (double)pageSize) - 1;
 
             var items = set
                 .OrderBy(x => EF.Property<object>(x, "Id"))
-                .Skip(_currentPage * _pageSize)
-                .Take(_pageSize)
+                .Skip(currentPage * pageSize)
+                .Take(pageSize)
                 .ToList();
 
-            _binding.DataSource = items;
-            PrevBtn.Enabled = _currentPage > 0;
-            NextBtn.Enabled = _currentPage < _totalPages;
+            binding.DataSource = items;
+            PrevBtn.Enabled = currentPage > 0;
+            NextBtn.Enabled = currentPage < totalPages;
         }
 
         //public override void Add()
@@ -61,8 +57,8 @@ namespace HotelPmsCore.Services
         //    using (var dlg = CreateEditForm(entity))
         //        if (dlg.ShowDialog() == DialogResult.OK)
         //        {
-        //            _context.Set<T>().Add(entity);
-        //            _context.SaveChanges();
+        //            context.Set<T>().Add(entity);
+        //            context.SaveChanges();
         //            LoadPage(reset: true);
         //        }
         //}
@@ -78,8 +74,8 @@ namespace HotelPmsCore.Services
         //    using (var dlg = CreateEditForm(copy))
         //        if (dlg.ShowDialog() == DialogResult.OK)
         //        {
-        //            _context.Entry(original).CurrentValues.SetValues(copy);
-        //            _context.SaveChanges();
+        //            context.Entry(original).CurrentValues.SetValues(copy);
+        //            context.SaveChanges();
         //            LoadPage();
         //        }
         //}
@@ -91,15 +87,14 @@ namespace HotelPmsCore.Services
         //    if (MessageBox.Show($"Delete this {typeof(T).Name}?", "Confirm",
         //            MessageBoxButtons.YesNo) == DialogResult.Yes)
         //    {
-        //        _context.Set<T>().Remove(entity);
-        //        _context.SaveChanges();
+        //        context.Set<T>().Remove(entity);
+        //        context.SaveChanges();
         //        LoadPage();
         //    }
         //}
 
         public override void RefreshGrid() => LoadPage();
 
-      
         protected virtual Button PrevBtn { get; }
         protected virtual Button NextBtn { get; }
     }

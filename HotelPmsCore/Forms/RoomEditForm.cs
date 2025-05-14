@@ -13,11 +13,11 @@ namespace HotelPmsCore.Forms
 {
     public partial class RoomEditForm : Form
     {
-        private Room _room;
+        private Room room;
 
         public RoomEditForm(Room room)
         {
-            _room = room;
+            this.room = room;
             InitializeComponent();
         }
     }

@@ -1,13 +1,13 @@
-﻿using HotelPmsCore.Models;
+﻿using System;
+using System.Windows.Forms;
+using HotelPmsCore.Models;
 
 namespace HotelPmsCore.Forms
 {
-    partial class CategoryEditForm
+    partial class CategoryEditForm : Form
     {
-      
         private System.ComponentModel.IContainer components = null;
 
-        
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -19,17 +19,17 @@ namespace HotelPmsCore.Forms
 
         public class InnerCategoryEditForm : Form
         {
-            private TypedCategory _entity;
+            private TypedCategory entity;
 
             public InnerCategoryEditForm(TypedCategory entity)
             {
-                _entity = entity;
+                this.entity = entity;
                 InitializeComponent();
             }
 
             private void InitializeComponent()
             {
-                // enter code
+                //code edw
             }
         }
     }
