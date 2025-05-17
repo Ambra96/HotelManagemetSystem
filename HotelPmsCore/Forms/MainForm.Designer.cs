@@ -22,7 +22,7 @@
 
         #region Windows Form Designer generated code
 
-     
+
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
@@ -283,5 +283,7 @@
         private Button EditButton;
         private Button DeleteButton;
         private Button ExitButton;
+
+        public int NewBttn_Click { get; private set; }
     }
 }

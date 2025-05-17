@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace HotelPmsCore.Services
 {
-    public interface MyBase
+
+    public interface MyBase<T> where T : class
     {
-        void Add();
-        void Edit();
-        void Delete();
-        void RefreshGrid();
-        bool HasSelection { get; }
+        IList<T> GetAll();
+        void Add(T entity);
+        void Edit(T original, T edited);
+        void Delete(T entity);
     }
 }

@@ -1,81 +1,45 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Windows.Forms;
-using Microsoft.EntityFrameworkCore;
 using HotelPmsCore.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace HotelPmsCore.Services
 {
-    public class CrudServices<T> : Form, MyBase
-        where T : class, new()
+  
+    public class CrudServices<T> : MyBase<T> where T : class, new()
     {
-        protected readonly HotelPmsCoreContext context = new();
-        protected readonly BindingSource binding = new();
+        protected readonly HotelPmsCoreContext context;
 
-        public virtual bool HasSelection => Grid.SelectedRows.Count > 0;
-
-        protected override void OnLoad(EventArgs e)
+        public CrudServices(HotelPmsCoreContext context)
         {
-            base.OnLoad(e);
-            Grid.DataSource = binding;
-            LoadAll();
+            this.context = context;
         }
 
-        private void LoadAll()
+        public IList<T> GetAll()
         {
-            var items = context.Set<T>()
-                .OrderBy(x => EF.Property<object>(x, "Id"))
-                .ToList();
-            binding.DataSource = items;
+            return context.Set<T>()
+                          .OrderBy(x => EF.Property<object>(x, "Id"))
+                          .ToList();
         }
 
-        public virtual void Add()
+        public void Add(T entity)
         {
-            var entity = new T();
-            using (var dlg = CreateEditForm(entity))
-                if (dlg.ShowDialog() == DialogResult.OK)
-                {
-                    context.Set<T>().Add(entity);
-                    context.SaveChanges();
-                    LoadAll();
-                }
+            context.Set<T>().Add(entity);
+            context.SaveChanges();
         }
 
-        public virtual void Edit()
+        public void Edit(T original, T edited)
         {
-            if (!HasSelection) return;
-            var original = (T)Grid.SelectedRows[0].DataBoundItem;
-            var copy = new T();
-            foreach (var p in typeof(T).GetProperties().Where(p => p.CanWrite))
-                p.SetValue(copy, p.GetValue(original));
-
-            using (var dlg = CreateEditForm(copy))
-                if (dlg.ShowDialog() == DialogResult.OK)
-                {
-                    context.Entry(original).CurrentValues.SetValues(copy);
-                    context.SaveChanges();
-                    LoadAll();
-                }
+            context.Entry(original)
+                   .CurrentValues
+                   .SetValues(edited);
+            context.SaveChanges();
         }
 
-        public virtual void Delete()
+        public void Delete(T entity)
         {
-            if (!HasSelection) return;
-            var entity = (T)Grid.SelectedRows[0].DataBoundItem;
-            if (MessageBox.Show($"Delete this {typeof(T).Name}?", "Confirm", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                context.Set<T>().Remove(entity);
-                context.SaveChanges();
-                LoadAll();
-            }
+            context.Set<T>().Remove(entity);
+            context.SaveChanges();
         }
-
-        public virtual void RefreshGrid() => LoadAll();
-
-        protected virtual DataGridView Grid
-            => throw new NotImplementedException("Override Grid ");
-
-        protected virtual Form CreateEditForm(T entity)
-            => throw new NotImplementedException("Override CreateEditForm ");
     }
 }

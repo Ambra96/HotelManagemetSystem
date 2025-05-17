@@ -37,6 +37,8 @@
             bathNumberDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             roomTypeDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             roomBindingSource = new BindingSource(components);
+            NextButton = new Button();
+            PreviousButton = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridViewRoom).BeginInit();
             ((System.ComponentModel.ISupportInitialize)roomBindingSource).BeginInit();
             SuspendLayout();
@@ -51,14 +53,13 @@
             dataGridViewRoom.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewRoom.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, roomNumberDataGridViewTextBoxColumn, floorDataGridViewTextBoxColumn, bedNumberDataGridViewTextBoxColumn, bathNumberDataGridViewTextBoxColumn, roomTypeDataGridViewTextBoxColumn });
             dataGridViewRoom.DataSource = roomBindingSource;
-            dataGridViewRoom.Location = new Point(12, 12);
+            dataGridViewRoom.Location = new Point(12, 89);
             dataGridViewRoom.Name = "dataGridViewRoom";
             dataGridViewRoom.ReadOnly = true;
             dataGridViewRoom.RowHeadersWidth = 62;
             dataGridViewRoom.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewRoom.Size = new Size(1471, 703);
+            dataGridViewRoom.Size = new Size(1471, 626);
             dataGridViewRoom.TabIndex = 0;
-           
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -112,12 +113,34 @@
             // 
             roomBindingSource.DataSource = typeof(Models.Room);
             // 
+            // NextButton
+            // 
+            NextButton.Location = new Point(1350, 27);
+            NextButton.Name = "NextButton";
+            NextButton.Size = new Size(48, 34);
+            NextButton.TabIndex = 4;
+            NextButton.Text = ">";
+            NextButton.UseVisualStyleBackColor = true;
+            NextButton.Click += NextButton_Click;
+            // 
+            // PreviousButton
+            // 
+            PreviousButton.Location = new Point(1277, 27);
+            PreviousButton.Name = "PreviousButton";
+            PreviousButton.Size = new Size(48, 34);
+            PreviousButton.TabIndex = 3;
+            PreviousButton.Text = "<";
+            PreviousButton.UseVisualStyleBackColor = true;
+            PreviousButton.Click += PreviousButton_Click;
+            // 
             // RoomForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(49, 55, 55);
             ClientSize = new Size(1495, 727);
+            Controls.Add(NextButton);
+            Controls.Add(PreviousButton);
             Controls.Add(dataGridViewRoom);
             FormBorderStyle = FormBorderStyle.None;
             Location = new Point(204, 133);
@@ -138,5 +161,7 @@
         private DataGridViewTextBoxColumn bathNumberDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn roomTypeDataGridViewTextBoxColumn;
         private BindingSource roomBindingSource;
+        private Button NextButton;
+        private Button PreviousButton;
     }
 }

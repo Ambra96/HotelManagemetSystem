@@ -14,7 +14,7 @@
             base.Dispose(disposing);
         }
 
-   
+
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
@@ -136,7 +136,7 @@
             PreviousButton.TabIndex = 1;
             PreviousButton.Text = "<";
             PreviousButton.UseVisualStyleBackColor = true;
-            //PreviousButton.Click += PreviousButton_Click;
+            PreviousButton.Click += PreviousButton_Click;
             // 
             // NextButton
             // 
@@ -146,7 +146,7 @@
             NextButton.TabIndex = 2;
             NextButton.Text = ">";
             NextButton.UseVisualStyleBackColor = true;
-            //NextButton.Click += NextButton_Click;
+            NextButton.Click += NextButton_Click;
             // 
             // CustomerForm
             // 
