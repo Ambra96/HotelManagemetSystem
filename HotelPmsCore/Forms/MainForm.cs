@@ -46,8 +46,8 @@ namespace HotelPmsCore.Forms
         private void button_categories_Click(object s, EventArgs e)
             => OpenModule<CategoryForm>();
 
-        private void button_rooms_Click(object s, EventArgs e)
-            => OpenModule<RoomForm>();
+        //private void button_rooms_Click(object s, EventArgs e)
+        //    => OpenModule<RoomForm>();
 
         private void NewButton_Click(object s, EventArgs e)
         {

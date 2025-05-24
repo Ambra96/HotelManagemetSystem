@@ -3,7 +3,6 @@ using System.Windows.Forms;
 using HotelPmsCore.Data;
 using HotelPmsCore.Forms;
 using HotelPmsCore.Services;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -11,9 +10,7 @@ namespace HotelPmsCore
 {
     internal static class Program
     {
-        /// <summary>
-        /// The global service provider, set up at startup.
-        /// </summary>
+    
         public static IServiceProvider ServiceProvider { get; private set; }
 
         [STAThread]
@@ -21,32 +18,45 @@ namespace HotelPmsCore
         {
             ApplicationConfiguration.Initialize();
 
-            // Build the Host with DI
+           
             var host = Host.CreateDefaultBuilder()
                 .ConfigureServices((_, services) =>
                 {
-                    // 1) DbContext (reads OnConfiguring)
+                    
                     services.AddScoped<HotelPmsCoreContext>();
+                 
+                    services.AddScoped(typeof(MyBase<>), typeof(CrudServices<>));
 
-                    // 2) Data services
+                    services.AddScoped<HotelPmsCoreContext>();
                     services.AddScoped(typeof(MyBase<>), typeof(CrudServices<>));
                     services.AddScoped<CustomerService>();
+                    services.AddScoped<CategoryServices>();
+                    //services.AddScoped<RoomServices>();
 
-                    // 3) Forms
-                    services.AddTransient<LoginForm>();
-                    services.AddTransient<MainForm>();
+                    // -- Forms
                     services.AddTransient<CustomerForm>();
+                    services.AddTransient<CustomerEditForm>();
                     services.AddTransient<CategoryForm>();
-                    services.AddTransient<RoomForm>();
+                    services.AddTransient<CategoryEditForm>();
+                    //services.AddTransient<RoomForm>();
+                    services.AddTransient<RoomEditForm>();
+                    services.AddTransient<LoginForm>();
                 })
                 .Build();
 
-            // Save the provider for later resolution
             ServiceProvider = host.Services;
 
-            // Run the app starting at LoginForm
-            var login = ServiceProvider.GetRequiredService<LoginForm>();
-            Application.Run(login);
+            // 2) Show login as a dialog
+            var loginForm = ServiceProvider.GetRequiredService<LoginForm>();
+            var result = loginForm.ShowDialog();
+
+            // 3) If login OK, run the main form; otherwise exit
+            if (result == DialogResult.OK)
+            {
+                var main = ServiceProvider.GetRequiredService<MainForm>();
+                Application.Run(main);
+            }
+            // else do nothing and let the process exit
         }
     }
 }

@@ -97,7 +97,7 @@
             button_rooms.Text = "Rooms";
             button_rooms.TextAlign = ContentAlignment.BottomCenter;
             button_rooms.UseVisualStyleBackColor = false;
-            button_rooms.Click += button_rooms_Click;
+            //button_rooms.Click += button_rooms_Click;
             // 
             // button_categories
             // 

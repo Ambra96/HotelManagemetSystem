@@ -29,28 +29,17 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            dataGridViewCategory = new DataGridView();
             idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             descriptionDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             typeDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             typedCategoryBindingSource = new BindingSource(components);
-            ((System.ComponentModel.ISupportInitialize)dataGridViewCategory).BeginInit();
+            dataGridViewCategory = new DataGridView();
+            idDataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+            descriptionDataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+            typeDataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)typedCategoryBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewCategory).BeginInit();
             SuspendLayout();
-            // 
-            // dataGridViewCategory
-            // 
-            dataGridViewCategory.AutoGenerateColumns = false;
-            dataGridViewCategory.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCategory.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, descriptionDataGridViewTextBoxColumn, typeDataGridViewTextBoxColumn });
-            dataGridViewCategory.DataSource = typedCategoryBindingSource;
-            dataGridViewCategory.Dock = DockStyle.Fill;
-            dataGridViewCategory.Location = new Point(0, 0);
-            dataGridViewCategory.Name = "dataGridViewCategory";
-            dataGridViewCategory.RowHeadersWidth = 62;
-            dataGridViewCategory.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewCategory.Size = new Size(800, 450);
-            dataGridViewCategory.TabIndex = 0;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -80,25 +69,66 @@
             // 
             typedCategoryBindingSource.DataSource = typeof(Models.TypedCategory);
             // 
+            // dataGridViewCategory
+            // 
+            dataGridViewCategory.AutoGenerateColumns = false;
+            dataGridViewCategory.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCategory.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn1, descriptionDataGridViewTextBoxColumn1, typeDataGridViewTextBoxColumn1 });
+            dataGridViewCategory.DataSource = typedCategoryBindingSource;
+            dataGridViewCategory.Dock = DockStyle.Fill;
+            dataGridViewCategory.Location = new Point(0, 0);
+            dataGridViewCategory.Name = "dataGridViewCategory";
+            dataGridViewCategory.RowHeadersWidth = 62;
+            dataGridViewCategory.Size = new Size(814, 446);
+            dataGridViewCategory.TabIndex = 0;
+            // 
+            // idDataGridViewTextBoxColumn1
+            // 
+            idDataGridViewTextBoxColumn1.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            idDataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            idDataGridViewTextBoxColumn1.HeaderText = "Id";
+            idDataGridViewTextBoxColumn1.MinimumWidth = 8;
+            idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
+            // 
+            // descriptionDataGridViewTextBoxColumn1
+            // 
+            descriptionDataGridViewTextBoxColumn1.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            descriptionDataGridViewTextBoxColumn1.DataPropertyName = "Description";
+            descriptionDataGridViewTextBoxColumn1.HeaderText = "Description";
+            descriptionDataGridViewTextBoxColumn1.MinimumWidth = 8;
+            descriptionDataGridViewTextBoxColumn1.Name = "descriptionDataGridViewTextBoxColumn1";
+            // 
+            // typeDataGridViewTextBoxColumn1
+            // 
+            typeDataGridViewTextBoxColumn1.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            typeDataGridViewTextBoxColumn1.DataPropertyName = "Type";
+            typeDataGridViewTextBoxColumn1.HeaderText = "Type";
+            typeDataGridViewTextBoxColumn1.MinimumWidth = 8;
+            typeDataGridViewTextBoxColumn1.Name = "typeDataGridViewTextBoxColumn1";
+            // 
             // CategoryForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(814, 446);
             Controls.Add(dataGridViewCategory);
             Name = "CategoryForm";
             Text = "CategoryForm";
-            ((System.ComponentModel.ISupportInitialize)dataGridViewCategory).EndInit();
             ((System.ComponentModel.ISupportInitialize)typedCategoryBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewCategory).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private DataGridView dataGridViewCategory;
+        private DataGridView dataGridViewCategories;
         private BindingSource typedCategoryBindingSource;
         private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn typeDataGridViewTextBoxColumn;
+        private DataGridView dataGridViewCategory;
+        private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn typeDataGridViewTextBoxColumn1;
     }
 }

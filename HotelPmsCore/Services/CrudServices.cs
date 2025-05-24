@@ -5,6 +5,15 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HotelPmsCore.Services
 {
+  
+    public interface MyBase<T> where T : class
+    {
+        IList<T> GetAll();
+        void Add(T entity);
+        void Edit(T original, T edited);
+        void Delete(T entity);
+    }
+
     public class CrudServices<T> : MyBase<T>
         where T : class, new()
     {

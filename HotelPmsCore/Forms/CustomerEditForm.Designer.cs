@@ -1,4 +1,6 @@
-﻿namespace HotelPmsCore.Forms
+﻿using HotelPmsCore.Models;
+
+namespace HotelPmsCore.Forms
 {
     partial class CustomerEditForm
     {
@@ -19,17 +21,12 @@
             }
             base.Dispose(disposing);
         }
-
-        #region Windows Form Designer generated code
-
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
+ 
         private void InitializeComponent()
         {
+      
             components = new System.ComponentModel.Container();
-            bindingSource1 = new BindingSource(components);
+            bindingSourceCustomer = new BindingSource(components);
             txtFirstName = new TextBox();
             txtLastName = new TextBox();
             txtAddress = new TextBox();
@@ -40,15 +37,15 @@
             txtZipCode = new TextBox();
             txtCountry = new TextBox();
             SaveButton = new Button();
-            btnCancel = new Button();
+            CancelButton = new Button();
             errorProvider = new ErrorProvider(components);
-            ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)bindingSourceCustomer).BeginInit();
             ((System.ComponentModel.ISupportInitialize)errorProvider).BeginInit();
             SuspendLayout();
             // 
-            // bindingSource1
+            // bindingSourceCustomer
             // 
-            bindingSource1.DataSource = typeof(Models.Customer);
+            bindingSourceCustomer.DataSource = typeof(Models.Customer);
             // 
             // txtFirstName
             // 
@@ -57,7 +54,6 @@
             txtFirstName.PlaceholderText = "FirstName";
             txtFirstName.Size = new Size(150, 31);
             txtFirstName.TabIndex = 0;
-            //txtFirstName.TextChanged += txtFirstName_TextChanged;
             // 
             // txtLastName
             // 
@@ -131,19 +127,19 @@
             SaveButton.TabIndex = 9;
             SaveButton.Text = "Save";
             SaveButton.UseVisualStyleBackColor = true;
-            //SaveButton.Click += SaveButton_Click;
+            SaveButton.Click += SaveButton_Click_1;
             // 
-            // btnCancel
+            // CancelButton
             // 
-            btnCancel.CausesValidation = false;
-            btnCancel.DialogResult = DialogResult.Cancel;
-            btnCancel.Location = new Point(542, 235);
-            btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(112, 34);
-            btnCancel.TabIndex = 10;
-            btnCancel.Text = "Cancel";
-            btnCancel.UseVisualStyleBackColor = true;
-            //btnCancel.Click += btnCancel_Click;
+            CancelButton.CausesValidation = false;
+            CancelButton.DialogResult = DialogResult.Cancel;
+            CancelButton.Location = new Point(542, 235);
+            CancelButton.Name = "CancelButton";
+            CancelButton.Size = new Size(112, 34);
+            CancelButton.TabIndex = 10;
+            CancelButton.Text = "Cancel";
+            CancelButton.UseVisualStyleBackColor = true;
+            CancelButton.Click += CancelButton_Click;
             // 
             // errorProvider
             // 
@@ -154,7 +150,7 @@
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(btnCancel);
+            Controls.Add(CancelButton);
             Controls.Add(SaveButton);
             Controls.Add(txtCity);
             Controls.Add(txtZipCode);
@@ -167,15 +163,15 @@
             Controls.Add(txtFirstName);
             Name = "CustomerEditForm";
             Text = "CustomerEditForm";
-            ((System.ComponentModel.ISupportInitialize)bindingSource1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)bindingSourceCustomer).EndInit();
             ((System.ComponentModel.ISupportInitialize)errorProvider).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
-        #endregion
+      
 
-        private BindingSource bindingSource1;
+        private BindingSource bindingSourceCustomer;
         private TextBox txtFirstName;
         private TextBox txtLastName;
         private TextBox txtAddress;
@@ -186,7 +182,8 @@
         private TextBox txtZipCode;
         private TextBox txtCountry;
         private Button SaveButton;
-        private Button btnCancel;
+        private Button CancelButton;
         private ErrorProvider errorProvider;
+       
     }
 }

@@ -1,32 +1,95 @@
-﻿using System;
+﻿using HotelPmsCore.Models;
+using HotelPmsCore.Services;
+using System;
 using System.Windows.Forms;
-using HotelPmsCore.Models;
 
 namespace HotelPmsCore.Forms
 {
     public partial class CustomerEditForm : Form
     {
-        public Customer Customer { get; }
+        private readonly CustomerService svc;
 
-        public CustomerEditForm(Customer customer)
+        public CustomerEditForm(CustomerService svc)
         {
             InitializeComponent();
-            Customer = customer;
+            this.svc = svc;
 
-            // Bind each textbox directly to the Customer instance
-            txtFirstName.DataBindings.Add("Text", Customer, nameof(Customer.FirstName));
-            txtLastName.DataBindings.Add("Text", Customer, nameof(Customer.LastName));
-            txtAFM.DataBindings.Add("Text", Customer, nameof(Customer.Afm));
-            txtEmail.DataBindings.Add("Text", Customer, nameof(Customer.Email));
-            txtPhone.DataBindings.Add("Text", Customer, nameof(Customer.Phone));
-            txtAddress.DataBindings.Add("Text", Customer, nameof(Customer.Address));
-            txtCity.DataBindings.Add("Text", Customer, nameof(Customer.City));
-            txtCountry.DataBindings.Add("Text", Customer, nameof(Customer.Country));
-            txtZipCode.DataBindings.Add("Text", Customer, nameof(Customer.ZipCode));
+            this.bindingSourceCustomer.DataSource = svc.BndSource;
 
-            // Wire up Save/Cancel
-            SaveButton.Click += (_, __) => { DialogResult = DialogResult.OK; };
-            btnCancel.Click += (_, __) => { DialogResult = DialogResult.Cancel; };
+            this.txtFirstName.DataBindings.Add(
+                "Text",
+                this.bindingSourceCustomer,
+                nameof(Models.Customer.FirstName),
+                true,
+                DataSourceUpdateMode.OnPropertyChanged);
+
+            this.txtLastName.DataBindings.Add(
+                "Text",
+                this.bindingSourceCustomer,
+                nameof(Models.Customer.LastName),
+                true,
+                DataSourceUpdateMode.OnPropertyChanged);
+
+            this.txtAFM.DataBindings.Add(
+                "Text",
+                this.bindingSourceCustomer,
+                nameof(Models.Customer.Afm),
+                true,
+                DataSourceUpdateMode.OnPropertyChanged);
+            this.txtEmail.DataBindings.Add(
+                 "Text",
+            this.bindingSourceCustomer,
+                 nameof(Customer.Email),
+                 true,
+                DataSourceUpdateMode.OnPropertyChanged);
+
+            this.txtPhone.DataBindings.Add(
+                "Text",
+                this.bindingSourceCustomer,
+                nameof(Customer.Phone),
+                true,
+                DataSourceUpdateMode.OnPropertyChanged);
+
+            this.txtAddress.DataBindings.Add(
+                "Text",
+                this.bindingSourceCustomer,
+                nameof(Customer.Address),
+                true,
+                DataSourceUpdateMode.OnPropertyChanged);
+
+            this.txtCity.DataBindings.Add(
+                "Text",
+                this.bindingSourceCustomer,
+                nameof(Customer.City),
+                true,
+                DataSourceUpdateMode.OnPropertyChanged);
+
+            this.txtCountry.DataBindings.Add(
+                "Text",
+                this.bindingSourceCustomer,
+                nameof(Customer.Country),
+                true,
+                DataSourceUpdateMode.OnPropertyChanged);
+
+            this.txtZipCode.DataBindings.Add(
+                "Text",
+                this.bindingSourceCustomer,
+                nameof(Customer.ZipCode),
+                true,
+                DataSourceUpdateMode.OnPropertyChanged);
+
+        }
+
+        private void SaveButton_Click_1(object sender, EventArgs e)
+        {
+            
+            DialogResult = DialogResult.OK;
+        }
+
+        private void CancelButton_Click(object sender, EventArgs e)
+        {
+            
+            DialogResult = DialogResult.Cancel;
         }
     }
 }

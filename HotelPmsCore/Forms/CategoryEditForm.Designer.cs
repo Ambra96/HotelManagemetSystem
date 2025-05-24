@@ -17,10 +17,13 @@
 
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             TxtDesc = new TextBox();
             TxtType = new TextBox();
             SaveBttn = new Button();
             CancelBttn = new Button();
+            categoryBindingSource = new BindingSource(components);
+            ((System.ComponentModel.ISupportInitialize)categoryBindingSource).BeginInit();
             SuspendLayout();
             // 
             // TxtDesc
@@ -79,8 +82,14 @@
             Name = "CategoryEditForm";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Edit Category";
+            ((System.ComponentModel.ISupportInitialize)categoryBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
+        private BindingSource categoryBindingSource;
+        //private TextBox txtDescription;
+        //private NumericUpDown numType;   
+        //private Button btnSave;
+        //private Button btnCancel;
     }
 }

@@ -36,6 +36,7 @@ namespace HotelPmsCore.Models
 
         [Column(TypeName = "VARCHAR(10)")]
         public string? ZipCode { get; set; }
-    } //giati den allaksan sto db?
 
-}
+        public BindingSource BndSource => new BindingSource { DataSource = this };
+    }
+} 
