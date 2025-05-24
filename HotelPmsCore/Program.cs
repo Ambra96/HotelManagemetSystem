@@ -30,7 +30,7 @@ namespace HotelPmsCore
 
                     // 2) Data services
                     services.AddScoped(typeof(MyBase<>), typeof(CrudServices<>));
-                   // services.AddScoped(typeof(PageCrudServices<>));
+                    services.AddScoped<CustomerService>();
 
                     // 3) Forms
                     services.AddTransient<LoginForm>();

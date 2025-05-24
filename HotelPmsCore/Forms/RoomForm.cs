@@ -42,8 +42,8 @@ namespace HotelPmsCore.Forms
 
             binder.DataSource = page;
 
-            PreviousButton.Enabled = pageIndex > 0;
-            NextButton.Enabled = pageIndex < totalPages - 1;
+            PrvBttn.Enabled = pageIndex > 0;
+            NxtBttn.Enabled = pageIndex < totalPages - 1;
         }
 
         public void New()

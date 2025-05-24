@@ -3,7 +3,8 @@
 namespace HotelPmsCore.Services
 {
 
-    public interface MyBase<T> where T : class
+    public interface MyBase<T>
+        where T : class
     {
         IList<T> GetAll();
         void Add(T entity);

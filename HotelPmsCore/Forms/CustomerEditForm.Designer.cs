@@ -57,6 +57,7 @@
             txtFirstName.PlaceholderText = "FirstName";
             txtFirstName.Size = new Size(150, 31);
             txtFirstName.TabIndex = 0;
+            //txtFirstName.TextChanged += txtFirstName_TextChanged;
             // 
             // txtLastName
             // 
@@ -130,7 +131,7 @@
             SaveButton.TabIndex = 9;
             SaveButton.Text = "Save";
             SaveButton.UseVisualStyleBackColor = true;
-            SaveButton.Click += SaveButton_Click;
+            //SaveButton.Click += SaveButton_Click;
             // 
             // btnCancel
             // 
@@ -142,7 +143,7 @@
             btnCancel.TabIndex = 10;
             btnCancel.Text = "Cancel";
             btnCancel.UseVisualStyleBackColor = true;
-            btnCancel.Click += btnCancel_Click;
+            //btnCancel.Click += btnCancel_Click;
             // 
             // errorProvider
             // 

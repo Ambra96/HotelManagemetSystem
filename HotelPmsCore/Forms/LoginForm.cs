@@ -34,13 +34,15 @@ namespace HotelPmsCore
                 MessageBox.Show("Login Failed");
             }
             MainForm mainForm = new MainForm();
-            mainForm.Show(); 
+            mainForm.Show();
             //proxeiro gia twra
         }
 
+   
+
         private void cancelButton_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.Cancel;
+            this.DialogResult = DialogResult.Cancel;
             this.Close();
 
         }

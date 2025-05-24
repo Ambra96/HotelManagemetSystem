@@ -5,8 +5,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HotelPmsCore.Services
 {
-  
-    public class CrudServices<T> : MyBase<T> where T : class, new()
+    public class CrudServices<T> : MyBase<T>
+        where T : class, new()
     {
         protected readonly HotelPmsCoreContext context;
 
@@ -16,11 +16,9 @@ namespace HotelPmsCore.Services
         }
 
         public IList<T> GetAll()
-        {
-            return context.Set<T>()
-                          .OrderBy(x => EF.Property<object>(x, "Id"))
-                          .ToList();
-        }
+            => context.Set<T>()
+                      .OrderBy(x => EF.Property<object>(x, "Id"))
+                      .ToList();
 
         public void Add(T entity)
         {

@@ -1,69 +1,32 @@
-﻿using HotelPmsCore.Models;
-using Microsoft.EntityFrameworkCore.Diagnostics;
-using System;
-using System.ComponentModel;
+﻿using System;
 using System.Windows.Forms;
+using HotelPmsCore.Models;
 
 namespace HotelPmsCore.Forms
 {
     public partial class CustomerEditForm : Form
     {
-        private Customer customer;
-        private bool isNewCustomer = false;
+        public Customer Customer { get; }
 
         public CustomerEditForm(Customer customer)
         {
             InitializeComponent();
+            Customer = customer;
 
-            this.customer = customer;
-            this.CancelButton = btnCancel;
+            // Bind each textbox directly to the Customer instance
+            txtFirstName.DataBindings.Add("Text", Customer, nameof(Customer.FirstName));
+            txtLastName.DataBindings.Add("Text", Customer, nameof(Customer.LastName));
+            txtAFM.DataBindings.Add("Text", Customer, nameof(Customer.Afm));
+            txtEmail.DataBindings.Add("Text", Customer, nameof(Customer.Email));
+            txtPhone.DataBindings.Add("Text", Customer, nameof(Customer.Phone));
+            txtAddress.DataBindings.Add("Text", Customer, nameof(Customer.Address));
+            txtCity.DataBindings.Add("Text", Customer, nameof(Customer.City));
+            txtCountry.DataBindings.Add("Text", Customer, nameof(Customer.Country));
+            txtZipCode.DataBindings.Add("Text", Customer, nameof(Customer.ZipCode));
 
-            InitializeDataBindings();
-            ConfigureForm();
-        }
-
-        public CustomerEditForm() : this(new Customer())
-        {
-            isNewCustomer = true;
-            Text = "New Customer";
-        }
-
-        private void ConfigureForm()
-        {
-            if (!isNewCustomer)
-            {
-                Text = $"Create/Edit Customer: {customer.FirstName} {customer.LastName}";
-            }
-        }
-
-        private void InitializeDataBindings()
-        {
-            txtFirstName.DataBindings.Add("Text", customer, nameof(Customer.FirstName));
-            txtLastName.DataBindings.Add("Text", customer, nameof(Customer.LastName));
-            txtAFM.DataBindings.Add("Text", customer, nameof(Customer.Afm));
-
-            txtEmail.DataBindings.Add("Text", customer, nameof(Customer.Email));
-            txtPhone.DataBindings.Add("Text", customer, nameof(Customer.Phone));
-
-            txtAddress.DataBindings.Add("Text", customer, nameof(Customer.Address));
-            txtCity.DataBindings.Add("Text", customer, nameof(Customer.City));
-            txtCountry.DataBindings.Add("Text", customer, nameof(Customer.Country));
-            txtZipCode.DataBindings.Add("Text", customer, nameof(Customer.ZipCode));
-        }
-
-        private void SaveButton_Click(object sender, EventArgs e)
-        {
-            if (ValidateChildren(ValidationConstraints.Enabled))
-            {
-                DialogResult = DialogResult.OK;
-                Close();
-            }
-        }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            DialogResult = DialogResult.Cancel;
-            Close();
+            // Wire up Save/Cancel
+            SaveButton.Click += (_, __) => { DialogResult = DialogResult.OK; };
+            btnCancel.Click += (_, __) => { DialogResult = DialogResult.Cancel; };
         }
     }
 }

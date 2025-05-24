@@ -17,24 +17,26 @@ namespace HotelPmsCore.Forms
 
         private void OpenModule<TForm>() where TForm : Form, IModule
         {
-            activeForm?.Close();
+            // tear down previous
+            if (activeForm != null)
+                MainPanel.Controls.Remove(activeForm);
 
-            var form = Program.ServiceProvider.GetRequiredService<TForm>() as Form;
+            // resolve new
+            var form = Program.ServiceProvider.GetRequiredService<TForm>();
             if (form is not IModule module)
-            {
-                throw new InvalidOperationException($"The form type {typeof(TForm).Name} must implement IModule.");
-            }
+                throw new InvalidOperationException($"{typeof(TForm).Name} must implement IModule.");
 
             currentModule = module;
             activeForm = form;
 
+            // embed it
             form.TopLevel = false;
             form.FormBorderStyle = FormBorderStyle.None;
             form.Dock = DockStyle.Fill;
-            MainPanel.Controls.Clear();
             MainPanel.Controls.Add(form);
             form.Show();
 
+            // update toolbar
             UpdateButtonStates();
         }
 
@@ -47,42 +49,57 @@ namespace HotelPmsCore.Forms
         private void button_rooms_Click(object s, EventArgs e)
             => OpenModule<RoomForm>();
 
-        private void NewButton_Click(object s, EventArgs e) => currentModule?.New();
-        private void EditButton_Click(object s, EventArgs e) => currentModule?.Edit();
-        private void DeleteButton_Click(object s, EventArgs e) => currentModule?.Delete();
-        //private void RefreshButton_Click(object s, EventArgs e) => currentModule?.RefreshGrid();
+        private void NewButton_Click(object s, EventArgs e)
+        {
+            currentModule?.New();
+            currentModule?.RefreshGrid();
+            UpdateButtonStates();
+        }
 
-        private void ExitButton_Click(object s, EventArgs e) => Application.Exit();
+        private void EditButton_Click(object s, EventArgs e)
+        {
+            currentModule?.Edit();
+            currentModule?.RefreshGrid();
+            UpdateButtonStates();
+        }
+
+        private void DeleteButton_Click(object s, EventArgs e)
+        {
+            currentModule?.Delete();
+            currentModule?.RefreshGrid();
+            UpdateButtonStates();
+        }
+
+        // If you have a Refresh button, wire it here:
+        private void RefreshButton_Click(object s, EventArgs e)
+        {
+            currentModule?.RefreshGrid();
+            UpdateButtonStates();
+        }
+
+        private void ExitButton_Click(object s, EventArgs e)
+            => Application.Exit();
+
+        private void button_logout_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var loginForm = Program.ServiceProvider.GetRequiredService<LoginForm>();
+            var result = loginForm.ShowDialog();
+
+            if (result == DialogResult.OK)
+                this.Show();
+            else
+                this.Close();
+        }
 
         private void UpdateButtonStates()
         {
             bool has = currentModule?.HasSelection ?? false;
             EditButton.Enabled = has;
             DeleteButton.Enabled = has;
-        }
-
-        private void button_logout_Click(object sender, EventArgs e)
-        {
-            // hide main form
-            this.Hide();
-
-            
-            var loginForm = Program.ServiceProvider
-                                   .GetRequiredService<LoginForm>();
-
-        
-            var result = loginForm.ShowDialog();
-
-            if (result == DialogResult.OK)
-            {
-         
-                this.Show();
-            }
-            else
-            {
-                
-                this.Close();
-            }
+            // New and Refresh can always be enabled
+            NewButton.Enabled = true;
+            //RefreshButton.Enabled = true;
         }
     }
 }

@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             backPicPanel = new Panel();
-            checkboxrememberme = new CheckBox();
             cancelButton = new Button();
             loginlabel = new Label();
             loginButton = new Button();
@@ -41,8 +40,6 @@
             // backPicPanel
             // 
             backPicPanel.BackColor = SystemColors.InactiveBorder;
-            backPicPanel.BackgroundImage = Properties.Resources.LoginBack;
-            backPicPanel.Controls.Add(checkboxrememberme);
             backPicPanel.Controls.Add(cancelButton);
             backPicPanel.Controls.Add(loginlabel);
             backPicPanel.Controls.Add(loginButton);
@@ -52,18 +49,6 @@
             backPicPanel.Name = "backPicPanel";
             backPicPanel.Size = new Size(639, 430);
             backPicPanel.TabIndex = 0;
-            // 
-            // checkboxrememberme
-            // 
-            checkboxrememberme.AutoSize = true;
-            checkboxrememberme.BackColor = Color.Transparent;
-            checkboxrememberme.Font = new Font("Calibri Light", 8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            checkboxrememberme.Location = new Point(177, 267);
-            checkboxrememberme.Name = "checkboxrememberme";
-            checkboxrememberme.Size = new Size(133, 23);
-            checkboxrememberme.TabIndex = 5;
-            checkboxrememberme.Text = "Remember me";
-            checkboxrememberme.UseVisualStyleBackColor = false;
             // 
             // cancelButton
             // 
@@ -82,7 +67,7 @@
             loginlabel.AutoSize = true;
             loginlabel.BackColor = Color.Transparent;
             loginlabel.Font = new Font("Times New Roman", 22F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            loginlabel.ForeColor = SystemColors.ControlLightLight;
+            loginlabel.ForeColor = Color.PowderBlue;
             loginlabel.Location = new Point(228, 13);
             loginlabel.Name = "loginlabel";
             loginlabel.Size = new Size(146, 51);
@@ -145,6 +130,5 @@
         private Button loginButton;
         private Label loginlabel;
         private Button cancelButton;
-        private CheckBox checkboxrememberme;
     }
 }

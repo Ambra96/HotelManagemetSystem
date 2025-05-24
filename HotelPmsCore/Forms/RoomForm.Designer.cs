@@ -37,8 +37,8 @@
             bathNumberDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             roomTypeDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             roomBindingSource = new BindingSource(components);
-            NextButton = new Button();
-            PreviousButton = new Button();
+            NxtBttn = new Button();
+            PrvBttn = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridViewRoom).BeginInit();
             ((System.ComponentModel.ISupportInitialize)roomBindingSource).BeginInit();
             SuspendLayout();
@@ -113,25 +113,25 @@
             // 
             roomBindingSource.DataSource = typeof(Models.Room);
             // 
-            // NextButton
+            // NxtBttn
             // 
-            NextButton.Location = new Point(1350, 27);
-            NextButton.Name = "NextButton";
-            NextButton.Size = new Size(48, 34);
-            NextButton.TabIndex = 4;
-            NextButton.Text = ">";
-            NextButton.UseVisualStyleBackColor = true;
-            NextButton.Click += NextButton_Click;
+            NxtBttn.Location = new Point(1350, 27);
+            NxtBttn.Name = "NxtBttn";
+            NxtBttn.Size = new Size(48, 34);
+            NxtBttn.TabIndex = 4;
+            NxtBttn.Text = ">";
+            NxtBttn.UseVisualStyleBackColor = true;
+            NxtBttn.Click += NextButton_Click;
             // 
-            // PreviousButton
+            // PrvBttn
             // 
-            PreviousButton.Location = new Point(1277, 27);
-            PreviousButton.Name = "PreviousButton";
-            PreviousButton.Size = new Size(48, 34);
-            PreviousButton.TabIndex = 3;
-            PreviousButton.Text = "<";
-            PreviousButton.UseVisualStyleBackColor = true;
-            PreviousButton.Click += PreviousButton_Click;
+            PrvBttn.Location = new Point(1277, 27);
+            PrvBttn.Name = "PrvBttn";
+            PrvBttn.Size = new Size(48, 34);
+            PrvBttn.TabIndex = 3;
+            PrvBttn.Text = "<";
+            PrvBttn.UseVisualStyleBackColor = true;
+            PrvBttn.Click += PreviousButton_Click;
             // 
             // RoomForm
             // 
@@ -139,8 +139,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(49, 55, 55);
             ClientSize = new Size(1495, 727);
-            Controls.Add(NextButton);
-            Controls.Add(PreviousButton);
+            Controls.Add(NxtBttn);
+            Controls.Add(PrvBttn);
             Controls.Add(dataGridViewRoom);
             FormBorderStyle = FormBorderStyle.None;
             Location = new Point(204, 133);
@@ -161,7 +161,7 @@
         private DataGridViewTextBoxColumn bathNumberDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn roomTypeDataGridViewTextBoxColumn;
         private BindingSource roomBindingSource;
-        private Button NextButton;
-        private Button PreviousButton;
+        private Button NxtBttn;
+        private Button PrvBttn;
     }
 }

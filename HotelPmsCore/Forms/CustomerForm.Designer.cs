@@ -1,6 +1,6 @@
 ﻿namespace HotelPmsCore.Forms
 {
-    partial class CustomerForm
+   partial class CustomerForm
     {
 
         private System.ComponentModel.IContainer components = null;
@@ -31,8 +31,8 @@
             zipCodeDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             customerBindingSource = new BindingSource(components);
             bindingSource1 = new BindingSource(components);
-            PreviousButton = new Button();
-            NextButton = new Button();
+            PrvButton = new Button();
+            NxtButton = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridViewCustomer).BeginInit();
             ((System.ComponentModel.ISupportInitialize)customerBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
@@ -128,25 +128,25 @@
             // 
             customerBindingSource.DataSource = typeof(Models.Customer);
             // 
-            // PreviousButton
+            // PrvButton
             // 
-            PreviousButton.Location = new Point(1247, 39);
-            PreviousButton.Name = "PreviousButton";
-            PreviousButton.Size = new Size(48, 34);
-            PreviousButton.TabIndex = 1;
-            PreviousButton.Text = "<";
-            PreviousButton.UseVisualStyleBackColor = true;
-            PreviousButton.Click += PreviousButton_Click;
+            PrvButton.Location = new Point(1247, 39);
+            PrvButton.Name = "PrvButton";
+            PrvButton.Size = new Size(48, 34);
+            PrvButton.TabIndex = 1;
+            PrvButton.Text = "<";
+            PrvButton.UseVisualStyleBackColor = true;
+            PrvButton.Click += PrvButton_Click;
             // 
-            // NextButton
+            // NxtButton
             // 
-            NextButton.Location = new Point(1320, 39);
-            NextButton.Name = "NextButton";
-            NextButton.Size = new Size(48, 34);
-            NextButton.TabIndex = 2;
-            NextButton.Text = ">";
-            NextButton.UseVisualStyleBackColor = true;
-            NextButton.Click += NextButton_Click;
+            NxtButton.Location = new Point(1326, 39);
+            NxtButton.Name = "NxtButton";
+            NxtButton.Size = new Size(48, 34);
+            NxtButton.TabIndex = 5;
+            NxtButton.Text = ">";
+            NxtButton.UseVisualStyleBackColor = true;
+            NxtButton.Click += NxtButton_Click;
             // 
             // CustomerForm
             // 
@@ -154,8 +154,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(49, 55, 55);
             ClientSize = new Size(1495, 727);
-            Controls.Add(NextButton);
-            Controls.Add(PreviousButton);
+            Controls.Add(NxtButton);
+            Controls.Add(PrvButton);
             Controls.Add(dataGridViewCustomer);
             FormBorderStyle = FormBorderStyle.None;
             Location = new Point(204, 133);
@@ -182,7 +182,7 @@
         private DataGridViewTextBoxColumn zipCodeDataGridViewTextBoxColumn;
         private BindingSource customerBindingSource;
         private BindingSource bindingSource1;
-        private Button PreviousButton;
-        private Button NextButton;
+        private Button PrvButton;
+        private Button NxtButton;
     }
 }

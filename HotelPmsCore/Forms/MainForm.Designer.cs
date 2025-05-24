@@ -46,6 +46,7 @@
             // 
             // MainPanel
             // 
+            MainPanel.Anchor = AnchorStyles.None;
             MainPanel.BackColor = Color.WhiteSmoke;
             MainPanel.Location = new Point(204, 133);
             MainPanel.Name = "MainPanel";
@@ -54,6 +55,7 @@
             // 
             // pictureBox1
             // 
+            pictureBox1.Anchor = AnchorStyles.None;
             pictureBox1.BackColor = Color.Transparent;
             pictureBox1.Image = Properties.Resources.hotel_logo;
             pictureBox1.Location = new Point(12, 9);
@@ -65,6 +67,7 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Black", 28F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.PowderBlue;
@@ -77,6 +80,7 @@
             // 
             // button_rooms
             // 
+            button_rooms.Anchor = AnchorStyles.None;
             button_rooms.BackColor = Color.FromArgb(49, 55, 55);
             button_rooms.BackgroundImageLayout = ImageLayout.Center;
             button_rooms.Cursor = Cursors.Hand;
@@ -97,6 +101,7 @@
             // 
             // button_categories
             // 
+            button_categories.Anchor = AnchorStyles.None;
             button_categories.BackColor = Color.FromArgb(49, 55, 55);
             button_categories.BackgroundImageLayout = ImageLayout.None;
             button_categories.FlatAppearance.BorderSize = 0;
@@ -117,6 +122,7 @@
             // 
             // button_users
             // 
+            button_users.Anchor = AnchorStyles.None;
             button_users.BackColor = Color.FromArgb(49, 55, 55);
             button_users.FlatAppearance.BorderSize = 0;
             button_users.FlatStyle = FlatStyle.Flat;
@@ -134,6 +140,7 @@
             // 
             // button_customers
             // 
+            button_customers.Anchor = AnchorStyles.None;
             button_customers.BackColor = Color.FromArgb(49, 55, 55);
             button_customers.FlatAppearance.BorderSize = 0;
             button_customers.FlatStyle = FlatStyle.Flat;
@@ -152,6 +159,7 @@
             // 
             // button_period
             // 
+            button_period.Anchor = AnchorStyles.None;
             button_period.BackColor = Color.FromArgb(49, 55, 55);
             button_period.FlatAppearance.BorderSize = 0;
             button_period.FlatStyle = FlatStyle.Flat;
@@ -169,6 +177,7 @@
             // 
             // button_logout
             // 
+            button_logout.Anchor = AnchorStyles.None;
             button_logout.BackColor = Color.FromArgb(49, 55, 55);
             button_logout.FlatAppearance.BorderSize = 2;
             button_logout.FlatStyle = FlatStyle.Flat;
@@ -199,6 +208,7 @@
             // 
             // EditButton
             // 
+            EditButton.Anchor = AnchorStyles.None;
             EditButton.BackColor = Color.LightSkyBlue;
             EditButton.Location = new Point(581, 4);
             EditButton.Name = "EditButton";
@@ -210,6 +220,7 @@
             // 
             // DeleteButton
             // 
+            DeleteButton.Anchor = AnchorStyles.None;
             DeleteButton.BackColor = Color.LightSkyBlue;
             DeleteButton.Location = new Point(811, 4);
             DeleteButton.Name = "DeleteButton";
@@ -221,6 +232,7 @@
             // 
             // ExitButton
             // 
+            ExitButton.Anchor = AnchorStyles.None;
             ExitButton.BackColor = Color.LightSkyBlue;
             ExitButton.Location = new Point(1041, 4);
             ExitButton.Name = "ExitButton";
@@ -232,6 +244,7 @@
             // 
             // NewButton
             // 
+            NewButton.Anchor = AnchorStyles.None;
             NewButton.BackColor = Color.LightSkyBlue;
             NewButton.Location = new Point(351, 4);
             NewButton.Name = "NewButton";

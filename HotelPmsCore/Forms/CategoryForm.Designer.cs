@@ -30,10 +30,10 @@
         {
             components = new System.ComponentModel.Container();
             dataGridViewCategory = new DataGridView();
-            typedCategoryBindingSource = new BindingSource(components);
             idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             descriptionDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             typeDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            typedCategoryBindingSource = new BindingSource(components);
             ((System.ComponentModel.ISupportInitialize)dataGridViewCategory).BeginInit();
             ((System.ComponentModel.ISupportInitialize)typedCategoryBindingSource).BeginInit();
             SuspendLayout();
@@ -48,12 +48,9 @@
             dataGridViewCategory.Location = new Point(0, 0);
             dataGridViewCategory.Name = "dataGridViewCategory";
             dataGridViewCategory.RowHeadersWidth = 62;
+            dataGridViewCategory.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewCategory.Size = new Size(800, 450);
             dataGridViewCategory.TabIndex = 0;
-            // 
-            // typedCategoryBindingSource
-            // 
-            typedCategoryBindingSource.DataSource = typeof(Models.TypedCategory);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -78,6 +75,10 @@
             typeDataGridViewTextBoxColumn.HeaderText = "Type";
             typeDataGridViewTextBoxColumn.MinimumWidth = 8;
             typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
+            // 
+            // typedCategoryBindingSource
+            // 
+            typedCategoryBindingSource.DataSource = typeof(Models.TypedCategory);
             // 
             // CategoryForm
             // 

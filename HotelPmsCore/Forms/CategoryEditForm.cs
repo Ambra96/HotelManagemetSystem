@@ -1,35 +1,33 @@
-﻿using HotelPmsCore.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows.Forms;
+using HotelPmsCore.Models;
 
 namespace HotelPmsCore.Forms
 {
     public partial class CategoryEditForm : Form
     {
-        
-        public CategoryEditForm(TypedCategory entity)
+        public TypedCategory Category { get; }
+
+        public CategoryEditForm(TypedCategory category)
         {
             InitializeComponent();
+            Category = category;
+
+          
+            TxtDesc.DataBindings.Add("Text", Category, nameof(Category.Description));
+            TxtType.DataBindings.Add("Text", Category, nameof(Category.Type));
         }
 
-
-        private void InitializeComponent()
+        private void SaveBttn_Click(object sender, EventArgs e)
         {
-            SuspendLayout();
-            // 
-            // CategoryEditForm
-            // 
-            ClientSize = new Size(1227, 731);
-            Name = "CategoryEditForm";
-            ResumeLayout(false);
+            DialogResult = DialogResult.OK;
+            Close();
+        }
 
+        private void CancelBttn_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
+            Close();
         }
     }
 }
