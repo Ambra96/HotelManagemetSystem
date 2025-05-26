@@ -3,8 +3,8 @@
     partial class CategoryEditForm
     {
         private System.ComponentModel.IContainer components = null;
-        private System.Windows.Forms.TextBox TxtDesc;
-        private System.Windows.Forms.TextBox TxtType;
+        private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.TextBox txtDescription;
         private System.Windows.Forms.Button SaveBttn;
         private System.Windows.Forms.Button CancelBttn;
 
@@ -18,31 +18,31 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            TxtDesc = new TextBox();
-            TxtType = new TextBox();
+            txtId = new TextBox();
+            txtDescription = new TextBox();
             SaveBttn = new Button();
             CancelBttn = new Button();
             categoryBindingSource = new BindingSource(components);
             ((System.ComponentModel.ISupportInitialize)categoryBindingSource).BeginInit();
             SuspendLayout();
             // 
-            // TxtDesc
+            // txtId
             // 
-            TxtDesc.Location = new Point(62, 47);
-            TxtDesc.Margin = new Padding(4, 5, 4, 5);
-            TxtDesc.Name = "TxtDesc";
-            TxtDesc.PlaceholderText = "Id";
-            TxtDesc.Size = new Size(124, 31);
-            TxtDesc.TabIndex = 0;
+            txtId.Location = new Point(62, 47);
+            txtId.Margin = new Padding(4, 5, 4, 5);
+            txtId.Name = "txtId";
+            txtId.PlaceholderText = "Id";
+            txtId.Size = new Size(124, 31);
+            txtId.TabIndex = 0;
             // 
-            // TxtType
+            // txtDescription
             // 
-            TxtType.Location = new Point(62, 109);
-            TxtType.Margin = new Padding(4, 5, 4, 5);
-            TxtType.Name = "TxtType";
-            TxtType.PlaceholderText = "Description";
-            TxtType.Size = new Size(220, 31);
-            TxtType.TabIndex = 1;
+            txtDescription.Location = new Point(62, 109);
+            txtDescription.Margin = new Padding(4, 5, 4, 5);
+            txtDescription.Name = "txtDescription";
+            txtDescription.PlaceholderText = "Description";
+            txtDescription.Size = new Size(220, 31);
+            txtDescription.TabIndex = 1;
             // 
             // SaveBttn
             // 
@@ -53,7 +53,6 @@
             SaveBttn.TabIndex = 2;
             SaveBttn.Text = "Save";
             SaveBttn.UseVisualStyleBackColor = true;
-            SaveBttn.Click += SaveBttn_Click;
             // 
             // CancelBttn
             // 
@@ -64,7 +63,6 @@
             CancelBttn.TabIndex = 3;
             CancelBttn.Text = "Cancel";
             CancelBttn.UseVisualStyleBackColor = true;
-            CancelBttn.Click += CancelBttn_Click;
             // 
             // CategoryEditForm
             // 
@@ -73,8 +71,8 @@
             ClientSize = new Size(384, 280);
             Controls.Add(CancelBttn);
             Controls.Add(SaveBttn);
-            Controls.Add(TxtType);
-            Controls.Add(TxtDesc);
+            Controls.Add(txtDescription);
+            Controls.Add(txtId);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             Margin = new Padding(4, 5, 4, 5);
             MaximizeBox = false;

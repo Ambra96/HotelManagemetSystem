@@ -23,40 +23,50 @@ namespace HotelPmsCore
                 .ConfigureServices((_, services) =>
                 {
                     
-                    services.AddScoped<HotelPmsCoreContext>();
-                 
-                    services.AddScoped(typeof(MyBase<>), typeof(CrudServices<>));
-
-                    services.AddScoped<HotelPmsCoreContext>();
+                    services.AddScoped<HotelPmsCoreContext>();                 
+                    //services.AddScoped(typeof(MyBase<>), typeof(CrudServices<>));
+                    //services.AddScoped<HotelPmsCoreContext>();
                     services.AddScoped(typeof(MyBase<>), typeof(CrudServices<>));
                     services.AddScoped<CustomerService>();
-                    services.AddScoped<CategoryServices>();
-                    //services.AddScoped<RoomServices>();
+                    services.AddScoped<CategoryService>();
+                    services.AddScoped<RoomService>();
+                    services.AddScoped<Argon2>();
+                    services.AddScoped<DataSeed>();
 
                     // -- Forms
+                    services.AddTransient<MainForm>();
                     services.AddTransient<CustomerForm>();
                     services.AddTransient<CustomerEditForm>();
                     services.AddTransient<CategoryForm>();
                     services.AddTransient<CategoryEditForm>();
-                    //services.AddTransient<RoomForm>();
+                    services.AddTransient<RoomForm>();
                     services.AddTransient<RoomEditForm>();
                     services.AddTransient<LoginForm>();
+                    services.AddDbContext<HotelPmsCoreContext>();
+                    services.AddSingleton<StartupData>();
                 })
                 .Build();
 
             ServiceProvider = host.Services;
 
-            // 2) Show login as a dialog
-            var loginForm = ServiceProvider.GetRequiredService<LoginForm>();
-            var result = loginForm.ShowDialog();
-
-            // 3) If login OK, run the main form; otherwise exit
-            if (result == DialogResult.OK)
+            using (var scope = ServiceProvider.CreateScope())
             {
+                scope.ServiceProvider
+                     .GetRequiredService<DataSeed>()
+                     .Seed();
+            }
+
+
+
+            // show login
+            var login = ServiceProvider.GetRequiredService<LoginForm>();
+            if (login.ShowDialog() == DialogResult.OK)
+            {
+             
                 var main = ServiceProvider.GetRequiredService<MainForm>();
                 Application.Run(main);
             }
-            // else do nothing and let the process exit
+
         }
     }
 }

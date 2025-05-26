@@ -1,18 +1,22 @@
-﻿using System.Linq;
-using HotelPmsCore.Data;
+﻿using HotelPmsCore.Data;
+using HotelPmsCore.Forms;
 using HotelPmsCore.Models;
+using Microsoft.Extensions.DependencyInjection;
+using System.Collections.Generic;
 
 namespace HotelPmsCore.Services
 {
-    public class CategoryServices
-        : BaseService<
-            Forms.CategoryForm,
-            Forms.CategoryEditForm,
-            TypedCategory>
+    public class CategoryService
+        : BaseService<CategoryForm, CategoryEditForm, TypedCategory>
     {
-        public CategoryServices(HotelPmsCoreContext ctx) : base(ctx)
+        public int CategoryType { get; set; }
+
+        public CategoryService(HotelPmsCoreContext context)
+            : base(context)
         {
-            SetCurrentTable(ctx.TypedCategories.OrderBy(tc => tc.Description));
+         
         }
+
+      
     }
 }

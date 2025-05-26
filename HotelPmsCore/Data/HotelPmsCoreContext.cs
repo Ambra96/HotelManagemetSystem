@@ -15,14 +15,12 @@ namespace HotelPmsCore.Data
 
         public DbSet<Models.Customer> Customers { get; set; }
 
-        public DbSet<PriceList> PriceLists { get; set; }
-
         public DbSet<Period> Periods { get; set; }
 
         public DbSet<TypedCategory> TypedCategories { get; set; }
 
         public DbSet<Room> Rooms { get; set; }
-
+        public DbSet<Reservation> Reservations { get; set; }
 
         public DbSet<User> Users { get; set; }
 

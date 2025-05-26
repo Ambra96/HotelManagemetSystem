@@ -34,7 +34,7 @@ namespace HotelPmsCore.Services
         }
 
        
-        private void LoadAll()
+        protected void LoadAll()
         {
             all = context.Set<TEntity>()
                          .OrderBy(x => EF.Property<object>(x, "Id"))
@@ -136,7 +136,7 @@ namespace HotelPmsCore.Services
         public void SetCurrentIndex(int index)
             => BndSource.Position = index;
 
-        private void ReloadAndNavigate(TEntity? target)
+        protected void ReloadAndNavigate(TEntity? target)
         {
             LoadAll();
             if (target != null)

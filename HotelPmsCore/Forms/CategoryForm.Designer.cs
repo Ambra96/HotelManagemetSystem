@@ -120,8 +120,6 @@
         }
 
         #endregion
-
-        private DataGridView dataGridViewCategories;
         private BindingSource typedCategoryBindingSource;
         private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;

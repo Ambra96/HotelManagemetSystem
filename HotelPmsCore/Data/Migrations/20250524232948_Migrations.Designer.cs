@@ -4,16 +4,19 @@ using HotelPmsCore.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace HotelPmsCore.Migrations
+namespace HotelPmsCore.Data.Migrations
 {
     [DbContext(typeof(HotelPmsCoreContext))]
-    partial class HotelPmsCoreContextModelSnapshot : ModelSnapshot
+    [Migration("20250524232948_Migrations")]
+    partial class Migrations
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -201,7 +204,7 @@ namespace HotelPmsCore.Migrations
 
                     b.Property<string>("Password")
                         .IsRequired()
-                        .HasColumnType("VARCHAR(128)");
+                        .HasColumnType("VARCHAR(25)");
 
                     b.Property<int>("RoleId")
                         .HasColumnType("int");
@@ -211,7 +214,7 @@ namespace HotelPmsCore.Migrations
 
                     b.Property<string>("Username")
                         .IsRequired()
-                        .HasColumnType("VARCHAR(50)");
+                        .HasColumnType("VARCHAR(25)");
 
                     b.HasKey("Id");
 

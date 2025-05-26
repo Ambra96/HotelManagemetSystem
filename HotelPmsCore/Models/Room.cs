@@ -1,24 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HotelPmsCore.Models
 {
     public class Room
     {
         public int Id { get; set; }
+
         [Column(TypeName = "VARCHAR(25)")]
         public string RoomNumber { get; set; } = string.Empty;
 
         public int Floor { get; set; }
+      
+        public double WinterPrice { get; set; }
+        public double SummerPrice { get; set; }
+        public int PeopleCapacity { get; set; }
 
-        public int BedNumber { get; set; }
-
-        public int BathNumber { get; set; }
-
-        public TypedCategory RoomType { get; set; } = new() { Type = 2 };
+        public TypedCategory RoomType { get; set; } = new();
+        public string RoomTypeDescription { get; set; } = string.Empty;
     }
 }

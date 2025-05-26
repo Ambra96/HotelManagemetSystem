@@ -1,12 +1,17 @@
-﻿//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Text;
-//using System.Threading.Tasks;
+﻿using HotelPmsCore.Data;
+using HotelPmsCore.Forms;
+using HotelPmsCore.Models;
 
-//namespace HotelPmsCore.Services
-//{
-//    internal class RoomService
-//    {
-//    }
-//}
+namespace HotelPmsCore.Services
+{
+    public class RoomService
+        : PagedService<RoomForm, RoomEditForm, Room>
+    {
+        public RoomService(HotelPmsCoreContext context)
+            : base(context)
+        {
+          
+            PageSize = 10;
+        }
+    }
+}

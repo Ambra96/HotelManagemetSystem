@@ -1,24 +1,35 @@
-﻿using HotelPmsCore.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows.Forms;
+using HotelPmsCore.Models;
+using HotelPmsCore.Services;
 
 namespace HotelPmsCore.Forms
 {
     public partial class RoomEditForm : Form
     {
-        private Room room;
-
-        public RoomEditForm(Room room)
+        public RoomEditForm(RoomService service)
         {
-            this.room = room;
             InitializeComponent();
+
+
+            roomBindingSource.DataSource = service.BndSource;
+
+
+            txtRoomNumber.DataBindings.Add("Text", roomBindingSource, nameof(Room.RoomNumber), true, DataSourceUpdateMode.OnPropertyChanged);
+            txtFloor.DataBindings.Add("Text", roomBindingSource, nameof(Room.Floor), true, DataSourceUpdateMode.OnPropertyChanged);
+            numWinter.DataBindings.Add("Value", roomBindingSource, nameof(Room.WinterPrice), true, DataSourceUpdateMode.OnPropertyChanged);
+            numSummer.DataBindings.Add("Value", roomBindingSource, nameof(Room.SummerPrice), true, DataSourceUpdateMode.OnPropertyChanged);
+            numCapacity.DataBindings.Add("Value", roomBindingSource, nameof(Room.PeopleCapacity), true, DataSourceUpdateMode.OnPropertyChanged);
+            txtRoomType.DataBindings.Add("Text", roomBindingSource, nameof(Room.RoomType), true, DataSourceUpdateMode.OnPropertyChanged);
+            txtDescription.DataBindings.Add("Text", roomBindingSource, nameof(Room.RoomTypeDescription), true, DataSourceUpdateMode.OnPropertyChanged);
+
+
+            SaveBttn.Click += (_, __) => DialogResult = DialogResult.OK;
+            CancelBttn.Click += (_, __) => DialogResult = DialogResult.Cancel;
         }
+
+      
     }
 }
+
+

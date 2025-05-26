@@ -1,4 +1,5 @@
-﻿using HotelPmsCore.Forms;
+﻿using HotelPmsCore.Data;
+using HotelPmsCore.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,14 +9,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace HotelPmsCore
 {
     public partial class LoginForm : Form
     {
-        public LoginForm()
+        private readonly HotelPmsCoreContext context;
+
+        public int UserRoleId { get; set; }
+        public LoginForm(Data.HotelPmsCoreContext context)
         {
             InitializeComponent();
+            this.context = context;
         }
 
         private void LoginForm_Load(object sender, EventArgs e)
@@ -25,20 +31,50 @@ namespace HotelPmsCore
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            if (usernametext.Text == "admin" && passwordtext.Text == "admin")
+            var username = usernametext.Text.Trim();
+            var plain = passwordtext.Text;
+
+            // look up the user
+            var user = context.Users
+                              .SingleOrDefault(u => u.Username == username);
+            if (user == null)
             {
-                MessageBox.Show("Login Successful");
+                MessageBox.Show("Invalid username or password");
+                return;
+            }
+
+            using var hasher = new Argon2();
+            bool isValid = false;
+
+            try
+            {
+ 
+                isValid = hasher.VerifyPassword(plain, user.Password);
+            }
+            catch (FormatException)
+            {
+        
+                if (user.Password == plain)
+                {
+                    isValid = true;
+
+                    user.Password = hasher.HashPassword(plain);
+                    context.SaveChanges();
+                }
+            }
+
+            if (isValid)
+            {
+                DialogResult = DialogResult.OK;
+                Close();
             }
             else
             {
-                MessageBox.Show("Login Failed");
+                MessageBox.Show("Invalid username or password");
             }
-            MainForm mainForm = new MainForm();
-            mainForm.Show();
-            //proxeiro gia twra
         }
 
-   
+
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
@@ -49,3 +85,4 @@ namespace HotelPmsCore
 
     }
 }
+

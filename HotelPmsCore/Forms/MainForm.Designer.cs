@@ -31,9 +31,9 @@
             label1 = new Label();
             button_rooms = new Button();
             button_categories = new Button();
-            button_users = new Button();
+            button_settings = new Button();
             button_customers = new Button();
-            button_period = new Button();
+            button_reservations = new Button();
             button_logout = new Button();
             ButtonPanel = new Panel();
             EditButton = new Button();
@@ -97,7 +97,7 @@
             button_rooms.Text = "Rooms";
             button_rooms.TextAlign = ContentAlignment.BottomCenter;
             button_rooms.UseVisualStyleBackColor = false;
-            //button_rooms.Click += button_rooms_Click;
+            button_rooms.Click += button_rooms_Click;
             // 
             // button_categories
             // 
@@ -120,23 +120,24 @@
             button_categories.UseVisualStyleBackColor = false;
             button_categories.Click += button_categories_Click;
             // 
-            // button_users
+            // button_settings
             // 
-            button_users.Anchor = AnchorStyles.None;
-            button_users.BackColor = Color.FromArgb(49, 55, 55);
-            button_users.FlatAppearance.BorderSize = 0;
-            button_users.FlatStyle = FlatStyle.Flat;
-            button_users.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
-            button_users.ForeColor = Color.White;
-            button_users.Image = Properties.Resources.user;
-            button_users.ImageAlign = ContentAlignment.TopCenter;
-            button_users.Location = new Point(2, 563);
-            button_users.Name = "button_users";
-            button_users.Size = new Size(196, 96);
-            button_users.TabIndex = 6;
-            button_users.Text = "Users";
-            button_users.TextAlign = ContentAlignment.BottomCenter;
-            button_users.UseVisualStyleBackColor = false;
+            button_settings.Anchor = AnchorStyles.None;
+            button_settings.BackColor = Color.FromArgb(49, 55, 55);
+            button_settings.FlatAppearance.BorderSize = 0;
+            button_settings.FlatStyle = FlatStyle.Flat;
+            button_settings.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
+            button_settings.ForeColor = Color.White;
+            button_settings.Image = (Image)resources.GetObject("button_settings.Image");
+            button_settings.ImageAlign = ContentAlignment.TopCenter;
+            button_settings.Location = new Point(2, 699);
+            button_settings.Name = "button_settings";
+            button_settings.Size = new Size(196, 96);
+            button_settings.TabIndex = 6;
+            button_settings.Text = "Settings";
+            button_settings.TextAlign = ContentAlignment.BottomCenter;
+            button_settings.UseVisualStyleBackColor = false;
+           // button_settings.Click += button_settings_Click;
             // 
             // button_customers
             // 
@@ -157,23 +158,24 @@
             button_customers.UseVisualStyleBackColor = false;
             button_customers.Click += button_customers_Click;
             // 
-            // button_period
+            // button_reservations
             // 
-            button_period.Anchor = AnchorStyles.None;
-            button_period.BackColor = Color.FromArgb(49, 55, 55);
-            button_period.FlatAppearance.BorderSize = 0;
-            button_period.FlatStyle = FlatStyle.Flat;
-            button_period.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
-            button_period.ForeColor = Color.White;
-            button_period.Image = (Image)resources.GetObject("button_period.Image");
-            button_period.ImageAlign = ContentAlignment.TopCenter;
-            button_period.Location = new Point(2, 683);
-            button_period.Name = "button_period";
-            button_period.Size = new Size(196, 96);
-            button_period.TabIndex = 7;
-            button_period.Text = "Period";
-            button_period.TextAlign = ContentAlignment.BottomCenter;
-            button_period.UseVisualStyleBackColor = false;
+            button_reservations.Anchor = AnchorStyles.None;
+            button_reservations.BackColor = Color.FromArgb(49, 55, 55);
+            button_reservations.FlatAppearance.BorderSize = 0;
+            button_reservations.FlatStyle = FlatStyle.Flat;
+            button_reservations.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
+            button_reservations.ForeColor = Color.White;
+            button_reservations.Image = (Image)resources.GetObject("button_reservations.Image");
+            button_reservations.ImageAlign = ContentAlignment.TopCenter;
+            button_reservations.Location = new Point(2, 566);
+            button_reservations.Name = "button_reservations";
+            button_reservations.Size = new Size(196, 96);
+            button_reservations.TabIndex = 7;
+            button_reservations.Text = "Reservations";
+            button_reservations.TextAlign = ContentAlignment.BottomCenter;
+            button_reservations.UseVisualStyleBackColor = false;
+            //button_reservations.Click += button_reservations_Click;
             // 
             // button_logout
             // 
@@ -260,10 +262,10 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(49, 55, 55);
             ClientSize = new Size(1697, 951);
+            Controls.Add(button_settings);
             Controls.Add(ButtonPanel);
             Controls.Add(button_logout);
-            Controls.Add(button_period);
-            Controls.Add(button_users);
+            Controls.Add(button_reservations);
             Controls.Add(button_customers);
             Controls.Add(button_categories);
             Controls.Add(button_rooms);
@@ -287,9 +289,9 @@
         private Label label1;
         private Button button_rooms;
         private Button button_categories;
-        private Button button_users;
+        private Button button_settings;
         private Button button_customers;
-        private Button button_period;
+        private Button button_reservations;
         private Button button_logout;
         private Panel ButtonPanel;
         private Button NewButton;
