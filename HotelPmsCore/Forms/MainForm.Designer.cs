@@ -90,7 +90,7 @@
             button_rooms.ForeColor = Color.White;
             button_rooms.Image = Properties.Resources.room;
             button_rooms.ImageAlign = ContentAlignment.TopCenter;
-            button_rooms.Location = new Point(2, 208);
+            button_rooms.Location = new Point(2, 328);
             button_rooms.Name = "button_rooms";
             button_rooms.Size = new Size(196, 96);
             button_rooms.TabIndex = 3;
@@ -110,7 +110,7 @@
             button_categories.ForeColor = Color.White;
             button_categories.Image = Properties.Resources.category;
             button_categories.ImageAlign = ContentAlignment.TopCenter;
-            button_categories.Location = new Point(2, 315);
+            button_categories.Location = new Point(2, 443);
             button_categories.Name = "button_categories";
             button_categories.Size = new Size(196, 96);
             button_categories.TabIndex = 4;
@@ -137,7 +137,6 @@
             button_settings.Text = "Settings";
             button_settings.TextAlign = ContentAlignment.BottomCenter;
             button_settings.UseVisualStyleBackColor = false;
-           // button_settings.Click += button_settings_Click;
             // 
             // button_customers
             // 
@@ -149,7 +148,7 @@
             button_customers.ForeColor = Color.White;
             button_customers.Image = Properties.Resources.customer;
             button_customers.ImageAlign = ContentAlignment.TopCenter;
-            button_customers.Location = new Point(2, 435);
+            button_customers.Location = new Point(2, 211);
             button_customers.Name = "button_customers";
             button_customers.Size = new Size(196, 96);
             button_customers.TabIndex = 5;
@@ -175,7 +174,6 @@
             button_reservations.Text = "Reservations";
             button_reservations.TextAlign = ContentAlignment.BottomCenter;
             button_reservations.UseVisualStyleBackColor = false;
-            //button_reservations.Click += button_reservations_Click;
             // 
             // button_logout
             // 
@@ -235,7 +233,7 @@
             // ExitButton
             // 
             ExitButton.Anchor = AnchorStyles.None;
-            ExitButton.BackColor = Color.LightSkyBlue;
+            ExitButton.BackColor = Color.Brown;
             ExitButton.Location = new Point(1041, 4);
             ExitButton.Name = "ExitButton";
             ExitButton.Size = new Size(92, 41);
@@ -262,11 +260,11 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(49, 55, 55);
             ClientSize = new Size(1697, 951);
+            Controls.Add(button_customers);
             Controls.Add(button_settings);
             Controls.Add(ButtonPanel);
             Controls.Add(button_logout);
             Controls.Add(button_reservations);
-            Controls.Add(button_customers);
             Controls.Add(button_categories);
             Controls.Add(button_rooms);
             Controls.Add(label1);

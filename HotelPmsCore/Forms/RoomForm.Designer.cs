@@ -30,17 +30,14 @@
         {
             components = new System.ComponentModel.Container();
             dataGridViewRoom = new DataGridView();
-            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            roomNumberDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            floorDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            WinterPrice = new DataGridViewTextBoxColumn();
-            SummerPrice = new DataGridViewTextBoxColumn();
-            PeopleCapacity = new DataGridViewTextBoxColumn();
-            RoomType = new DataGridViewTextBoxColumn();
-            RoomTypeDescription = new DataGridViewTextBoxColumn();
             roomBindingSource = new BindingSource(components);
             NxtBttn = new Button();
             PrvBttn = new Button();
+            roomNumberDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            floorDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            PeopleCapacity = new DataGridViewTextBoxColumn();
+            WinterPrice = new DataGridViewTextBoxColumn();
+            SummerPrice = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridViewRoom).BeginInit();
             ((System.ComponentModel.ISupportInitialize)roomBindingSource).BeginInit();
             SuspendLayout();
@@ -53,7 +50,7 @@
             dataGridViewRoom.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewRoom.BackgroundColor = SystemColors.ButtonFace;
             dataGridViewRoom.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewRoom.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, roomNumberDataGridViewTextBoxColumn, floorDataGridViewTextBoxColumn, WinterPrice, SummerPrice, PeopleCapacity, RoomType, RoomTypeDescription });
+            dataGridViewRoom.Columns.AddRange(new DataGridViewColumn[] { roomNumberDataGridViewTextBoxColumn, floorDataGridViewTextBoxColumn, PeopleCapacity, WinterPrice, SummerPrice });
             dataGridViewRoom.DataSource = roomBindingSource;
             dataGridViewRoom.Location = new Point(12, 89);
             dataGridViewRoom.Name = "dataGridViewRoom";
@@ -62,79 +59,6 @@
             dataGridViewRoom.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewRoom.Size = new Size(1471, 626);
             dataGridViewRoom.TabIndex = 0;
-      
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            idDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            idDataGridViewTextBoxColumn.HeaderText = "Id";
-            idDataGridViewTextBoxColumn.MinimumWidth = 8;
-            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            idDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // roomNumberDataGridViewTextBoxColumn
-            // 
-            roomNumberDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            roomNumberDataGridViewTextBoxColumn.DataPropertyName = "RoomNumber";
-            roomNumberDataGridViewTextBoxColumn.HeaderText = "RoomNumber";
-            roomNumberDataGridViewTextBoxColumn.MinimumWidth = 8;
-            roomNumberDataGridViewTextBoxColumn.Name = "roomNumberDataGridViewTextBoxColumn";
-            roomNumberDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // floorDataGridViewTextBoxColumn
-            // 
-            floorDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            floorDataGridViewTextBoxColumn.DataPropertyName = "Floor";
-            floorDataGridViewTextBoxColumn.HeaderText = "Floor";
-            floorDataGridViewTextBoxColumn.MinimumWidth = 8;
-            floorDataGridViewTextBoxColumn.Name = "floorDataGridViewTextBoxColumn";
-            floorDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // WinterPrice
-            // 
-            WinterPrice.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            WinterPrice.DataPropertyName = "WinterPrice";
-            WinterPrice.HeaderText = "WinterPrice";
-            WinterPrice.MinimumWidth = 8;
-            WinterPrice.Name = "WinterPrice";
-            WinterPrice.ReadOnly = true;
-            // 
-            // SummerPrice
-            // 
-            SummerPrice.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            SummerPrice.DataPropertyName = "SummerPrice";
-            SummerPrice.HeaderText = "SummerPrice";
-            SummerPrice.MinimumWidth = 8;
-            SummerPrice.Name = "SummerPrice";
-            SummerPrice.ReadOnly = true;
-            // 
-            // PeopleCapacity
-            // 
-            PeopleCapacity.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            PeopleCapacity.DataPropertyName = "PeopleCapacity";
-            PeopleCapacity.HeaderText = "PeopleCapacity";
-            PeopleCapacity.MinimumWidth = 8;
-            PeopleCapacity.Name = "PeopleCapacity";
-            PeopleCapacity.ReadOnly = true;
-            // 
-            // RoomType
-            // 
-            RoomType.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            RoomType.DataPropertyName = "RoomType";
-            RoomType.HeaderText = "RoomType";
-            RoomType.MinimumWidth = 8;
-            RoomType.Name = "RoomType";
-            RoomType.ReadOnly = true;
-            // 
-            // RoomTypeDescription
-            // 
-            RoomTypeDescription.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            RoomTypeDescription.DataPropertyName = "RoomTypeDescription";
-            RoomTypeDescription.HeaderText = "RoomTypeDescription";
-            RoomTypeDescription.MinimumWidth = 8;
-            RoomTypeDescription.Name = "RoomTypeDescription";
-            RoomTypeDescription.ReadOnly = true;
             // 
             // roomBindingSource
             // 
@@ -157,6 +81,51 @@
             PrvBttn.TabIndex = 3;
             PrvBttn.Text = "<";
             PrvBttn.UseVisualStyleBackColor = true;
+            // 
+            // roomNumberDataGridViewTextBoxColumn
+            // 
+            roomNumberDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            roomNumberDataGridViewTextBoxColumn.DataPropertyName = "RoomNumber";
+            roomNumberDataGridViewTextBoxColumn.HeaderText = "RoomNumber";
+            roomNumberDataGridViewTextBoxColumn.MinimumWidth = 8;
+            roomNumberDataGridViewTextBoxColumn.Name = "roomNumberDataGridViewTextBoxColumn";
+            roomNumberDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // floorDataGridViewTextBoxColumn
+            // 
+            floorDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            floorDataGridViewTextBoxColumn.DataPropertyName = "Floor";
+            floorDataGridViewTextBoxColumn.HeaderText = "Floor";
+            floorDataGridViewTextBoxColumn.MinimumWidth = 8;
+            floorDataGridViewTextBoxColumn.Name = "floorDataGridViewTextBoxColumn";
+            floorDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // PeopleCapacity
+            // 
+            PeopleCapacity.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            PeopleCapacity.DataPropertyName = "PeopleCapacity";
+            PeopleCapacity.HeaderText = "PeopleCapacity";
+            PeopleCapacity.MinimumWidth = 8;
+            PeopleCapacity.Name = "PeopleCapacity";
+            PeopleCapacity.ReadOnly = true;
+            // 
+            // WinterPrice
+            // 
+            WinterPrice.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            WinterPrice.DataPropertyName = "WinterPrice";
+            WinterPrice.HeaderText = "WinterPrice";
+            WinterPrice.MinimumWidth = 8;
+            WinterPrice.Name = "WinterPrice";
+            WinterPrice.ReadOnly = true;
+            // 
+            // SummerPrice
+            // 
+            SummerPrice.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            SummerPrice.DataPropertyName = "SummerPrice";
+            SummerPrice.HeaderText = "SummerPrice";
+            SummerPrice.MinimumWidth = 8;
+            SummerPrice.Name = "SummerPrice";
+            SummerPrice.ReadOnly = true;
             // 
             // RoomForm
             // 
@@ -184,13 +153,10 @@
         private BindingSource roomBindingSource;
         private Button NxtBttn;
         private Button PrvBttn;
-        private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn roomNumberDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn floorDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn PeopleCapacity;
         private DataGridViewTextBoxColumn WinterPrice;
         private DataGridViewTextBoxColumn SummerPrice;
-        private DataGridViewTextBoxColumn PeopleCapacity;
-        private DataGridViewTextBoxColumn RoomType;
-        private DataGridViewTextBoxColumn RoomTypeDescription;
     }
 }

@@ -1,34 +1,24 @@
 ﻿using HotelPmsCore.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HotelPmsCore.Data
 {
-    public class HotelPmsCoreContext: DbContext
+    public class HotelPmsCoreContext : DbContext
     {
-        //public HotelPmsCoreContext(DbContextOptions<HotelPmsCoreContext> options) : base(options) { }
-
-        public DbSet<Models.Customer> Customers { get; set; }
-
+        public DbSet<Customer> Customers { get; set; }
         public DbSet<Period> Periods { get; set; }
-
         public DbSet<TypedCategory> TypedCategories { get; set; }
-
         public DbSet<Room> Rooms { get; set; }
         public DbSet<Reservation> Reservations { get; set; }
-
         public DbSet<User> Users { get; set; }
-
+        public DbSet<Staff> Staff { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-         base.OnConfiguring(optionsBuilder);
-         var connString = ConfigurationManager.ConnectionStrings["LocalHost"].ConnectionString;
+            base.OnConfiguring(optionsBuilder);
+
+            var connString = ConfigurationManager.ConnectionStrings["LocalHost"].ConnectionString;
             optionsBuilder.UseMySql(connString, ServerVersion.AutoDetect(connString));
         }
 
@@ -36,25 +26,46 @@ namespace HotelPmsCore.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            //modelBuilder.Entity<Customer>().ToTable("Customer");
-            //modelBuilder.Entity<PriceList>().ToTable("PriceList");
-            //modelBuilder.Entity<Period>().ToTable("Period");
-            //modelBuilder.Entity<TypedCategory>().ToTable("TypedCategory");
-            //modelBuilder.Entity<Room>().ToTable("Room");
-            //modelBuilder.Entity<User>().ToTable("User");
-            //modelBuilder.Entity<TypedCategory>()
-           ////.HasKey(tc => new { tc.Id, tc.Type }); 
+            // TypedCategory (Id + Type)
+            modelBuilder.Entity<TypedCategory>()
+                .HasKey(tc => new { tc.Id, tc.Type });
 
-           // modelBuilder.Entity<User>()
-               // .HasOne(u => u.Role)
-                //.WithMany()
-               // .HasForeignKey(u => new { u.RoleId, u.RoleType }) 
-               // .HasPrincipalKey(tc => new { tc.Id, tc.Type }); 
+            // --- Room
+            modelBuilder.Entity<Room>()
+                .HasOne(r => r.RoomType)
+                .WithMany()
+                .HasForeignKey(r => r.RoomTypeId)
+                .HasPrincipalKey(tc => tc.Id)
+                .OnDelete(DeleteBehavior.Restrict);
 
-            //modelBuilder.Entity<PriceList>()
-               // .HasOne(p => p.Period)
-               // .WithMany()
-               // .HasForeignKey(p => p.PeriodId);
+            // --- Staff
+            modelBuilder.Entity<Staff>()
+                .HasOne(s => s.Speciality)
+                .WithMany()
+                .HasForeignKey(s => s.SpecialityId)
+                .HasPrincipalKey(tc => tc.Id)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // --- User
+            modelBuilder.Entity<User>()
+                .HasOne(u => u.Role)
+                .WithMany()
+                .HasForeignKey(u => u.RoleId)
+                .HasPrincipalKey(tc => tc.Id)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // --- Reservation
+            modelBuilder.Entity<Reservation>()
+                .HasOne(r => r.Customer)
+                .WithMany()
+                .HasForeignKey(r => r.CustomerId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Reservation>()
+                .HasOne(r => r.Room)
+                .WithMany()
+                .HasForeignKey(r => r.RoomId)
+                .OnDelete(DeleteBehavior.Restrict);
 
         }
     }

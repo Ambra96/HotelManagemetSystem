@@ -17,4 +17,5 @@ namespace HotelPmsCore.Models
 
         public int Type { get; set; }
     }
+
 }

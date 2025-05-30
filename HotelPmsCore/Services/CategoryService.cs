@@ -14,9 +14,11 @@ namespace HotelPmsCore.Services
         public CategoryService(HotelPmsCoreContext context)
             : base(context)
         {
-         
+
         }
 
-      
+
     }
 }
+
+

@@ -10,12 +10,13 @@ namespace HotelPmsCore.Models
         public string RoomNumber { get; set; } = string.Empty;
 
         public int Floor { get; set; }
-      
         public double WinterPrice { get; set; }
         public double SummerPrice { get; set; }
         public int PeopleCapacity { get; set; }
 
-        public TypedCategory RoomType { get; set; } = new();
-        public string RoomTypeDescription { get; set; } = string.Empty;
+        // Foreign key to TypedCategory (Type=2)
+        public int RoomTypeId { get; set; }
+        [ForeignKey(nameof(RoomTypeId))]
+        public TypedCategory RoomType { get; set; } = null!;
     }
 }

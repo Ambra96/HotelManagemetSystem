@@ -102,10 +102,11 @@ namespace HotelPmsCore.Forms
             //RefreshButton.Enabled = true;
         }
 
+    
         //private void button_reservations_Click(object sender, EventArgs e)
         // => OpenModule<CustomerForm>();
 
         //private void button_settings_Click(object sender, EventArgs e)
-        // => OpenModule<CustomerForm>();
+        // => OpenModule<CustomerForm>(); //user,staff,period
     }
 }

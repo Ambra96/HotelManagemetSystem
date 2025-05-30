@@ -43,7 +43,7 @@ namespace HotelPmsCore
                     services.AddTransient<RoomEditForm>();
                     services.AddTransient<LoginForm>();
                     services.AddDbContext<HotelPmsCoreContext>();
-                    services.AddSingleton<StartupData>();
+                  
                 })
                 .Build();
 

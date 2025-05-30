@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HotelPmsCore.Data.Migrations
 {
     [DbContext(typeof(HotelPmsCoreContext))]
-    [Migration("20250524232948_Migrations")]
-    partial class Migrations
+    [Migration("20250530180124_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -150,14 +150,7 @@ namespace HotelPmsCore.Data.Migrations
                         .IsRequired()
                         .HasColumnType("VARCHAR(25)");
 
-                    b.Property<string>("RoomTypeDescription")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
                     b.Property<int>("RoomTypeId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("RoomTypeType")
                         .HasColumnType("int");
 
                     b.Property<double>("SummerPrice")
@@ -168,9 +161,35 @@ namespace HotelPmsCore.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("RoomTypeId", "RoomTypeType");
+                    b.HasIndex("RoomTypeId");
 
                     b.ToTable("Rooms");
+                });
+
+            modelBuilder.Entity("HotelPmsCore.Models.Staff", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Firstname")
+                        .IsRequired()
+                        .HasColumnType("VARCHAR(128)");
+
+                    b.Property<string>("Lastname")
+                        .IsRequired()
+                        .HasColumnType("VARCHAR(128)");
+
+                    b.Property<int>("SpecialityId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("SpecialityId");
+
+                    b.ToTable("Staff");
                 });
 
             modelBuilder.Entity("HotelPmsCore.Models.TypedCategory", b =>
@@ -204,21 +223,18 @@ namespace HotelPmsCore.Data.Migrations
 
                     b.Property<string>("Password")
                         .IsRequired()
-                        .HasColumnType("VARCHAR(25)");
+                        .HasColumnType("VARCHAR(128)");
 
                     b.Property<int>("RoleId")
                         .HasColumnType("int");
 
-                    b.Property<int>("RoleType")
-                        .HasColumnType("int");
-
                     b.Property<string>("Username")
                         .IsRequired()
-                        .HasColumnType("VARCHAR(25)");
+                        .HasColumnType("VARCHAR(50)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("RoleId", "RoleType");
+                    b.HasIndex("RoleId");
 
                     b.ToTable("Users");
                 });
@@ -228,13 +244,13 @@ namespace HotelPmsCore.Data.Migrations
                     b.HasOne("HotelPmsCore.Models.Customer", "Customer")
                         .WithMany()
                         .HasForeignKey("CustomerId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("HotelPmsCore.Models.Room", "Room")
                         .WithMany()
                         .HasForeignKey("RoomId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Customer");
@@ -246,19 +262,33 @@ namespace HotelPmsCore.Data.Migrations
                 {
                     b.HasOne("HotelPmsCore.Models.TypedCategory", "RoomType")
                         .WithMany()
-                        .HasForeignKey("RoomTypeId", "RoomTypeType")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey("RoomTypeId")
+                        .HasPrincipalKey("Id")
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("RoomType");
+                });
+
+            modelBuilder.Entity("HotelPmsCore.Models.Staff", b =>
+                {
+                    b.HasOne("HotelPmsCore.Models.TypedCategory", "Speciality")
+                        .WithMany()
+                        .HasForeignKey("SpecialityId")
+                        .HasPrincipalKey("Id")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Speciality");
                 });
 
             modelBuilder.Entity("HotelPmsCore.Models.User", b =>
                 {
                     b.HasOne("HotelPmsCore.Models.TypedCategory", "Role")
                         .WithMany()
-                        .HasForeignKey("RoleId", "RoleType")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey("RoleId")
+                        .HasPrincipalKey("Id")
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Role");

@@ -4,19 +4,16 @@ using HotelPmsCore.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace HotelPmsCore.Migrations
+namespace HotelPmsCore.Data.Migrations
 {
     [DbContext(typeof(HotelPmsCoreContext))]
-    [Migration("20250403152306_Initial")]
-    partial class Initial
+    partial class HotelPmsCoreContextModelSnapshot : ModelSnapshot
     {
-        /// <inheritdoc />
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -91,7 +88,7 @@ namespace HotelPmsCore.Migrations
                     b.ToTable("Periods");
                 });
 
-            modelBuilder.Entity("HotelPmsCore.Models.PriceList", b =>
+            modelBuilder.Entity("HotelPmsCore.Models.Reservation", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -99,20 +96,37 @@ namespace HotelPmsCore.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("BedNumber")
+                    b.Property<bool>("Canceled")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<DateTime>("CheckInDate")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime>("CheckOutDate")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int>("CustomerId")
                         .HasColumnType("int");
 
-                    b.Property<int>("PeriodId")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("ReservationDateFrom")
+                        .HasColumnType("datetime(6)");
 
-                    b.Property<double>("Price")
+                    b.Property<DateTime>("ReservationDateTo")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<double>("ReservationDayPrice")
                         .HasColumnType("double");
+
+                    b.Property<int>("RoomId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PeriodId");
+                    b.HasIndex("CustomerId");
 
-                    b.ToTable("PriceLists");
+                    b.HasIndex("RoomId");
+
+                    b.ToTable("Reservations");
                 });
 
             modelBuilder.Entity("HotelPmsCore.Models.Room", b =>
@@ -123,13 +137,10 @@ namespace HotelPmsCore.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("BathNumber")
-                        .HasColumnType("int");
-
-                    b.Property<int>("BedNumber")
-                        .HasColumnType("int");
-
                     b.Property<int>("Floor")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PeopleCapacity")
                         .HasColumnType("int");
 
                     b.Property<string>("RoomNumber")
@@ -139,14 +150,43 @@ namespace HotelPmsCore.Migrations
                     b.Property<int>("RoomTypeId")
                         .HasColumnType("int");
 
-                    b.Property<int>("RoomTypeType")
+                    b.Property<double>("SummerPrice")
+                        .HasColumnType("double");
+
+                    b.Property<double>("WinterPrice")
+                        .HasColumnType("double");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RoomTypeId");
+
+                    b.ToTable("Rooms");
+                });
+
+            modelBuilder.Entity("HotelPmsCore.Models.Staff", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Firstname")
+                        .IsRequired()
+                        .HasColumnType("VARCHAR(128)");
+
+                    b.Property<string>("Lastname")
+                        .IsRequired()
+                        .HasColumnType("VARCHAR(128)");
+
+                    b.Property<int>("SpecialityId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("RoomTypeId", "RoomTypeType");
+                    b.HasIndex("SpecialityId");
 
-                    b.ToTable("Rooms");
+                    b.ToTable("Staff");
                 });
 
             modelBuilder.Entity("HotelPmsCore.Models.TypedCategory", b =>
@@ -180,53 +220,72 @@ namespace HotelPmsCore.Migrations
 
                     b.Property<string>("Password")
                         .IsRequired()
-                        .HasColumnType("VARCHAR(25)");
+                        .HasColumnType("VARCHAR(128)");
 
                     b.Property<int>("RoleId")
                         .HasColumnType("int");
 
-                    b.Property<int>("RoleType")
-                        .HasColumnType("int");
-
                     b.Property<string>("Username")
                         .IsRequired()
-                        .HasColumnType("VARCHAR(25)");
+                        .HasColumnType("VARCHAR(50)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("RoleId", "RoleType");
+                    b.HasIndex("RoleId");
 
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("HotelPmsCore.Models.PriceList", b =>
+            modelBuilder.Entity("HotelPmsCore.Models.Reservation", b =>
                 {
-                    b.HasOne("HotelPmsCore.Models.Period", "Period")
+                    b.HasOne("HotelPmsCore.Models.Customer", "Customer")
                         .WithMany()
-                        .HasForeignKey("PeriodId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.Navigation("Period");
+                    b.HasOne("HotelPmsCore.Models.Room", "Room")
+                        .WithMany()
+                        .HasForeignKey("RoomId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Customer");
+
+                    b.Navigation("Room");
                 });
 
             modelBuilder.Entity("HotelPmsCore.Models.Room", b =>
                 {
                     b.HasOne("HotelPmsCore.Models.TypedCategory", "RoomType")
                         .WithMany()
-                        .HasForeignKey("RoomTypeId", "RoomTypeType")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey("RoomTypeId")
+                        .HasPrincipalKey("Id")
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("RoomType");
+                });
+
+            modelBuilder.Entity("HotelPmsCore.Models.Staff", b =>
+                {
+                    b.HasOne("HotelPmsCore.Models.TypedCategory", "Speciality")
+                        .WithMany()
+                        .HasForeignKey("SpecialityId")
+                        .HasPrincipalKey("Id")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Speciality");
                 });
 
             modelBuilder.Entity("HotelPmsCore.Models.User", b =>
                 {
                     b.HasOne("HotelPmsCore.Models.TypedCategory", "Role")
                         .WithMany()
-                        .HasForeignKey("RoleId", "RoleType")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey("RoleId")
+                        .HasPrincipalKey("Id")
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Role");

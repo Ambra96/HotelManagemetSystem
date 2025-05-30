@@ -15,7 +15,7 @@ namespace HotelPmsCore.Services
         where TEntity : class, new()
     {
         protected readonly HotelPmsCoreContext context;
-        private List<TEntity> all;
+        private List<TEntity> all=new();
         private int currentPageIndex;
 
         public BindingSource BndSource { get; } = new();
