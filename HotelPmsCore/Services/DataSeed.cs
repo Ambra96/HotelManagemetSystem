@@ -18,7 +18,7 @@ namespace HotelPmsCore.Services
 
         public void Seed()
         {
-            // Order matters: Seed parent tables FIRST
+            
             SeedRoles();
             SeedRoomTypes();
             SeedPeriods();
@@ -95,17 +95,15 @@ namespace HotelPmsCore.Services
             context.Customers.AddRange(customers);
             context.SaveChanges();
         }
-
         private void SeedRooms()
         {
             if (context.Rooms.Any()) return;
 
-            // Always fetch an EXISTING RoomType (Type == 2)
-            var defaultRoomType = context.TypedCategories.FirstOrDefault(tc => tc.Type == 2) ??
-                                  context.TypedCategories.First(tc => tc.Type == 2);
+            var defaultRoomType = context.TypedCategories.FirstOrDefault(tc => tc.Type == 2);
+            if (defaultRoomType == null) return; 
 
             var rooms = new List<Room>();
-            for (int i = 1; i <= 10; i++)
+            for (int i = 1; i <= 20; i++)
             {
                 rooms.Add(new Room
                 {
@@ -114,12 +112,13 @@ namespace HotelPmsCore.Services
                     PeopleCapacity = 2,
                     WinterPrice = 50,
                     SummerPrice = 75,
-                    RoomType = defaultRoomType
+                    RoomType = defaultRoomType   
                 });
             }
             context.Rooms.AddRange(rooms);
             context.SaveChanges();
         }
+
 
         private void SeedStaff()
         {

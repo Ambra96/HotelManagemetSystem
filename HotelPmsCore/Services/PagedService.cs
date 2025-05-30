@@ -95,7 +95,7 @@ namespace HotelPmsCore.Services
             foreach (var p in typeof(TEntity).GetProperties().Where(p => p.CanWrite))
                 p.SetValue(copy, p.GetValue(original));
 
-            // bind only the copy
+           
             BndSource.DataSource = new BindingList<TEntity>(new[] { copy });
             BndSource.Position = 0;
 
