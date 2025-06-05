@@ -1,27 +1,24 @@
-﻿using HotelPmsCore.Data;
-using HotelPmsCore.Forms;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
+using HotelPmsCore.Data;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace HotelPmsCore.Services
 {
-
+ 
     public abstract class BaseService<TListForm, TEditForm, TEntity> : IModule
         where TListForm : Form
         where TEditForm : Form
         where TEntity : class, new()
     {
         protected readonly HotelPmsCoreContext context;
-        protected readonly List<TEntity> all = new List<TEntity>();
+        private List<TEntity> all;
         private int currentPageIndex;
-        internal Dictionary<string, object> filterValues = new();
-
 
         public BindingSource BndSource { get; } = new BindingSource();
         public int PageSize { get; set; } = 10;
@@ -38,15 +35,14 @@ namespace HotelPmsCore.Services
 
         protected void LoadAll()
         {
-            all.Clear();
-            all.AddRange(context.Set<TEntity>()
-                                .AsNoTracking()
-                                .OrderBy(x => EF.Property<object>(x, "Id"))
-                                .ToList());
+            all = context.Set<TEntity>()
+                         .AsNoTracking()  
+                         .OrderBy(x => EF.Property<object>(x, "Id"))
+                         .ToList();
         }
 
-
-        protected void LoadPage(int pageIndex)
+       
+        private void LoadPage(int pageIndex)
         {
             currentPageIndex = pageIndex;
 
@@ -58,9 +54,21 @@ namespace HotelPmsCore.Services
             BndSource.DataSource = new BindingList<TEntity>(slice);
         }
 
+        //public void PrevPage()
+        //{
+        //    if (currentPageIndex > 0)
+        //        LoadPage(currentPageIndex - 1);
+        //}
+
+        //public void NextPage()
+        //{
+        //    if (currentPageIndex < TotalPages - 1)
+        //        LoadPage(currentPageIndex + 1);
+        //}
+
         public virtual void New()
         {
-
+    
             var entity = new TEntity();
 
             var dlg = Program.ServiceProvider.GetRequiredService<TEditForm>();
@@ -82,7 +90,7 @@ namespace HotelPmsCore.Services
             foreach (var p in typeof(TEntity).GetProperties().Where(p => p.CanWrite))
                 p.SetValue(copy, p.GetValue(original));
 
-
+      
             BndSource.DataSource = new BindingList<TEntity>(new[] { copy });
             BndSource.Position = 0;
 
@@ -110,9 +118,9 @@ namespace HotelPmsCore.Services
                 context.Set<TEntity>().Remove(entity);
                 context.SaveChanges();
 
-
+         
                 var keyVal = GetKey(entity);
-                all.RemoveAll(e => GetKey(e)?.Equals(keyVal) == true);
+                all.RemoveAll(e => GetKey(e).Equals(keyVal));
 
                 ReloadAndNavigateByKey(null);
             }
@@ -129,14 +137,14 @@ namespace HotelPmsCore.Services
         public void SetCurrentIndex(int index)
             => BndSource.Position = index;
 
-
+        
         protected void ReloadAndNavigateByKey(TEntity? target)
         {
             LoadAll();
             if (target != null)
             {
                 var keyVal = GetKey(target);
-                var idx = all.FindIndex(e => GetKey(e)?.Equals(keyVal) == true);
+                var idx = all.FindIndex(e => GetKey(e).Equals(keyVal));
                 if (idx >= 0)
                 {
                     var pg = idx / PageSize;
@@ -145,22 +153,16 @@ namespace HotelPmsCore.Services
                     return;
                 }
             }
-
+        
             LoadPage(currentPageIndex);
         }
 
-        public void ShowFilter()
-        {
-
-        }
-
-
+     
         protected virtual object? GetKey(TEntity entity)
         {
             return typeof(TEntity)
-                .GetProperty("Id", BindingFlags.Public | BindingFlags.Instance)
-                ?.GetValue(entity);
+                .GetProperty("Id", BindingFlags.Public | BindingFlags.Instance)!
+                .GetValue(entity);
         }
     }
 }
-

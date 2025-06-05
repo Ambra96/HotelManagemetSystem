@@ -19,6 +19,10 @@
         {
             components = new System.ComponentModel.Container();
             dataGridViewCustomer = new DataGridView();
+            customerBindingSource = new BindingSource(components);
+            bindingSource1 = new BindingSource(components);
+            PrvButton = new Button();
+            NxtButton = new Button();
             firstNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             lastNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             afmDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
@@ -28,10 +32,6 @@
             cityDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             countryDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             zipCodeDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            customerBindingSource = new BindingSource(components);
-            bindingSource1 = new BindingSource(components);
-            PrvButton = new Button();
-            NxtButton = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridViewCustomer).BeginInit();
             ((System.ComponentModel.ISupportInitialize)customerBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
@@ -46,12 +46,36 @@
             dataGridViewCustomer.Columns.AddRange(new DataGridViewColumn[] { firstNameDataGridViewTextBoxColumn, lastNameDataGridViewTextBoxColumn, afmDataGridViewTextBoxColumn, emailDataGridViewTextBoxColumn, phoneDataGridViewTextBoxColumn, addressDataGridViewTextBoxColumn, cityDataGridViewTextBoxColumn, countryDataGridViewTextBoxColumn, zipCodeDataGridViewTextBoxColumn });
             dataGridViewCustomer.DataSource = customerBindingSource;
             dataGridViewCustomer.GridColor = SystemColors.InactiveBorder;
-            dataGridViewCustomer.Location = new Point(12, 46);
+            dataGridViewCustomer.Location = new Point(12, 112);
             dataGridViewCustomer.Name = "dataGridViewCustomer";
             dataGridViewCustomer.RowHeadersWidth = 62;
             dataGridViewCustomer.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewCustomer.Size = new Size(1471, 669);
+            dataGridViewCustomer.Size = new Size(1471, 603);
             dataGridViewCustomer.TabIndex = 0;
+            // 
+            // customerBindingSource
+            // 
+            customerBindingSource.DataSource = typeof(Models.Customer);
+            // 
+            // PrvButton
+            // 
+            PrvButton.Location = new Point(1247, 39);
+            PrvButton.Name = "PrvButton";
+            PrvButton.Size = new Size(48, 34);
+            PrvButton.TabIndex = 1;
+            PrvButton.Text = "<";
+            PrvButton.UseVisualStyleBackColor = true;
+            PrvButton.Click += PrvButton_Click;
+            // 
+            // NxtButton
+            // 
+            NxtButton.Location = new Point(1326, 39);
+            NxtButton.Name = "NxtButton";
+            NxtButton.Size = new Size(48, 34);
+            NxtButton.TabIndex = 5;
+            NxtButton.Text = ">";
+            NxtButton.UseVisualStyleBackColor = true;
+            NxtButton.Click += NxtButton_Click;
             // 
             // firstNameDataGridViewTextBoxColumn
             // 
@@ -115,30 +139,6 @@
             zipCodeDataGridViewTextBoxColumn.HeaderText = "ZipCode";
             zipCodeDataGridViewTextBoxColumn.MinimumWidth = 8;
             zipCodeDataGridViewTextBoxColumn.Name = "zipCodeDataGridViewTextBoxColumn";
-            // 
-            // customerBindingSource
-            // 
-            customerBindingSource.DataSource = typeof(Models.Customer);
-            // 
-            // PrvButton
-            // 
-            PrvButton.Location = new Point(1258, 6);
-            PrvButton.Name = "PrvButton";
-            PrvButton.Size = new Size(48, 34);
-            PrvButton.TabIndex = 1;
-            PrvButton.Text = "<";
-            PrvButton.UseVisualStyleBackColor = true;
-            PrvButton.Click += PrvButton_Click;
-            // 
-            // NxtButton
-            // 
-            NxtButton.Location = new Point(1337, 6);
-            NxtButton.Name = "NxtButton";
-            NxtButton.Size = new Size(48, 34);
-            NxtButton.TabIndex = 5;
-            NxtButton.Text = ">";
-            NxtButton.UseVisualStyleBackColor = true;
-            NxtButton.Click += NxtButton_Click;
             // 
             // CustomerForm
             // 

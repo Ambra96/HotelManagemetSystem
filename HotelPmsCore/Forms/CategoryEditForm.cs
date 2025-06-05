@@ -1,41 +1,38 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Windows.Forms;
+using HotelPmsCore.Models;
 using HotelPmsCore.Services;
 
 namespace HotelPmsCore.Forms
 {
     public partial class CategoryEditForm : Form
     {
-        private readonly CategoryService svc;
-
-        public CategoryEditForm(CategoryService svc)
+        public CategoryEditForm(CategoryService service)
         {
             InitializeComponent();
-            this.svc = svc;
-            this.typedCategoryBindingSource.DataSource = svc.BndSource;
 
-            this.txtDescription.DataBindings.Add(
+            categoryBindingSource.DataSource = service.BndSource;
+
+     
+            txtId.DataBindings.Add(
                 "Text",
-                this.typedCategoryBindingSource,
-                "Description",
+                categoryBindingSource,
+                nameof(TypedCategory.Id),
+                false,
+                DataSourceUpdateMode.Never);
+
+        
+            txtDescription.DataBindings.Add(
+                "Text",
+                categoryBindingSource,
+                nameof(TypedCategory.Description),
                 true,
                 DataSourceUpdateMode.OnPropertyChanged);
-        }
 
-        private void SaveBttn_Click(object sender, EventArgs e)
-        {
-            DialogResult = DialogResult.OK;
-         
-            svc.RefreshGrid();
+            SaveBttn.Click += (_, __) => DialogResult = DialogResult.OK;
+            CancelBttn.Click += (_, __) => DialogResult = DialogResult.Cancel;
         }
-
-       
-        private void CancelBttn_Click(object sender, EventArgs e)
-        {
-            DialogResult = DialogResult.Cancel;
-        }
-
     }
-
 }
+
+

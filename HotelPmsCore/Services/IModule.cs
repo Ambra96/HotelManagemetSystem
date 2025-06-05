@@ -8,6 +8,5 @@
         void RefreshGrid();
         bool HasSelection { get; }
         void SetCurrentIndex(int index);
-        void ShowFilter();
     }
 }

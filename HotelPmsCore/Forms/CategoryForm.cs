@@ -1,39 +1,32 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
+using HotelPmsCore.Models;
 using HotelPmsCore.Services;
 
 namespace HotelPmsCore.Forms
 {
     public partial class CategoryForm : Form, IModule
     {
-        private readonly CategoryService svc;
-        public CategoryForm(CategoryService svc)
+        private readonly CategoryService service;
+
+        public CategoryForm(CategoryService service)
         {
             InitializeComponent();
-            this.svc = svc;
-            dataGridViewCategory.DataSource = svc.BndSource;
-            svc.RefreshGrid();
+            this.service = service;
+
+            
+            dataGridViewCategory.DataSource = service.BndSource;
+            dataGridViewCategory.RowEnter += (s, e)
+                => service.SetCurrentIndex(e.RowIndex);
         }
 
-        public void New() { svc.New(); svc.RefreshGrid(); }
-        public void Edit() { svc.Edit(); svc.RefreshGrid(); }
-        public void Delete() { svc.Delete(); svc.RefreshGrid(); }
-        public void RefreshGrid() => svc.RefreshGrid();
-        public bool HasSelection => dataGridViewCategory.SelectedRows.Count > 0;
-        public void SetCurrentIndex(int index) => svc.BndSource.Position = index;
-
-        public void ShowFilter()
-        {
-            var filterDialog = new CategoryFilter();
-            filterDialog.FilterValues = svc.filterValues; 
-
-            if (filterDialog.ShowDialog() == DialogResult.OK)
-            {
-                svc.filterValues = filterDialog.FilterValues;
-                svc.ApplyFilters(svc.filterValues);
-
-            }
-        }
-
+        // IModule
+        public void New() => service.New();
+        public void Edit() => service.Edit();
+        public void Delete() => service.Delete();
+        public void RefreshGrid() => service.RefreshGrid();
+        public bool HasSelection => service.HasSelection;
+        public void SetCurrentIndex(int idx)
+            => service.SetCurrentIndex(idx);
     }
 }
-

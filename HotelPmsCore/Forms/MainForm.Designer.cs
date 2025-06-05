@@ -27,18 +27,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             MainPanel = new Panel();
-            settingsPanel = new Panel();
-            settingsContentPanel = new Panel();
-            toolStrip1 = new ToolStrip();
-            toolStripButton1 = new ToolStripButton();
-            toolStripDropDownButton1 = new ToolStripDropDownButton();
-            menuItemPeriods = new ToolStripMenuItem();
-            menuItemCategories = new ToolStripMenuItem();
-            menuItemUsers = new ToolStripMenuItem();
             pictureBox1 = new PictureBox();
             label1 = new Label();
             button_rooms = new Button();
-            button_staff = new Button();
+            button_categories = new Button();
             button_settings = new Button();
             button_customers = new Button();
             button_reservations = new Button();
@@ -48,10 +40,6 @@
             DeleteButton = new Button();
             ExitButton = new Button();
             NewButton = new Button();
-            BttnFilters = new Button();
-            MainPanel.SuspendLayout();
-            settingsPanel.SuspendLayout();
-            toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ButtonPanel.SuspendLayout();
             SuspendLayout();
@@ -60,80 +48,10 @@
             // 
             MainPanel.Anchor = AnchorStyles.None;
             MainPanel.BackColor = Color.WhiteSmoke;
-            MainPanel.Controls.Add(settingsPanel);
-            MainPanel.Location = new Point(207, 196);
+            MainPanel.Location = new Point(204, 133);
             MainPanel.Name = "MainPanel";
-            MainPanel.Size = new Size(1492, 692);
+            MainPanel.Size = new Size(1495, 755);
             MainPanel.TabIndex = 0;
-            // 
-            // settingsPanel
-            // 
-            settingsPanel.BackColor = Color.LightGray;
-            settingsPanel.Controls.Add(settingsContentPanel);
-            settingsPanel.Controls.Add(toolStrip1);
-            settingsPanel.Location = new Point(3, 0);
-            settingsPanel.Name = "settingsPanel";
-            settingsPanel.Size = new Size(1489, 752);
-            settingsPanel.TabIndex = 0;
-            settingsPanel.Leave += settingsPanel_Leave;
-            // 
-            // settingsContentPanel
-            // 
-            settingsContentPanel.Dock = DockStyle.Fill;
-            settingsContentPanel.Location = new Point(0, 33);
-            settingsContentPanel.Name = "settingsContentPanel";
-            settingsContentPanel.Size = new Size(1489, 719);
-            settingsContentPanel.TabIndex = 1;
-            // 
-            // toolStrip1
-            // 
-            toolStrip1.ImageScalingSize = new Size(24, 24);
-            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripButton1, toolStripDropDownButton1 });
-            toolStrip1.Location = new Point(0, 0);
-            toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(1489, 33);
-            toolStrip1.TabIndex = 0;
-            toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStripButton1
-            // 
-            toolStripButton1.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            toolStripButton1.Image = (Image)resources.GetObject("toolStripButton1.Image");
-            toolStripButton1.ImageTransparentColor = Color.Magenta;
-            toolStripButton1.Name = "toolStripButton1";
-            toolStripButton1.Size = new Size(34, 28);
-            toolStripButton1.Text = "toolStripButton1";
-            // 
-            // toolStripDropDownButton1
-            // 
-            toolStripDropDownButton1.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            toolStripDropDownButton1.DropDownItems.AddRange(new ToolStripItem[] { menuItemPeriods, menuItemCategories, menuItemUsers });
-            toolStripDropDownButton1.Image = (Image)resources.GetObject("toolStripDropDownButton1.Image");
-            toolStripDropDownButton1.ImageTransparentColor = Color.Magenta;
-            toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-            toolStripDropDownButton1.Size = new Size(42, 28);
-            toolStripDropDownButton1.Text = "toolStripDropDownButton1";
-            // 
-            // menuItemPeriods
-            // 
-            menuItemPeriods.Name = "menuItemPeriods";
-            menuItemPeriods.Size = new Size(198, 34);
-            menuItemPeriods.Text = "Periods";
-            menuItemPeriods.Click += menuItemPeriods_Click;
-            // 
-            // menuItemCategories
-            // 
-            menuItemCategories.Name = "menuItemCategories";
-            menuItemCategories.Size = new Size(198, 34);
-            menuItemCategories.Text = "Categories";
-            menuItemCategories.Click += menuItemCategories_Click;
-            // 
-            // menuItemUsers
-            // 
-            menuItemUsers.Name = "menuItemUsers";
-            menuItemUsers.Size = new Size(198, 34);
-            menuItemUsers.Text = "Users";
-            menuItemUsers.Click += menuItemUsers_Click;
             // 
             // pictureBox1
             // 
@@ -181,26 +99,26 @@
             button_rooms.UseVisualStyleBackColor = false;
             button_rooms.Click += button_rooms_Click;
             // 
-            // button_staff
+            // button_categories
             // 
-            button_staff.Anchor = AnchorStyles.None;
-            button_staff.BackColor = Color.FromArgb(49, 55, 55);
-            button_staff.BackgroundImageLayout = ImageLayout.None;
-            button_staff.FlatAppearance.BorderSize = 0;
-            button_staff.FlatStyle = FlatStyle.Flat;
-            button_staff.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button_staff.ForeColor = Color.White;
-            button_staff.Image = Properties.Resources.category;
-            button_staff.ImageAlign = ContentAlignment.TopCenter;
-            button_staff.Location = new Point(2, 569);
-            button_staff.Name = "button_staff";
-            button_staff.Size = new Size(196, 96);
-            button_staff.TabIndex = 4;
-            button_staff.Text = "Staff";
-            button_staff.TextAlign = ContentAlignment.BottomCenter;
-            button_staff.TextImageRelation = TextImageRelation.ImageAboveText;
-            button_staff.UseVisualStyleBackColor = false;
-            button_staff.Click += button_staff_Click;
+            button_categories.Anchor = AnchorStyles.None;
+            button_categories.BackColor = Color.FromArgb(49, 55, 55);
+            button_categories.BackgroundImageLayout = ImageLayout.None;
+            button_categories.FlatAppearance.BorderSize = 0;
+            button_categories.FlatStyle = FlatStyle.Flat;
+            button_categories.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button_categories.ForeColor = Color.White;
+            button_categories.Image = Properties.Resources.category;
+            button_categories.ImageAlign = ContentAlignment.TopCenter;
+            button_categories.Location = new Point(2, 443);
+            button_categories.Name = "button_categories";
+            button_categories.Size = new Size(196, 96);
+            button_categories.TabIndex = 4;
+            button_categories.Text = "Categories";
+            button_categories.TextAlign = ContentAlignment.BottomCenter;
+            button_categories.TextImageRelation = TextImageRelation.ImageAboveText;
+            button_categories.UseVisualStyleBackColor = false;
+            button_categories.Click += button_categories_Click;
             // 
             // button_settings
             // 
@@ -219,7 +137,6 @@
             button_settings.Text = "Settings";
             button_settings.TextAlign = ContentAlignment.BottomCenter;
             button_settings.UseVisualStyleBackColor = false;
-            button_settings.Click += button_settings_Click;
             // 
             // button_customers
             // 
@@ -250,7 +167,7 @@
             button_reservations.ForeColor = Color.White;
             button_reservations.Image = (Image)resources.GetObject("button_reservations.Image");
             button_reservations.ImageAlign = ContentAlignment.TopCenter;
-            button_reservations.Location = new Point(5, 453);
+            button_reservations.Location = new Point(2, 566);
             button_reservations.Name = "button_reservations";
             button_reservations.Size = new Size(196, 96);
             button_reservations.TabIndex = 7;
@@ -280,7 +197,6 @@
             // ButtonPanel
             // 
             ButtonPanel.BackColor = Color.Transparent;
-            ButtonPanel.Controls.Add(BttnFilters);
             ButtonPanel.Controls.Add(EditButton);
             ButtonPanel.Controls.Add(DeleteButton);
             ButtonPanel.Controls.Add(ExitButton);
@@ -338,16 +254,6 @@
             NewButton.UseVisualStyleBackColor = false;
             NewButton.Click += NewButton_Click;
             // 
-            // BttnFilters
-            // 
-            BttnFilters.Location = new Point(1243, 11);
-            BttnFilters.Name = "BttnFilters";
-            BttnFilters.Size = new Size(112, 34);
-            BttnFilters.TabIndex = 4;
-            BttnFilters.Text = "Filters";
-            BttnFilters.UseVisualStyleBackColor = true;
-            BttnFilters.Click += BttnFilters_Click;
-            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -355,11 +261,11 @@
             BackColor = Color.FromArgb(49, 55, 55);
             ClientSize = new Size(1697, 951);
             Controls.Add(button_customers);
-            Controls.Add(button_reservations);
             Controls.Add(button_settings);
             Controls.Add(ButtonPanel);
             Controls.Add(button_logout);
-            Controls.Add(button_staff);
+            Controls.Add(button_reservations);
+            Controls.Add(button_categories);
             Controls.Add(button_rooms);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
@@ -368,11 +274,6 @@
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "MainForm";
-            MainPanel.ResumeLayout(false);
-            settingsPanel.ResumeLayout(false);
-            settingsPanel.PerformLayout();
-            toolStrip1.ResumeLayout(false);
-            toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ButtonPanel.ResumeLayout(false);
             ResumeLayout(false);
@@ -385,7 +286,7 @@
         private PictureBox pictureBox1;
         private Label label1;
         private Button button_rooms;
-        private Button button_staff;
+        private Button button_categories;
         private Button button_settings;
         private Button button_customers;
         private Button button_reservations;
@@ -395,15 +296,6 @@
         private Button EditButton;
         private Button DeleteButton;
         private Button ExitButton;
-        private Panel settingsPanel;
-        private ToolStrip toolStrip1;
-        private ToolStripButton toolStripButton1;
-        private ToolStripDropDownButton toolStripDropDownButton1;
-        private ToolStripMenuItem menuItemPeriods;
-        private ToolStripMenuItem menuItemCategories;
-        private ToolStripMenuItem menuItemUsers;
-        private Panel settingsContentPanel;
-        private Button BttnFilters;
 
         public int NewBttn_Click { get; private set; }
     }

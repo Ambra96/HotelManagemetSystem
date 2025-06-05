@@ -182,7 +182,7 @@ namespace HotelPmsCore.Forms
         private TextBox txtZipCode;
         private TextBox txtCountry;
         private Button SaveButton;
-        private new Button CancelButton;
+        private Button CancelButton;
         private ErrorProvider errorProvider;
        
     }

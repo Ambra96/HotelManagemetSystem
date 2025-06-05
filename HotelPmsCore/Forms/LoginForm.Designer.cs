@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             backPicPanel = new Panel();
-            CancelButton = new Button();
+            cancelButton = new Button();
             loginlabel = new Label();
-            LoginButton = new Button();
+            loginButton = new Button();
             passwordtext = new TextBox();
             usernametext = new TextBox();
             backPicPanel.SuspendLayout();
@@ -40,9 +40,9 @@
             // backPicPanel
             // 
             backPicPanel.BackColor = SystemColors.InactiveBorder;
-            backPicPanel.Controls.Add(CancelButton);
+            backPicPanel.Controls.Add(cancelButton);
             backPicPanel.Controls.Add(loginlabel);
-            backPicPanel.Controls.Add(LoginButton);
+            backPicPanel.Controls.Add(loginButton);
             backPicPanel.Controls.Add(passwordtext);
             backPicPanel.Controls.Add(usernametext);
             backPicPanel.Location = new Point(-2, -4);
@@ -50,17 +50,17 @@
             backPicPanel.Size = new Size(639, 430);
             backPicPanel.TabIndex = 0;
             // 
-            // CancelButton
+            // cancelButton
             // 
-            CancelButton.BackColor = Color.Brown;
-            CancelButton.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            CancelButton.Location = new Point(346, 334);
-            CancelButton.Name = "CancelButton";
-            CancelButton.Size = new Size(94, 42);
-            CancelButton.TabIndex = 4;
-            CancelButton.Text = "Cancel";
-            CancelButton.UseVisualStyleBackColor = false;
-            CancelButton.Click += CancelButton_Click;
+            cancelButton.BackColor = Color.Brown;
+            cancelButton.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            cancelButton.Location = new Point(346, 334);
+            cancelButton.Name = "cancelButton";
+            cancelButton.Size = new Size(94, 42);
+            cancelButton.TabIndex = 4;
+            cancelButton.Text = "Cancel";
+            cancelButton.UseVisualStyleBackColor = false;
+            cancelButton.Click += cancelButton_Click;
             // 
             // loginlabel
             // 
@@ -74,17 +74,17 @@
             loginlabel.TabIndex = 3;
             loginlabel.Text = "Log In";
             // 
-            // LoginButton
+            // loginButton
             // 
-            LoginButton.BackColor = Color.DarkGray;
-            LoginButton.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            LoginButton.Location = new Point(177, 334);
-            LoginButton.Name = "LoginButton";
-            LoginButton.Size = new Size(94, 42);
-            LoginButton.TabIndex = 2;
-            LoginButton.Text = "Log in";
-            LoginButton.UseVisualStyleBackColor = false;
-            LoginButton.Enter += LoginButton_Click;
+            loginButton.BackColor = Color.DarkGray;
+            loginButton.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            loginButton.Location = new Point(177, 334);
+            loginButton.Name = "loginButton";
+            loginButton.Size = new Size(94, 42);
+            loginButton.TabIndex = 2;
+            loginButton.Text = "Log in";
+            loginButton.UseVisualStyleBackColor = false;
+            loginButton.Enter += loginButton_Click;
             // 
             // passwordtext
             // 
@@ -127,8 +127,8 @@
         private Panel backPicPanel;
         private TextBox usernametext;
         private TextBox passwordtext;
-        private Button LoginButton;
+        private Button loginButton;
         private Label loginlabel;
-        private new Button CancelButton;
+        private Button cancelButton;
     }
 }
