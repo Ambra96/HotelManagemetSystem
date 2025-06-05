@@ -1,22 +1,28 @@
-﻿using System;
+﻿using HotelPmsCore.Data;
+using HotelPmsCore.Forms;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
-using HotelPmsCore.Data;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace HotelPmsCore.Services
 {
     public abstract class PagedService<TListForm, TEditForm, TEntity> : IModule
         where TListForm : Form
         where TEditForm : Form
+        //where TFormFilters: Form
         where TEntity : class, new()
     {
         protected readonly HotelPmsCoreContext context;
-        private List<TEntity> all=new();
-        private int currentPageIndex;
+        protected List<TEntity> all=new();
+        protected int currentPageIndex;
+        //private TFormFilters? frmFilters;
+        internal Dictionary<string, object> filterValues = new();
+
 
         public BindingSource BndSource { get; } = new();
         public int PageSize { get; set; } = 10;
@@ -41,8 +47,9 @@ namespace HotelPmsCore.Services
                          .ToList();
         }
 
+
     
-        private void LoadPage(int page)
+        protected void LoadPage(int page)
         {
             currentPageIndex = page;
             var slice = all
@@ -152,5 +159,12 @@ namespace HotelPmsCore.Services
             }
             LoadPage(currentPageIndex);
         }
+
+
+        public void ShowFilter()
+        {
+
+        }
+
     }
 }

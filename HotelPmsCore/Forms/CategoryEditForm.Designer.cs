@@ -22,8 +22,8 @@
             txtDescription = new TextBox();
             SaveBttn = new Button();
             CancelBttn = new Button();
-            categoryBindingSource = new BindingSource(components);
-            ((System.ComponentModel.ISupportInitialize)categoryBindingSource).BeginInit();
+            typedCategoryBindingSource = new BindingSource(components);
+            ((System.ComponentModel.ISupportInitialize)typedCategoryBindingSource).BeginInit();
             SuspendLayout();
             // 
             // txtId
@@ -53,6 +53,7 @@
             SaveBttn.TabIndex = 2;
             SaveBttn.Text = "Save";
             SaveBttn.UseVisualStyleBackColor = true;
+            SaveBttn.Click += SaveBttn_Click;
             // 
             // CancelBttn
             // 
@@ -63,6 +64,7 @@
             CancelBttn.TabIndex = 3;
             CancelBttn.Text = "Cancel";
             CancelBttn.UseVisualStyleBackColor = true;
+            CancelBttn.Click += CancelBttn_Click;
             // 
             // CategoryEditForm
             // 
@@ -80,11 +82,11 @@
             Name = "CategoryEditForm";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Edit Category";
-            ((System.ComponentModel.ISupportInitialize)categoryBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)typedCategoryBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
-        private BindingSource categoryBindingSource;
+        private BindingSource typedCategoryBindingSource;
         //private TextBox txtDescription;
         //private NumericUpDown numType;   
         //private Button btnSave;

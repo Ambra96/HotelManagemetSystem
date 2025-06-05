@@ -148,8 +148,8 @@
         #endregion
 
         private DataGridView dataGridViewRoom;
-        private DataGridViewTextBoxColumn bedNumberDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn bathNumberDataGridViewTextBoxColumn;
+        //private DataGridViewTextBoxColumn bedNumberDataGridViewTextBoxColumn;
+        //private DataGridViewTextBoxColumn bathNumberDataGridViewTextBoxColumn;
         private BindingSource roomBindingSource;
         private Button NxtBttn;
         private Button PrvBttn;

@@ -13,10 +13,13 @@ namespace HotelPmsCore.Forms
         public MainForm()
         {
             InitializeComponent();
+            settingsPanel.Visible = false;
+
         }
 
         private void OpenModule<TForm>() where TForm : Form, IModule
         {
+
 
             if (activeForm != null)
                 MainPanel.Controls.Remove(activeForm);
@@ -38,18 +41,44 @@ namespace HotelPmsCore.Forms
 
             UpdateButtonStates();
         }
+        private void ShowInSettingsPanel(Form form)
+        {
+            settingsContentPanel.Controls.Clear();
+            form.TopLevel = false;
+            form.FormBorderStyle = FormBorderStyle.None;
+            form.Dock = DockStyle.Fill;
+            settingsContentPanel.Controls.Add(form);
+            form.Show();
 
-        private void button_customers_Click(object s, EventArgs e)
-            => OpenModule<CustomerForm>();
+            settingsPanel.Visible = true;
+            currentModule = form as IModule;
+            activeForm = form;
+            UpdateButtonStates();
+        }
 
-        private void button_categories_Click(object sender, EventArgs e)
-            => OpenModule<CategoryForm>();
 
 
 
-        private void button_rooms_Click(object s, EventArgs e)
-            => OpenModule<RoomForm>();
+        private void button_customers_Click(object sender, EventArgs e)
+        {
+            settingsPanel.Visible = false;
+            OpenModule<CustomerForm>();
+        }
+        private void button_rooms_Click(object sender, EventArgs e)
+        {
+            settingsPanel.Visible = false;
+            OpenModule<RoomForm>();
+        }
 
+        //private void button_reservations_Click(object sender, EventArgs e)
+        //{settingsPanel.Visible = false;
+        // OpenModule<CustomerForm>();}
+
+        private void button_staff_Click(object sender, EventArgs e)
+        {
+            settingsPanel.Visible = false;
+            OpenModule<StaffForm>();
+        }
         private void NewButton_Click(object s, EventArgs e)
         {
             currentModule?.New();
@@ -102,11 +131,46 @@ namespace HotelPmsCore.Forms
             //RefreshButton.Enabled = true;
         }
 
-    
-        //private void button_reservations_Click(object sender, EventArgs e)
-        // => OpenModule<CustomerForm>();
+        private void menuItemPeriods_Click(object sender, EventArgs e)
+        {
+            var form = Program.ServiceProvider.GetRequiredService<PeriodForm>();
+            ShowInSettingsPanel(form);
 
-        //private void button_settings_Click(object sender, EventArgs e)
-        // => OpenModule<CustomerForm>(); //user,staff,period
+        }
+
+        private void menuItemCategories_Click(object sender, EventArgs e)
+        {
+            //var service = Program.ServiceProvider.GetRequiredService<CategoryService>();
+            //service.CategoryType = 2; 
+            var form = Program.ServiceProvider.GetRequiredService<CategoryForm>();
+            ShowInSettingsPanel(form);
+        }
+
+        private void menuItemUsers_Click(object sender, EventArgs e)
+        {
+
+            var form = Program.ServiceProvider.GetRequiredService<UserForm>();
+            ShowInSettingsPanel(form);
+        }
+
+        private void button_settings_Click(object sender, EventArgs e)
+        {
+
+            settingsPanel.Visible = true;
+            settingsPanel.BringToFront();
+        }
+
+        private void settingsPanel_Leave(object sender, EventArgs e)
+        {
+            settingsPanel.Visible = false;
+        }
+
+        private void BttnFilters_Click(object sender, EventArgs e)
+        {
+       
+            if (currentModule is IModule module)
+                module.ShowFilter();
+      
+        }
     }
 }
