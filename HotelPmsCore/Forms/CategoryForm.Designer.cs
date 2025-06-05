@@ -77,8 +77,10 @@
             dataGridViewCategory.DataSource = typedCategoryBindingSource;
             dataGridViewCategory.Dock = DockStyle.Fill;
             dataGridViewCategory.Location = new Point(0, 0);
+            dataGridViewCategory.MultiSelect = false;
             dataGridViewCategory.Name = "dataGridViewCategory";
             dataGridViewCategory.RowHeadersWidth = 62;
+            dataGridViewCategory.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewCategory.Size = new Size(814, 446);
             dataGridViewCategory.TabIndex = 0;
             // 

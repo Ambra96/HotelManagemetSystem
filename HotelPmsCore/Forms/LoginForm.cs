@@ -29,12 +29,12 @@ namespace HotelPmsCore
 
         }
 
-        private void loginButton_Click(object sender, EventArgs e)
+        private void LoginButton_Click(object sender, EventArgs e)
         {
             var username = usernametext.Text.Trim();
             var plain = passwordtext.Text;
 
-            // look up the user
+        
             var user = context.Users
                               .SingleOrDefault(u => u.Username == username);
             if (user == null)
@@ -48,12 +48,12 @@ namespace HotelPmsCore
 
             try
             {
- 
+
                 isValid = hasher.VerifyPassword(plain, user.Password);
             }
             catch (FormatException)
             {
-        
+
                 if (user.Password == plain)
                 {
                     isValid = true;
@@ -76,13 +76,12 @@ namespace HotelPmsCore
 
 
 
-        private void cancelButton_Click(object sender, EventArgs e)
+        private void CancelButton_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();
 
         }
-
     }
 }
 

@@ -1,6 +1,7 @@
-﻿using System;
-using System.Windows.Forms;
+﻿using HotelPmsCore.Forms;
 using HotelPmsCore.Services;
+using System;
+using System.Windows.Forms;
 
 namespace HotelPmsCore.Forms
 {
@@ -52,5 +53,20 @@ namespace HotelPmsCore.Forms
 
         public void SetCurrentIndex(int index)
             => svc.BndSource.Position = index;
+
+        public void ShowFilter()
+        {
+            var filterDialog = new CustomerFilter();
+            filterDialog.FilterValues = svc.filterValues;
+
+            if (filterDialog.ShowDialog() == DialogResult.OK)
+            {
+                svc.filterValues = filterDialog.FilterValues;
+                svc.ApplyFilters(svc.filterValues); 
+            }
+        }
+
+
     }
 }
+

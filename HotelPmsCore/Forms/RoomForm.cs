@@ -41,6 +41,20 @@ namespace HotelPmsCore.Forms
         public void SetCurrentIndex(int index)
             => svc.SetCurrentIndex(index);
 
-     
+
+        public void ShowFilter()
+        {
+            //var filterDialog = new RoomFilter();
+            //filterDialog.FilterValues = svc.filterValues; 
+
+            //if (filterDialog.ShowDialog() == DialogResult.OK)
+            //{
+            //    svc.filterValues = filterDialog.FilterValues;
+            //    svc.ApplyFilters(); 
+            //    RefreshGrid();
+            //}
+        }
+
+
     }
 }
