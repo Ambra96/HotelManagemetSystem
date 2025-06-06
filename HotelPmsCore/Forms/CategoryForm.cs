@@ -24,13 +24,21 @@ namespace HotelPmsCore.Forms
         public void ShowFilter()
         {
             var filterDialog = new CategoryFilter();
-            filterDialog.FilterValues = svc.filterValues; 
+            filterDialog.FilterValues = svc.filterValues;
 
             if (filterDialog.ShowDialog() == DialogResult.OK)
             {
-                svc.filterValues = filterDialog.FilterValues;
-                svc.ApplyFilters(svc.filterValues);
-
+       
+                if (filterDialog.FilterValues.Count == 0)
+                {
+                    svc.filterValues.Clear();
+                    svc.RefreshGrid();
+                }
+                else
+                {
+                    svc.filterValues = filterDialog.FilterValues;
+                    svc.ApplyFilters(svc.filterValues);
+                }
             }
         }
 

@@ -84,6 +84,7 @@
             // numCapacity
             // 
             numCapacity.Location = new Point(421, 220);
+            numCapacity.Maximum = new decimal(new int[] { 500, 0, 0, 0 });
             numCapacity.Name = "numCapacity";
             numCapacity.Size = new Size(150, 31);
             numCapacity.TabIndex = 18;
@@ -91,6 +92,7 @@
             // numSummer
             // 
             numSummer.Location = new Point(421, 183);
+            numSummer.Maximum = new decimal(new int[] { 2500, 0, 0, 0 });
             numSummer.Name = "numSummer";
             numSummer.Size = new Size(150, 31);
             numSummer.TabIndex = 19;
@@ -99,6 +101,7 @@
             // 
             numWinter.AccessibleName = "WinterPrice";
             numWinter.Location = new Point(421, 146);
+            numWinter.Maximum = new decimal(new int[] { 2500, 0, 0, 0 });
             numWinter.Name = "numWinter";
             numWinter.Size = new Size(150, 31);
             numWinter.TabIndex = 20;

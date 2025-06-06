@@ -1,15 +1,29 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using HotelPmsCore;
+﻿using HotelPmsCore;
 using HotelPmsCore.Data;
 using HotelPmsCore.Forms;
 using HotelPmsCore.Models;
 using HotelPmsCore.Services;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 
 public class RoomService : PagedService<RoomForm, RoomEditForm, Room>
 {
     public RoomService(HotelPmsCoreContext ctx)
         : base(ctx)
     {
+    }
+
+    public void ApplyFilters(Dictionary<string, object> filterValues)
+    {
+        var query = context.Rooms.AsQueryable();
+
+        if (filterValues.TryGetValue("RoomNumber", out var rn) && rn is string roomNumber && !string.IsNullOrWhiteSpace(roomNumber))
+            query = query.Where(r => EF.Functions.Like(r.RoomNumber, roomNumber));
+
+        if (filterValues.TryGetValue("Capacity", out var cap) && cap is int capacity && capacity > 0)
+            query = query.Where(r => r.PeopleCapacity == capacity);
+
+        BndSource.DataSource = query.ToList();
     }
 
     public override void New()

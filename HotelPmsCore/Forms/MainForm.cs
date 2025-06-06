@@ -72,7 +72,7 @@ namespace HotelPmsCore.Forms
 
         //private void button_reservations_Click(object sender, EventArgs e)
         //{settingsPanel.Visible = false;
-        // OpenModule<CustomerForm>();}
+        // OpenModule<ReservationForm>();}
 
         private void button_staff_Click(object sender, EventArgs e)
         {
@@ -140,8 +140,8 @@ namespace HotelPmsCore.Forms
 
         private void menuItemCategories_Click(object sender, EventArgs e)
         {
-            //var service = Program.ServiceProvider.GetRequiredService<CategoryService>();
-            //service.CategoryType = 2; 
+            var service = Program.ServiceProvider.GetRequiredService<CategoryService>();
+            service.CategoryType = 0;
             var form = Program.ServiceProvider.GetRequiredService<CategoryForm>();
             ShowInSettingsPanel(form);
         }

@@ -44,17 +44,18 @@ namespace HotelPmsCore.Forms
 
         public void ShowFilter()
         {
-            //var filterDialog = new RoomFilter();
-            //filterDialog.FilterValues = svc.filterValues; 
+            var filterDialog = new RoomFilter();
+            filterDialog.FilterValues = svc.filterValues;
 
-            //if (filterDialog.ShowDialog() == DialogResult.OK)
-            //{
-            //    svc.filterValues = filterDialog.FilterValues;
-            //    svc.ApplyFilters(); 
-            //    RefreshGrid();
-            //}
+            if (filterDialog.ShowDialog() == DialogResult.OK)
+            {
+                svc.filterValues = filterDialog.FilterValues;
+                svc.ApplyFilters(svc.filterValues);
+            }
+            else
+            {
+                // Optionally, do something if canceled
+            }
         }
-
-
     }
 }
