@@ -44,11 +44,11 @@
             button_reservations = new Button();
             button_logout = new Button();
             ButtonPanel = new Panel();
+            BttnFilters = new Button();
             EditButton = new Button();
             DeleteButton = new Button();
             ExitButton = new Button();
             NewButton = new Button();
-            BttnFilters = new Button();
             MainPanel.SuspendLayout();
             settingsPanel.SuspendLayout();
             toolStrip1.SuspendLayout();
@@ -257,6 +257,7 @@
             button_reservations.Text = "Reservations";
             button_reservations.TextAlign = ContentAlignment.BottomCenter;
             button_reservations.UseVisualStyleBackColor = false;
+            button_reservations.Click += button_reservations_Click_1;
             // 
             // button_logout
             // 
@@ -289,6 +290,16 @@
             ButtonPanel.Name = "ButtonPanel";
             ButtonPanel.Size = new Size(1492, 60);
             ButtonPanel.TabIndex = 9;
+            // 
+            // BttnFilters
+            // 
+            BttnFilters.Location = new Point(1243, 11);
+            BttnFilters.Name = "BttnFilters";
+            BttnFilters.Size = new Size(112, 34);
+            BttnFilters.TabIndex = 4;
+            BttnFilters.Text = "Filters";
+            BttnFilters.UseVisualStyleBackColor = true;
+            BttnFilters.Click += BttnFilters_Click;
             // 
             // EditButton
             // 
@@ -337,16 +348,6 @@
             NewButton.Text = "New";
             NewButton.UseVisualStyleBackColor = false;
             NewButton.Click += NewButton_Click;
-            // 
-            // BttnFilters
-            // 
-            BttnFilters.Location = new Point(1243, 11);
-            BttnFilters.Name = "BttnFilters";
-            BttnFilters.Size = new Size(112, 34);
-            BttnFilters.TabIndex = 4;
-            BttnFilters.Text = "Filters";
-            BttnFilters.UseVisualStyleBackColor = true;
-            BttnFilters.Click += BttnFilters_Click;
             // 
             // MainForm
             // 

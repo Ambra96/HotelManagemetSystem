@@ -28,7 +28,6 @@ namespace HotelPmsCore
                     services.AddScoped<CustomerService>();
                     services.AddScoped<CategoryService>();
                     services.AddScoped<RoomService>();
-                    //services.AddScoped<ReservationService>();
                     services.AddScoped<PeriodService>();
                     services.AddScoped<UserService>();
                     services.AddScoped<StaffService>();
@@ -46,9 +45,8 @@ namespace HotelPmsCore
                     services.AddTransient<RoomForm>();
                     services.AddTransient<RoomEditForm>();
                     services.AddTransient<RoomFilter>();
-                    //services.AddTransient<ReservationForm>();
-                    //services.AddTransient<ReservationEditForm>();
-                    // services.AddTransient<ReservationFilter>();
+                    services.AddTransient<ReservationForm>();
+                    services.AddTransient<ReservationFormChkInOut>();                    
                     services.AddTransient<PeriodForm>();
                     services.AddTransient<PeriodEditForm>();
                     services.AddTransient<PeriodFilter>();

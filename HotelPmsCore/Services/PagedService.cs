@@ -48,7 +48,7 @@ namespace HotelPmsCore.Services
         }
 
 
-    
+
         protected void LoadPage(int page)
         {
             currentPageIndex = page;

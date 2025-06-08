@@ -1,7 +1,8 @@
-﻿using System;
-using System.Windows.Forms;
+﻿using HotelPmsCore.Data;
 using HotelPmsCore.Services;
 using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Windows.Forms;
 
 namespace HotelPmsCore.Forms
 {
@@ -70,9 +71,11 @@ namespace HotelPmsCore.Forms
             OpenModule<RoomForm>();
         }
 
-        //private void button_reservations_Click(object sender, EventArgs e)
-        //{settingsPanel.Visible = false;
-        // OpenModule<ReservationForm>();}
+        private void button_reservations_Click_1(object sender, EventArgs e)
+        {
+            settingsPanel.Visible = false;
+            OpenModule<ReservationForm>();
+        }
 
         private void button_staff_Click(object sender, EventArgs e)
         {
@@ -167,11 +170,13 @@ namespace HotelPmsCore.Forms
 
         private void BttnFilters_Click(object sender, EventArgs e)
         {
-       
+
             if (currentModule is IModule module)
                 module.ShowFilter();
-      
+
         }
+
+       
     }
 }
 //temporary
