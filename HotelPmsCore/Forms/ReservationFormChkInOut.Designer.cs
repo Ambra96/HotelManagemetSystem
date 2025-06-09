@@ -28,22 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             label1 = new Label();
             label2 = new Label();
-            comboBox1 = new ComboBox();
-            dateTimePicker1 = new DateTimePicker();
-            button1 = new Button();
+            comboBoxCustomer = new ComboBox();
+            dateTimeReservation = new DateTimePicker();
+            btnFindReservation = new Button();
             panel1 = new Panel();
             panel2 = new Panel();
-            label3 = new Label();
-            dateTimePicker2 = new DateTimePicker();
-            dateTimePicker3 = new DateTimePicker();
+            btnCheckOut = new Button();
+            btnCheckIn = new Button();
             label4 = new Label();
-            comboBox2 = new ComboBox();
-            button3 = new Button();
-            button2 = new Button();
+            comboBoxRoom = new ComboBox();
+            dateTimeTo = new DateTimePicker();
+            label3 = new Label();
+            dateTimeFrom = new DateTimePicker();
+            bindingSource1 = new BindingSource(components);
             panel1.SuspendLayout();
             panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -64,38 +67,39 @@
             label2.TabIndex = 1;
             label2.Text = "Reservation Date";
             // 
-            // comboBox1
+            // comboBoxCustomer
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(214, 24);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(502, 33);
-            comboBox1.TabIndex = 2;
+            comboBoxCustomer.FormattingEnabled = true;
+            comboBoxCustomer.Location = new Point(214, 24);
+            comboBoxCustomer.Name = "comboBoxCustomer";
+            comboBoxCustomer.Size = new Size(502, 33);
+            comboBoxCustomer.TabIndex = 2;
             // 
-            // dateTimePicker1
+            // dateTimeReservation
             // 
-            dateTimePicker1.Format = DateTimePickerFormat.Short;
-            dateTimePicker1.Location = new Point(214, 95);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(152, 31);
-            dateTimePicker1.TabIndex = 3;
+            dateTimeReservation.Format = DateTimePickerFormat.Short;
+            dateTimeReservation.Location = new Point(214, 95);
+            dateTimeReservation.Name = "dateTimeReservation";
+            dateTimeReservation.Size = new Size(152, 31);
+            dateTimeReservation.TabIndex = 3;
             // 
-            // button1
+            // btnFindReservation
             // 
-            button1.Location = new Point(487, 95);
-            button1.Name = "button1";
-            button1.Size = new Size(205, 31);
-            button1.TabIndex = 4;
-            button1.Text = "Find Reservation";
-            button1.UseVisualStyleBackColor = true;
+            btnFindReservation.Location = new Point(487, 95);
+            btnFindReservation.Name = "btnFindReservation";
+            btnFindReservation.Size = new Size(205, 31);
+            btnFindReservation.TabIndex = 4;
+            btnFindReservation.Text = "Find Reservation";
+            btnFindReservation.UseVisualStyleBackColor = true;
+            btnFindReservation.Click += btnFindReservation_Click;
             // 
             // panel1
             // 
             panel1.Controls.Add(label1);
-            panel1.Controls.Add(button1);
+            panel1.Controls.Add(btnFindReservation);
             panel1.Controls.Add(label2);
-            panel1.Controls.Add(dateTimePicker1);
-            panel1.Controls.Add(comboBox1);
+            panel1.Controls.Add(dateTimeReservation);
+            panel1.Controls.Add(comboBoxCustomer);
             panel1.Location = new Point(3, 2);
             panel1.Name = "panel1";
             panel1.Size = new Size(755, 224);
@@ -103,42 +107,39 @@
             // 
             // panel2
             // 
-            panel2.Controls.Add(button3);
-            panel2.Controls.Add(button2);
+            panel2.Controls.Add(btnCheckOut);
+            panel2.Controls.Add(btnCheckIn);
             panel2.Controls.Add(label4);
-            panel2.Controls.Add(comboBox2);
-            panel2.Controls.Add(dateTimePicker3);
+            panel2.Controls.Add(comboBoxRoom);
+            panel2.Controls.Add(dateTimeTo);
             panel2.Controls.Add(label3);
-            panel2.Controls.Add(dateTimePicker2);
+            panel2.Controls.Add(dateTimeFrom);
             panel2.Location = new Point(3, 232);
             panel2.Name = "panel2";
             panel2.Size = new Size(755, 349);
             panel2.TabIndex = 6;
             // 
-            // label3
+            // btnCheckOut
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(21, 27);
-            label3.Name = "label3";
-            label3.Size = new Size(153, 25);
-            label3.TabIndex = 4;
-            label3.Text = "Reservation Dates";
+            btnCheckOut.Location = new Point(609, 275);
+            btnCheckOut.Margin = new Padding(4, 5, 4, 5);
+            btnCheckOut.Name = "btnCheckOut";
+            btnCheckOut.Size = new Size(107, 38);
+            btnCheckOut.TabIndex = 12;
+            btnCheckOut.Text = "Check Out";
+            btnCheckOut.UseVisualStyleBackColor = true;
+            btnCheckOut.Click += btnCheckOut_Click;
             // 
-            // dateTimePicker2
+            // btnCheckIn
             // 
-            dateTimePicker2.Format = DateTimePickerFormat.Short;
-            dateTimePicker2.Location = new Point(214, 21);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(152, 31);
-            dateTimePicker2.TabIndex = 5;
-            // 
-            // dateTimePicker3
-            // 
-            dateTimePicker3.Format = DateTimePickerFormat.Short;
-            dateTimePicker3.Location = new Point(487, 21);
-            dateTimePicker3.Name = "dateTimePicker3";
-            dateTimePicker3.Size = new Size(152, 31);
-            dateTimePicker3.TabIndex = 6;
+            btnCheckIn.Location = new Point(469, 275);
+            btnCheckIn.Margin = new Padding(4, 5, 4, 5);
+            btnCheckIn.Name = "btnCheckIn";
+            btnCheckIn.Size = new Size(107, 38);
+            btnCheckIn.TabIndex = 11;
+            btnCheckIn.Text = "Check In";
+            btnCheckIn.UseVisualStyleBackColor = true;
+            btnCheckIn.Click += btnCheckIn_Click;
             // 
             // label4
             // 
@@ -149,33 +150,38 @@
             label4.TabIndex = 7;
             label4.Text = "Room";
             // 
-            // comboBox2
+            // comboBoxRoom
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(214, 99);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(502, 33);
-            comboBox2.TabIndex = 8;
+            comboBoxRoom.FormattingEnabled = true;
+            comboBoxRoom.Location = new Point(214, 99);
+            comboBoxRoom.Name = "comboBoxRoom";
+            comboBoxRoom.Size = new Size(502, 33);
+            comboBoxRoom.TabIndex = 8;
             // 
-            // button3
+            // dateTimeTo
             // 
-            button3.Location = new Point(609, 275);
-            button3.Margin = new Padding(4, 5, 4, 5);
-            button3.Name = "button3";
-            button3.Size = new Size(107, 38);
-            button3.TabIndex = 12;
-            button3.Text = "Check Out";
-            button3.UseVisualStyleBackColor = true;
+            dateTimeTo.Format = DateTimePickerFormat.Short;
+            dateTimeTo.Location = new Point(487, 21);
+            dateTimeTo.Name = "dateTimeTo";
+            dateTimeTo.Size = new Size(152, 31);
+            dateTimeTo.TabIndex = 6;
             // 
-            // button2
+            // label3
             // 
-            button2.Location = new Point(469, 275);
-            button2.Margin = new Padding(4, 5, 4, 5);
-            button2.Name = "button2";
-            button2.Size = new Size(107, 38);
-            button2.TabIndex = 11;
-            button2.Text = "Check In";
-            button2.UseVisualStyleBackColor = true;
+            label3.AutoSize = true;
+            label3.Location = new Point(21, 27);
+            label3.Name = "label3";
+            label3.Size = new Size(153, 25);
+            label3.TabIndex = 4;
+            label3.Text = "Reservation Dates";
+            // 
+            // dateTimeFrom
+            // 
+            dateTimeFrom.Format = DateTimePickerFormat.Short;
+            dateTimeFrom.Location = new Point(214, 21);
+            dateTimeFrom.Name = "dateTimeFrom";
+            dateTimeFrom.Size = new Size(152, 31);
+            dateTimeFrom.TabIndex = 5;
             // 
             // ReservationFormChkInOut
             // 
@@ -190,6 +196,7 @@
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)bindingSource1).EndInit();
             ResumeLayout(false);
         }
 
@@ -197,17 +204,18 @@
 
         private Label label1;
         private Label label2;
-        private ComboBox comboBox1;
-        private DateTimePicker dateTimePicker1;
-        private Button button1;
+        private ComboBox comboBoxCustomer;
+        private DateTimePicker dateTimeReservation;
+        private Button btnFindReservation;
         private Panel panel1;
         private Panel panel2;
-        private Button button3;
-        private Button button2;
+        private Button btnCheckOut;
+        private Button btnCheckIn;
         private Label label4;
-        private ComboBox comboBox2;
-        private DateTimePicker dateTimePicker3;
+        private ComboBox comboBoxRoom;
+        private DateTimePicker dateTimeTo;
         private Label label3;
-        private DateTimePicker dateTimePicker2;
+        private DateTimePicker dateTimeFrom;
+        private BindingSource bindingSource1;
     }
 }

@@ -30,16 +30,6 @@
         {
             components = new System.ComponentModel.Container();
             dataGridView1 = new DataGridView();
-            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            Customer = new DataGridViewTextBoxColumn();
-            CustomerId = new DataGridViewTextBoxColumn();
-            Room = new DataGridViewTextBoxColumn();
-            RoomId = new DataGridViewTextBoxColumn();
-            ReservationDateFrom = new DataGridViewTextBoxColumn();
-            CheckInDate = new DataGridViewTextBoxColumn();
-            CheckOutDate = new DataGridViewTextBoxColumn();
-            Canceled = new DataGridViewCheckBoxColumn();
-            ReservationDayPrice = new DataGridViewTextBoxColumn();
             reservationBindingSource = new BindingSource(components);
             dateTimeFrom = new DateTimePicker();
             label1 = new Label();
@@ -62,6 +52,17 @@
             buttonEditRes = new Button();
             customerBindingSource = new BindingSource(components);
             roomBindingSource = new BindingSource(components);
+            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            Customer = new DataGridViewTextBoxColumn();
+            CustomerId = new DataGridViewTextBoxColumn();
+            Room = new DataGridViewTextBoxColumn();
+            RoomId = new DataGridViewTextBoxColumn();
+            ReservationDateFrom = new DataGridViewTextBoxColumn();
+            ReservationDateTo = new DataGridViewTextBoxColumn();
+            CheckInDate = new DataGridViewTextBoxColumn();
+            CheckOutDate = new DataGridViewTextBoxColumn();
+            Canceled = new DataGridViewCheckBoxColumn();
+            ReservationDayPrice = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)reservationBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericCapacity).BeginInit();
@@ -74,93 +75,13 @@
             // 
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, Customer, CustomerId, Room, RoomId, ReservationDateFrom, CheckInDate, CheckOutDate, Canceled, ReservationDayPrice });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, Customer, CustomerId, Room, RoomId, ReservationDateFrom, ReservationDateTo, CheckInDate, CheckOutDate, Canceled, ReservationDayPrice });
             dataGridView1.DataSource = reservationBindingSource;
             dataGridView1.Location = new Point(2, 67);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.Size = new Size(1439, 384);
             dataGridView1.TabIndex = 0;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            idDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            idDataGridViewTextBoxColumn.HeaderText = "Id";
-            idDataGridViewTextBoxColumn.MinimumWidth = 8;
-            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            // 
-            // Customer
-            // 
-            Customer.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Customer.DataPropertyName = "Customer";
-            Customer.HeaderText = "Customer";
-            Customer.MinimumWidth = 8;
-            Customer.Name = "Customer";
-            // 
-            // CustomerId
-            // 
-            CustomerId.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            CustomerId.DataPropertyName = "CustomerId";
-            CustomerId.HeaderText = "CustomerId";
-            CustomerId.MinimumWidth = 8;
-            CustomerId.Name = "CustomerId";
-            // 
-            // Room
-            // 
-            Room.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Room.DataPropertyName = "Room";
-            Room.HeaderText = "Room";
-            Room.MinimumWidth = 8;
-            Room.Name = "Room";
-            // 
-            // RoomId
-            // 
-            RoomId.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            RoomId.DataPropertyName = "RoomId";
-            RoomId.HeaderText = "RoomId";
-            RoomId.MinimumWidth = 8;
-            RoomId.Name = "RoomId";
-            // 
-            // ReservationDateFrom
-            // 
-            ReservationDateFrom.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            ReservationDateFrom.DataPropertyName = "ReservationDateFrom";
-            ReservationDateFrom.HeaderText = "ReservationDateFrom";
-            ReservationDateFrom.MinimumWidth = 8;
-            ReservationDateFrom.Name = "ReservationDateFrom";
-            // 
-            // CheckInDate
-            // 
-            CheckInDate.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            CheckInDate.DataPropertyName = "CheckInDate";
-            CheckInDate.HeaderText = "CheckInDate";
-            CheckInDate.MinimumWidth = 8;
-            CheckInDate.Name = "CheckInDate";
-            // 
-            // CheckOutDate
-            // 
-            CheckOutDate.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            CheckOutDate.DataPropertyName = "CheckOutDate";
-            CheckOutDate.HeaderText = "CheckOutDate";
-            CheckOutDate.MinimumWidth = 8;
-            CheckOutDate.Name = "CheckOutDate";
-            // 
-            // Canceled
-            // 
-            Canceled.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Canceled.DataPropertyName = "Canceled";
-            Canceled.HeaderText = "Canceled";
-            Canceled.MinimumWidth = 8;
-            Canceled.Name = "Canceled";
-            // 
-            // ReservationDayPrice
-            // 
-            ReservationDayPrice.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            ReservationDayPrice.DataPropertyName = "ReservationDayPrice";
-            ReservationDayPrice.HeaderText = "ReservationDayPrice";
-            ReservationDayPrice.MinimumWidth = 8;
-            ReservationDayPrice.Name = "ReservationDayPrice";
             // 
             // reservationBindingSource
             // 
@@ -350,6 +271,94 @@
             // 
             roomBindingSource.DataSource = typeof(Models.Room);
             // 
+            // idDataGridViewTextBoxColumn
+            // 
+            idDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            idDataGridViewTextBoxColumn.HeaderText = "Id";
+            idDataGridViewTextBoxColumn.MinimumWidth = 8;
+            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            // 
+            // Customer
+            // 
+            Customer.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Customer.DataPropertyName = "Customer";
+            Customer.HeaderText = "Customer";
+            Customer.MinimumWidth = 8;
+            Customer.Name = "Customer";
+            // 
+            // CustomerId
+            // 
+            CustomerId.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            CustomerId.DataPropertyName = "CustomerId";
+            CustomerId.HeaderText = "CustomerId";
+            CustomerId.MinimumWidth = 8;
+            CustomerId.Name = "CustomerId";
+            // 
+            // Room
+            // 
+            Room.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Room.DataPropertyName = "Room";
+            Room.HeaderText = "Room";
+            Room.MinimumWidth = 8;
+            Room.Name = "Room";
+            // 
+            // RoomId
+            // 
+            RoomId.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            RoomId.DataPropertyName = "RoomId";
+            RoomId.HeaderText = "RoomId";
+            RoomId.MinimumWidth = 8;
+            RoomId.Name = "RoomId";
+            // 
+            // ReservationDateFrom
+            // 
+            ReservationDateFrom.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            ReservationDateFrom.DataPropertyName = "ReservationDateFrom";
+            ReservationDateFrom.HeaderText = "ReservationDateFrom";
+            ReservationDateFrom.MinimumWidth = 8;
+            ReservationDateFrom.Name = "ReservationDateFrom";
+            // 
+            // ReservationDateTo
+            // 
+            ReservationDateTo.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            ReservationDateTo.DataPropertyName = "ReservationDateTo";
+            ReservationDateTo.HeaderText = "ReservationDateTo";
+            ReservationDateTo.MinimumWidth = 8;
+            ReservationDateTo.Name = "ReservationDateTo";
+            // 
+            // CheckInDate
+            // 
+            CheckInDate.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            CheckInDate.DataPropertyName = "CheckInDate";
+            CheckInDate.HeaderText = "CheckInDate";
+            CheckInDate.MinimumWidth = 8;
+            CheckInDate.Name = "CheckInDate";
+            // 
+            // CheckOutDate
+            // 
+            CheckOutDate.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            CheckOutDate.DataPropertyName = "CheckOutDate";
+            CheckOutDate.HeaderText = "CheckOutDate";
+            CheckOutDate.MinimumWidth = 8;
+            CheckOutDate.Name = "CheckOutDate";
+            // 
+            // Canceled
+            // 
+            Canceled.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Canceled.DataPropertyName = "Canceled";
+            Canceled.HeaderText = "Canceled";
+            Canceled.MinimumWidth = 8;
+            Canceled.Name = "Canceled";
+            // 
+            // ReservationDayPrice
+            // 
+            ReservationDayPrice.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            ReservationDayPrice.DataPropertyName = "ReservationDayPrice";
+            ReservationDayPrice.HeaderText = "ReservationDayPrice";
+            ReservationDayPrice.MinimumWidth = 8;
+            ReservationDayPrice.Name = "ReservationDayPrice";
+            // 
             // ReservationForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -406,13 +415,14 @@
         private BindingSource roomBindingSource;
         private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn Customer;
+        private DataGridViewTextBoxColumn CustomerId;
         private DataGridViewTextBoxColumn Room;
+        private DataGridViewTextBoxColumn RoomId;
         private DataGridViewTextBoxColumn ReservationDateFrom;
+        private DataGridViewTextBoxColumn ReservationDateTo;
         private DataGridViewTextBoxColumn CheckInDate;
         private DataGridViewTextBoxColumn CheckOutDate;
         private DataGridViewCheckBoxColumn Canceled;
         private DataGridViewTextBoxColumn ReservationDayPrice;
-        private DataGridViewTextBoxColumn CustomerId;
-        private DataGridViewTextBoxColumn RoomId;
     }
 }

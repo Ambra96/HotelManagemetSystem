@@ -177,7 +177,7 @@ namespace HotelPmsCore.Forms
         {
             var form = Program.ServiceProvider.GetRequiredService<ReservationFormChkInOut>();
             form.ShowDialog();
-            //pending chekin out + prepei na ftiaksw to chekindate checkoutdate sto reservation prin null - meta full!
+       
         }
     }
 }
