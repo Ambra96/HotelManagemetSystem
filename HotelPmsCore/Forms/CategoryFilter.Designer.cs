@@ -93,7 +93,6 @@
             Controls.Add(label1);
             Name = "CategoryFilter";
             Text = "CategoryFilter";
-            Load += CategoryFilter_Load;
             Shown += CategoryFilter_Shown;
             ResumeLayout(false);
             PerformLayout();

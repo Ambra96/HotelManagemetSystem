@@ -72,12 +72,6 @@ namespace HotelPmsCore.Forms
         }
 
 
-        private void CategoryFilter_Load(object sender, EventArgs e)
-        {
-
-        }
-
-
 
     }
 }

@@ -40,6 +40,8 @@
             // backPicPanel
             // 
             backPicPanel.BackColor = SystemColors.InactiveBorder;
+            backPicPanel.BackgroundImage = Properties.Resources.LoginBack;
+            backPicPanel.BorderStyle = BorderStyle.Fixed3D;
             backPicPanel.Controls.Add(CancelButton);
             backPicPanel.Controls.Add(loginlabel);
             backPicPanel.Controls.Add(LoginButton);
@@ -54,7 +56,7 @@
             // 
             CancelButton.BackColor = Color.Brown;
             CancelButton.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            CancelButton.Location = new Point(346, 334);
+            CancelButton.Location = new Point(344, 334);
             CancelButton.Name = "CancelButton";
             CancelButton.Size = new Size(94, 42);
             CancelButton.TabIndex = 4;
@@ -76,7 +78,7 @@
             // 
             // LoginButton
             // 
-            LoginButton.BackColor = Color.DarkGray;
+            LoginButton.BackColor = Color.LightSteelBlue;
             LoginButton.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             LoginButton.Location = new Point(177, 334);
             LoginButton.Name = "LoginButton";
@@ -89,20 +91,18 @@
             // passwordtext
             // 
             passwordtext.BackColor = Color.FromArgb(224, 224, 224);
-            passwordtext.Location = new Point(177, 221);
+            passwordtext.Location = new Point(295, 227);
             passwordtext.Name = "passwordtext";
             passwordtext.PasswordChar = '*';
-            passwordtext.PlaceholderText = "Password";
-            passwordtext.Size = new Size(263, 31);
+            passwordtext.Size = new Size(291, 31);
             passwordtext.TabIndex = 1;
             // 
             // usernametext
             // 
             usernametext.BackColor = Color.FromArgb(224, 224, 224);
-            usernametext.Location = new Point(177, 140);
+            usernametext.Location = new Point(295, 143);
             usernametext.Name = "usernametext";
-            usernametext.PlaceholderText = "Username";
-            usernametext.Size = new Size(263, 31);
+            usernametext.Size = new Size(291, 31);
             usernametext.TabIndex = 0;
             // 
             // LoginForm

@@ -52,7 +52,6 @@
             buttonEditRes = new Button();
             customerBindingSource = new BindingSource(components);
             roomBindingSource = new BindingSource(components);
-            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             Customer = new DataGridViewTextBoxColumn();
             CustomerId = new DataGridViewTextBoxColumn();
             Room = new DataGridViewTextBoxColumn();
@@ -74,13 +73,14 @@
             // dataGridView1
             // 
             dataGridView1.AutoGenerateColumns = false;
+            dataGridView1.BackgroundColor = Color.MintCream;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn, Customer, CustomerId, Room, RoomId, ReservationDateFrom, ReservationDateTo, CheckInDate, CheckOutDate, Canceled, ReservationDayPrice });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Customer, CustomerId, Room, RoomId, ReservationDateFrom, ReservationDateTo, CheckInDate, CheckOutDate, Canceled, ReservationDayPrice });
             dataGridView1.DataSource = reservationBindingSource;
-            dataGridView1.Location = new Point(2, 67);
+            dataGridView1.Location = new Point(-5, 67);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(1439, 384);
+            dataGridView1.Size = new Size(1488, 384);
             dataGridView1.TabIndex = 0;
             // 
             // reservationBindingSource
@@ -90,7 +90,7 @@
             // dateTimeFrom
             // 
             dateTimeFrom.Format = DateTimePickerFormat.Short;
-            dateTimeFrom.Location = new Point(111, 18);
+            dateTimeFrom.Location = new Point(358, 12);
             dateTimeFrom.Name = "dateTimeFrom";
             dateTimeFrom.Size = new Size(167, 31);
             dateTimeFrom.TabIndex = 1;
@@ -98,7 +98,8 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(12, 24);
+            label1.ForeColor = SystemColors.Window;
+            label1.Location = new Point(259, 18);
             label1.Name = "label1";
             label1.Size = new Size(93, 25);
             label1.TabIndex = 3;
@@ -107,7 +108,8 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(301, 24);
+            label2.ForeColor = SystemColors.Window;
+            label2.Location = new Point(548, 18);
             label2.Name = "label2";
             label2.Size = new Size(29, 25);
             label2.TabIndex = 5;
@@ -116,14 +118,14 @@
             // dateTimeTo
             // 
             dateTimeTo.Format = DateTimePickerFormat.Short;
-            dateTimeTo.Location = new Point(350, 18);
+            dateTimeTo.Location = new Point(597, 12);
             dateTimeTo.Name = "dateTimeTo";
             dateTimeTo.Size = new Size(169, 31);
             dateTimeTo.TabIndex = 4;
             // 
             // numericCapacity
             // 
-            numericCapacity.Location = new Point(698, 18);
+            numericCapacity.Location = new Point(945, 12);
             numericCapacity.Name = "numericCapacity";
             numericCapacity.Size = new Size(107, 31);
             numericCapacity.TabIndex = 6;
@@ -131,7 +133,8 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(567, 24);
+            label3.ForeColor = SystemColors.Window;
+            label3.Location = new Point(814, 18);
             label3.Name = "label3";
             label3.Size = new Size(107, 25);
             label3.TabIndex = 7;
@@ -139,6 +142,7 @@
             // 
             // panel1
             // 
+            panel1.BackColor = Color.MintCream;
             panel1.Controls.Add(btnSave);
             panel1.Controls.Add(button1);
             panel1.Controls.Add(textBoxTotal);
@@ -149,29 +153,32 @@
             panel1.Controls.Add(label4);
             panel1.Controls.Add(comboBoxRoom);
             panel1.Controls.Add(comboBoxCustomer);
+            panel1.ForeColor = SystemColors.ActiveCaptionText;
             panel1.Location = new Point(2, 457);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1439, 155);
+            panel1.Size = new Size(1488, 155);
             panel1.TabIndex = 8;
             // 
             // btnSave
             // 
+            btnSave.BackColor = Color.LightSteelBlue;
             btnSave.Location = new Point(1241, 74);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(171, 41);
             btnSave.TabIndex = 19;
             btnSave.Text = "Create Reservation";
-            btnSave.UseVisualStyleBackColor = true;
+            btnSave.UseVisualStyleBackColor = false;
             btnSave.Click += BtnSave_Click;
             // 
             // button1
             // 
+            button1.BackColor = Color.LightSteelBlue;
             button1.Location = new Point(1241, 20);
             button1.Name = "button1";
             button1.Size = new Size(171, 41);
             button1.TabIndex = 18;
             button1.Text = "New Customer";
-            button1.UseVisualStyleBackColor = true;
+            button1.UseVisualStyleBackColor = false;
             button1.Click += BtnNewCustomer_Click;
             // 
             // textBoxTotal
@@ -193,6 +200,7 @@
             // label7
             // 
             label7.AutoSize = true;
+            label7.ForeColor = SystemColors.ActiveCaptionText;
             label7.Location = new Point(10, 78);
             label7.Name = "label7";
             label7.Size = new Size(49, 25);
@@ -202,6 +210,7 @@
             // label6
             // 
             label6.AutoSize = true;
+            label6.ForeColor = SystemColors.ActiveCaptionText;
             label6.Location = new Point(8, 118);
             label6.Name = "label6";
             label6.Size = new Size(91, 25);
@@ -211,6 +220,7 @@
             // label5
             // 
             label5.AutoSize = true;
+            label5.ForeColor = SystemColors.ActiveCaptionText;
             label5.Location = new Point(646, 28);
             label5.Name = "label5";
             label5.Size = new Size(60, 25);
@@ -220,6 +230,7 @@
             // label4
             // 
             label4.AutoSize = true;
+            label4.ForeColor = SystemColors.ActiveCaptionText;
             label4.Location = new Point(10, 28);
             label4.Name = "label4";
             label4.Size = new Size(89, 25);
@@ -245,22 +256,24 @@
             // 
             // btnSearchRooms
             // 
-            btnSearchRooms.Location = new Point(925, 19);
+            btnSearchRooms.BackColor = Color.LightSteelBlue;
+            btnSearchRooms.Location = new Point(1243, 12);
             btnSearchRooms.Name = "btnSearchRooms";
-            btnSearchRooms.Size = new Size(107, 30);
+            btnSearchRooms.Size = new Size(171, 41);
             btnSearchRooms.TabIndex = 9;
             btnSearchRooms.Text = "Search";
-            btnSearchRooms.UseVisualStyleBackColor = true;
+            btnSearchRooms.UseVisualStyleBackColor = false;
             btnSearchRooms.Click += BtnSearchRooms_Click;
             // 
             // buttonEditRes
             // 
-            buttonEditRes.Location = new Point(1243, 621);
+            buttonEditRes.BackColor = Color.LightSteelBlue;
+            buttonEditRes.Location = new Point(1243, 652);
             buttonEditRes.Name = "buttonEditRes";
-            buttonEditRes.Size = new Size(171, 38);
+            buttonEditRes.Size = new Size(171, 41);
             buttonEditRes.TabIndex = 19;
             buttonEditRes.Text = "Edit Reservation";
-            buttonEditRes.UseVisualStyleBackColor = true;
+            buttonEditRes.UseVisualStyleBackColor = false;
             buttonEditRes.Click += buttonEditRes_Click;
             // 
             // customerBindingSource
@@ -270,14 +283,6 @@
             // roomBindingSource
             // 
             roomBindingSource.DataSource = typeof(Models.Room);
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            idDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            idDataGridViewTextBoxColumn.HeaderText = "Id";
-            idDataGridViewTextBoxColumn.MinimumWidth = 8;
-            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
             // 
             // Customer
             // 
@@ -289,11 +294,11 @@
             // 
             // CustomerId
             // 
-            CustomerId.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             CustomerId.DataPropertyName = "CustomerId";
             CustomerId.HeaderText = "CustomerId";
             CustomerId.MinimumWidth = 8;
             CustomerId.Name = "CustomerId";
+            CustomerId.Width = 110;
             // 
             // Room
             // 
@@ -305,7 +310,6 @@
             // 
             // RoomId
             // 
-            RoomId.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             RoomId.DataPropertyName = "RoomId";
             RoomId.HeaderText = "RoomId";
             RoomId.MinimumWidth = 8;
@@ -345,8 +349,8 @@
             // 
             // Canceled
             // 
-            Canceled.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             Canceled.DataPropertyName = "Canceled";
+            Canceled.FillWeight = 80F;
             Canceled.HeaderText = "Canceled";
             Canceled.MinimumWidth = 8;
             Canceled.Name = "Canceled";
@@ -363,7 +367,8 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1443, 671);
+            BackColor = Color.FromArgb(49, 55, 55);
+            ClientSize = new Size(1495, 727);
             Controls.Add(buttonEditRes);
             Controls.Add(btnSearchRooms);
             Controls.Add(panel1);
@@ -413,7 +418,6 @@
         private Button btnSave;
         private BindingSource customerBindingSource;
         private BindingSource roomBindingSource;
-        private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn Customer;
         private DataGridViewTextBoxColumn CustomerId;
         private DataGridViewTextBoxColumn Room;

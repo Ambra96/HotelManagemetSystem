@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RoomFilter));
             label1 = new Label();
             txtRoomNumber = new TextBox();
             label3 = new Label();
@@ -42,7 +43,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(204, 51);
+            label1.Location = new Point(140, 96);
             label1.Name = "label1";
             label1.Size = new Size(125, 25);
             label1.TabIndex = 23;
@@ -50,15 +51,15 @@
             // 
             // txtRoomNumber
             // 
-            txtRoomNumber.Location = new Point(405, 51);
+            txtRoomNumber.Location = new Point(341, 96);
             txtRoomNumber.Name = "txtRoomNumber";
-            txtRoomNumber.Size = new Size(150, 31);
+            txtRoomNumber.Size = new Size(190, 31);
             txtRoomNumber.TabIndex = 22;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(204, 162);
+            label3.Location = new Point(142, 207);
             label3.Name = "label3";
             label3.Size = new Size(0, 25);
             label3.TabIndex = 31;
@@ -66,7 +67,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(204, 116);
+            label4.Location = new Point(140, 161);
             label4.Name = "label4";
             label4.Size = new Size(79, 25);
             label4.TabIndex = 30;
@@ -74,47 +75,51 @@
             // 
             // numCapacity
             // 
-            numCapacity.Location = new Point(405, 116);
+            numCapacity.Location = new Point(341, 161);
             numCapacity.Maximum = new decimal(new int[] { 500, 0, 0, 0 });
             numCapacity.Name = "numCapacity";
-            numCapacity.Size = new Size(150, 31);
+            numCapacity.Size = new Size(190, 31);
             numCapacity.TabIndex = 29;
             // 
             // ButtonCancel
             // 
-            ButtonCancel.Location = new Point(488, 275);
+            ButtonCancel.BackColor = Color.Brown;
+            ButtonCancel.Location = new Point(428, 296);
             ButtonCancel.Name = "ButtonCancel";
-            ButtonCancel.Size = new Size(95, 37);
+            ButtonCancel.Size = new Size(94, 42);
             ButtonCancel.TabIndex = 34;
             ButtonCancel.Text = "Cancel";
-            ButtonCancel.UseVisualStyleBackColor = true;
+            ButtonCancel.UseVisualStyleBackColor = false;
             ButtonCancel.Click += ButtonCancel_Click;
             // 
             // ButtonOk
             // 
-            ButtonOk.Location = new Point(202, 275);
+            ButtonOk.BackColor = Color.LightSteelBlue;
+            ButtonOk.Location = new Point(142, 296);
             ButtonOk.Name = "ButtonOk";
-            ButtonOk.Size = new Size(58, 37);
+            ButtonOk.Size = new Size(94, 42);
             ButtonOk.TabIndex = 33;
             ButtonOk.Text = "Ok";
-            ButtonOk.UseVisualStyleBackColor = true;
+            ButtonOk.UseVisualStyleBackColor = false;
             ButtonOk.Click += ButtonOk_Click;
             // 
             // ButtonClFilter
             // 
-            ButtonClFilter.Location = new Point(290, 275);
+            ButtonClFilter.BackColor = Color.LightSteelBlue;
+            ButtonClFilter.Location = new Point(256, 296);
             ButtonClFilter.Name = "ButtonClFilter";
-            ButtonClFilter.Size = new Size(174, 36);
+            ButtonClFilter.Size = new Size(137, 42);
             ButtonClFilter.TabIndex = 32;
             ButtonClFilter.Text = "Clear Filter";
-            ButtonClFilter.UseVisualStyleBackColor = true;
+            ButtonClFilter.UseVisualStyleBackColor = false;
             ButtonClFilter.Click += ButtonClFilter_Click;
             // 
             // RoomFilter
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            BackColor = Color.MintCream;
+            ClientSize = new Size(694, 459);
             Controls.Add(ButtonCancel);
             Controls.Add(ButtonOk);
             Controls.Add(ButtonClFilter);
@@ -123,10 +128,12 @@
             Controls.Add(numCapacity);
             Controls.Add(label1);
             Controls.Add(txtRoomNumber);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "RoomFilter";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "RoomFilter";
-            ((System.ComponentModel.ISupportInitialize)numCapacity).EndInit();
             Shown += RoomFilter_Shown;
+            ((System.ComponentModel.ISupportInitialize)numCapacity).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }

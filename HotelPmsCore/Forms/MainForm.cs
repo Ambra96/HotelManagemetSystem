@@ -63,23 +63,28 @@ namespace HotelPmsCore.Forms
         private void button_customers_Click(object sender, EventArgs e)
         {
             settingsPanel.Visible = false;
+            ButtonPanel.Visible = true;
             OpenModule<CustomerForm>();
         }
         private void button_rooms_Click(object sender, EventArgs e)
         {
             settingsPanel.Visible = false;
+            ButtonPanel.Visible = true;
             OpenModule<RoomForm>();
         }
 
         private void button_reservations_Click_1(object sender, EventArgs e)
         {
             settingsPanel.Visible = false;
+            ButtonPanel.Visible = false;
             OpenModule<ReservationForm>();
         }
 
         private void button_staff_Click(object sender, EventArgs e)
         {
             settingsPanel.Visible = false;
+            ButtonPanel.Visible = true;
+
             OpenModule<StaffForm>();
         }
         private void NewButton_Click(object s, EventArgs e)
@@ -138,6 +143,7 @@ namespace HotelPmsCore.Forms
         {
             var form = Program.ServiceProvider.GetRequiredService<PeriodForm>();
             ShowInSettingsPanel(form);
+            ButtonPanel.Visible = true;
 
         }
 
@@ -147,6 +153,7 @@ namespace HotelPmsCore.Forms
             service.CategoryType = 0;
             var form = Program.ServiceProvider.GetRequiredService<CategoryForm>();
             ShowInSettingsPanel(form);
+            ButtonPanel.Visible = true;
         }
 
         private void menuItemUsers_Click(object sender, EventArgs e)
@@ -154,12 +161,14 @@ namespace HotelPmsCore.Forms
 
             var form = Program.ServiceProvider.GetRequiredService<UserForm>();
             ShowInSettingsPanel(form);
+            ButtonPanel.Visible = true;
         }
 
         private void button_settings_Click(object sender, EventArgs e)
         {
 
             settingsPanel.Visible = true;
+            ButtonPanel.Visible = true;
             settingsPanel.BringToFront();
         }
 

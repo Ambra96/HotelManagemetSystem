@@ -293,19 +293,20 @@
             // 
             // BttnFilters
             // 
-            BttnFilters.Location = new Point(1243, 11);
+            BttnFilters.BackColor = Color.LightSteelBlue;
+            BttnFilters.Location = new Point(838, 4);
             BttnFilters.Name = "BttnFilters";
-            BttnFilters.Size = new Size(112, 34);
+            BttnFilters.Size = new Size(92, 41);
             BttnFilters.TabIndex = 4;
             BttnFilters.Text = "Filters";
-            BttnFilters.UseVisualStyleBackColor = true;
+            BttnFilters.UseVisualStyleBackColor = false;
             BttnFilters.Click += BttnFilters_Click;
             // 
             // EditButton
             // 
             EditButton.Anchor = AnchorStyles.None;
-            EditButton.BackColor = Color.LightSkyBlue;
-            EditButton.Location = new Point(581, 4);
+            EditButton.BackColor = Color.LightSteelBlue;
+            EditButton.Location = new Point(438, 4);
             EditButton.Name = "EditButton";
             EditButton.Size = new Size(92, 41);
             EditButton.TabIndex = 1;
@@ -316,8 +317,8 @@
             // DeleteButton
             // 
             DeleteButton.Anchor = AnchorStyles.None;
-            DeleteButton.BackColor = Color.LightSkyBlue;
-            DeleteButton.Location = new Point(811, 4);
+            DeleteButton.BackColor = Color.LightSteelBlue;
+            DeleteButton.Location = new Point(638, 4);
             DeleteButton.Name = "DeleteButton";
             DeleteButton.Size = new Size(92, 41);
             DeleteButton.TabIndex = 2;
@@ -329,7 +330,7 @@
             // 
             ExitButton.Anchor = AnchorStyles.None;
             ExitButton.BackColor = Color.Brown;
-            ExitButton.Location = new Point(1041, 4);
+            ExitButton.Location = new Point(1038, 4);
             ExitButton.Name = "ExitButton";
             ExitButton.Size = new Size(92, 41);
             ExitButton.TabIndex = 3;
@@ -340,8 +341,8 @@
             // NewButton
             // 
             NewButton.Anchor = AnchorStyles.None;
-            NewButton.BackColor = Color.LightSkyBlue;
-            NewButton.Location = new Point(351, 4);
+            NewButton.BackColor = Color.LightSteelBlue;
+            NewButton.Location = new Point(238, 4);
             NewButton.Name = "NewButton";
             NewButton.Size = new Size(92, 41);
             NewButton.TabIndex = 0;

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RoomEditForm));
             roomBindingSource = new BindingSource(components);
             txtFloor = new TextBox();
             txtRoomNumber = new TextBox();
@@ -51,39 +52,41 @@
             // 
             // txtFloor
             // 
-            txtFloor.Location = new Point(421, 109);
+            txtFloor.Location = new Point(352, 101);
             txtFloor.Name = "txtFloor";
             txtFloor.Size = new Size(150, 31);
             txtFloor.TabIndex = 10;
             // 
             // txtRoomNumber
             // 
-            txtRoomNumber.Location = new Point(421, 70);
+            txtRoomNumber.Location = new Point(352, 62);
             txtRoomNumber.Name = "txtRoomNumber";
             txtRoomNumber.Size = new Size(150, 31);
             txtRoomNumber.TabIndex = 9;
             // 
             // SaveBttn
             // 
-            SaveBttn.Location = new Point(220, 385);
+            SaveBttn.BackColor = Color.LightSteelBlue;
+            SaveBttn.Location = new Point(182, 367);
             SaveBttn.Name = "SaveBttn";
-            SaveBttn.Size = new Size(111, 42);
+            SaveBttn.Size = new Size(94, 42);
             SaveBttn.TabIndex = 16;
             SaveBttn.Text = "Save";
-            SaveBttn.UseVisualStyleBackColor = true;
+            SaveBttn.UseVisualStyleBackColor = false;
             // 
             // CancelBttn
             // 
-            CancelBttn.Location = new Point(460, 385);
+            CancelBttn.BackColor = Color.Brown;
+            CancelBttn.Location = new Point(352, 367);
             CancelBttn.Name = "CancelBttn";
-            CancelBttn.Size = new Size(111, 42);
+            CancelBttn.Size = new Size(94, 42);
             CancelBttn.TabIndex = 17;
             CancelBttn.Text = "Cancel";
-            CancelBttn.UseVisualStyleBackColor = true;
+            CancelBttn.UseVisualStyleBackColor = false;
             // 
             // numCapacity
             // 
-            numCapacity.Location = new Point(421, 220);
+            numCapacity.Location = new Point(352, 212);
             numCapacity.Maximum = new decimal(new int[] { 500, 0, 0, 0 });
             numCapacity.Name = "numCapacity";
             numCapacity.Size = new Size(150, 31);
@@ -91,7 +94,7 @@
             // 
             // numSummer
             // 
-            numSummer.Location = new Point(421, 183);
+            numSummer.Location = new Point(352, 175);
             numSummer.Maximum = new decimal(new int[] { 2500, 0, 0, 0 });
             numSummer.Name = "numSummer";
             numSummer.Size = new Size(150, 31);
@@ -100,7 +103,7 @@
             // numWinter
             // 
             numWinter.AccessibleName = "WinterPrice";
-            numWinter.Location = new Point(421, 146);
+            numWinter.Location = new Point(352, 138);
             numWinter.Maximum = new decimal(new int[] { 2500, 0, 0, 0 });
             numWinter.Name = "numWinter";
             numWinter.Size = new Size(150, 31);
@@ -109,7 +112,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(220, 70);
+            label1.Location = new Point(151, 62);
             label1.Name = "label1";
             label1.Size = new Size(125, 25);
             label1.TabIndex = 21;
@@ -118,7 +121,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(220, 183);
+            label5.Location = new Point(151, 175);
             label5.Name = "label5";
             label5.Size = new Size(116, 25);
             label5.TabIndex = 25;
@@ -127,7 +130,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(220, 146);
+            label6.Location = new Point(151, 138);
             label6.Name = "label6";
             label6.Size = new Size(101, 25);
             label6.TabIndex = 26;
@@ -136,7 +139,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(220, 266);
+            label3.Location = new Point(151, 258);
             label3.Name = "label3";
             label3.Size = new Size(0, 25);
             label3.TabIndex = 28;
@@ -144,7 +147,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(220, 220);
+            label4.Location = new Point(151, 212);
             label4.Name = "label4";
             label4.Size = new Size(79, 25);
             label4.TabIndex = 27;
@@ -153,7 +156,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(220, 109);
+            label7.Location = new Point(151, 101);
             label7.Name = "label7";
             label7.Size = new Size(53, 25);
             label7.TabIndex = 30;
@@ -163,7 +166,8 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            BackColor = Color.MintCream;
+            ClientSize = new Size(694, 459);
             Controls.Add(label7);
             Controls.Add(label3);
             Controls.Add(label4);
@@ -177,7 +181,9 @@
             Controls.Add(SaveBttn);
             Controls.Add(txtFloor);
             Controls.Add(txtRoomNumber);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "RoomEditForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "RoomEditForm";
             ((System.ComponentModel.ISupportInitialize)roomBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)numCapacity).EndInit();

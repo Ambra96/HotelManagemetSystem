@@ -41,6 +41,7 @@
             // dataGridView1
             // 
             dataGridView1.AutoGenerateColumns = false;
+            dataGridView1.BackgroundColor = Color.MintCream;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { firstnameDataGridViewTextBoxColumn, lastnameDataGridViewTextBoxColumn, specialityDataGridViewTextBoxColumn });
             dataGridView1.DataSource = staffBindingSource;
@@ -50,7 +51,7 @@
             dataGridView1.RightToLeft = RightToLeft.No;
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(795, 449);
+            dataGridView1.Size = new Size(1466, 666);
             dataGridView1.TabIndex = 0;
             // 
             // firstnameDataGridViewTextBoxColumn
@@ -85,8 +86,10 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            BackColor = Color.FromArgb(49, 55, 55);
+            ClientSize = new Size(1473, 671);
             Controls.Add(dataGridView1);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "StaffForm";
             Text = "StaffForm";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();

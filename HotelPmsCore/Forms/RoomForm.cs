@@ -52,10 +52,7 @@ namespace HotelPmsCore.Forms
                 svc.filterValues = filterDialog.FilterValues;
                 svc.ApplyFilters(svc.filterValues);
             }
-            else
-            {
-                // Optionally, do something if canceled
-            }
+           
         }
     }
 }

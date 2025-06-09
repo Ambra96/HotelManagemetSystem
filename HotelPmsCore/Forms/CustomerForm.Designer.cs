@@ -41,16 +41,16 @@
             // 
             dataGridViewCustomer.AutoGenerateColumns = false;
             dataGridViewCustomer.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCustomer.BackgroundColor = SystemColors.ButtonFace;
+            dataGridViewCustomer.BackgroundColor = Color.MintCream;
             dataGridViewCustomer.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCustomer.Columns.AddRange(new DataGridViewColumn[] { firstNameDataGridViewTextBoxColumn, lastNameDataGridViewTextBoxColumn, afmDataGridViewTextBoxColumn, emailDataGridViewTextBoxColumn, phoneDataGridViewTextBoxColumn, addressDataGridViewTextBoxColumn, cityDataGridViewTextBoxColumn, countryDataGridViewTextBoxColumn, zipCodeDataGridViewTextBoxColumn });
             dataGridViewCustomer.DataSource = customerBindingSource;
             dataGridViewCustomer.GridColor = SystemColors.InactiveBorder;
-            dataGridViewCustomer.Location = new Point(12, 46);
+            dataGridViewCustomer.Location = new Point(6, 46);
             dataGridViewCustomer.Name = "dataGridViewCustomer";
             dataGridViewCustomer.RowHeadersWidth = 62;
             dataGridViewCustomer.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewCustomer.Size = new Size(1471, 669);
+            dataGridViewCustomer.Size = new Size(1483, 675);
             dataGridViewCustomer.TabIndex = 0;
             // 
             // firstNameDataGridViewTextBoxColumn
@@ -149,6 +149,7 @@
             Controls.Add(NxtButton);
             Controls.Add(PrvButton);
             Controls.Add(dataGridViewCustomer);
+            Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             FormBorderStyle = FormBorderStyle.None;
             Location = new Point(204, 133);
             Name = "CustomerForm";

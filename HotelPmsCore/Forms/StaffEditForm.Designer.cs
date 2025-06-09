@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StaffEditForm));
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
@@ -44,76 +45,79 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(121, 77);
+            label1.Location = new Point(148, 49);
             label1.Name = "label1";
-            label1.Size = new Size(93, 25);
+            label1.Size = new Size(89, 25);
             label1.TabIndex = 0;
-            label1.Text = "Firstname:";
+            label1.Text = "Firstname";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(121, 155);
+            label2.Location = new Point(148, 127);
             label2.Name = "label2";
-            label2.Size = new Size(91, 25);
+            label2.Size = new Size(87, 25);
             label2.TabIndex = 1;
-            label2.Text = "Lastname:";
+            label2.Text = "Lastname";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(121, 227);
+            label3.Location = new Point(148, 199);
             label3.Name = "label3";
-            label3.Size = new Size(90, 25);
+            label3.Size = new Size(86, 25);
             label3.TabIndex = 2;
-            label3.Text = "Speciality:";
+            label3.Text = "Speciality";
             // 
             // textBoxFirstname
             // 
-            textBoxFirstname.Location = new Point(359, 71);
+            textBoxFirstname.Location = new Point(256, 43);
             textBoxFirstname.Name = "textBoxFirstname";
-            textBoxFirstname.Size = new Size(237, 31);
+            textBoxFirstname.Size = new Size(280, 31);
             textBoxFirstname.TabIndex = 3;
             // 
             // textBoxLastname
             // 
-            textBoxLastname.Location = new Point(359, 149);
+            textBoxLastname.Location = new Point(256, 121);
             textBoxLastname.Name = "textBoxLastname";
-            textBoxLastname.Size = new Size(237, 31);
+            textBoxLastname.Size = new Size(280, 31);
             textBoxLastname.TabIndex = 4;
             // 
             // textBoxSpeciality
             // 
-            textBoxSpeciality.Location = new Point(359, 221);
+            textBoxSpeciality.Location = new Point(256, 193);
             textBoxSpeciality.Name = "textBoxSpeciality";
-            textBoxSpeciality.Size = new Size(237, 31);
+            textBoxSpeciality.Size = new Size(280, 31);
             textBoxSpeciality.TabIndex = 5;
             // 
             // button1save
             // 
-            button1save.Location = new Point(224, 369);
+            button1save.BackColor = Color.LightSteelBlue;
+            button1save.Location = new Point(195, 332);
             button1save.Name = "button1save";
-            button1save.Size = new Size(112, 34);
+            button1save.Size = new Size(94, 42);
             button1save.TabIndex = 6;
             button1save.Text = "Save";
-            button1save.UseVisualStyleBackColor = true;
+            button1save.UseVisualStyleBackColor = false;
             button1save.Click += button1save_Click;
             // 
             // button2cancel
             // 
-            button2cancel.Location = new Point(428, 369);
+            button2cancel.BackColor = Color.Brown;
+            button2cancel.Location = new Point(398, 332);
             button2cancel.Name = "button2cancel";
-            button2cancel.Size = new Size(112, 34);
+            button2cancel.Size = new Size(94, 42);
             button2cancel.TabIndex = 7;
             button2cancel.Text = "Cancel";
-            button2cancel.UseVisualStyleBackColor = true;
+            button2cancel.UseVisualStyleBackColor = false;
             button2cancel.Click += button2cancel_Click;
             // 
             // StaffEditForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            BackColor = Color.MintCream;
+            ClientSize = new Size(694, 459);
             Controls.Add(button2cancel);
             Controls.Add(button1save);
             Controls.Add(textBoxSpeciality);
@@ -122,7 +126,9 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "StaffEditForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "StaffEditForm";
             ((System.ComponentModel.ISupportInitialize)StaffBindingSource).EndInit();
             ResumeLayout(false);

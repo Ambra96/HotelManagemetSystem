@@ -103,9 +103,6 @@ namespace HotelPmsCore.Forms
         }
 
        
-        private void CustomerFilter_Load(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }

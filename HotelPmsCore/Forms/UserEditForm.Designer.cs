@@ -153,6 +153,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "UserEditForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "UserEditForm";
             ((System.ComponentModel.ISupportInitialize)userBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)typedCategoryBindingSource).EndInit();

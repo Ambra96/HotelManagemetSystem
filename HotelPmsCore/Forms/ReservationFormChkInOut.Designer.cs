@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReservationFormChkInOut));
             label1 = new Label();
             label2 = new Label();
             comboBoxCustomer = new ComboBox();
@@ -52,7 +53,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(21, 32);
+            label1.Location = new Point(85, 52);
             label1.Name = "label1";
             label1.Size = new Size(89, 25);
             label1.TabIndex = 0;
@@ -61,7 +62,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(21, 101);
+            label2.Location = new Point(85, 121);
             label2.Name = "label2";
             label2.Size = new Size(145, 25);
             label2.TabIndex = 1;
@@ -70,24 +71,24 @@
             // comboBoxCustomer
             // 
             comboBoxCustomer.FormattingEnabled = true;
-            comboBoxCustomer.Location = new Point(214, 24);
+            comboBoxCustomer.Location = new Point(245, 44);
             comboBoxCustomer.Name = "comboBoxCustomer";
-            comboBoxCustomer.Size = new Size(502, 33);
+            comboBoxCustomer.Size = new Size(340, 33);
             comboBoxCustomer.TabIndex = 2;
             // 
             // dateTimeReservation
             // 
             dateTimeReservation.Format = DateTimePickerFormat.Short;
-            dateTimeReservation.Location = new Point(214, 95);
+            dateTimeReservation.Location = new Point(245, 116);
             dateTimeReservation.Name = "dateTimeReservation";
             dateTimeReservation.Size = new Size(152, 31);
             dateTimeReservation.TabIndex = 3;
             // 
             // btnFindReservation
             // 
-            btnFindReservation.Location = new Point(487, 95);
+            btnFindReservation.Location = new Point(413, 116);
             btnFindReservation.Name = "btnFindReservation";
-            btnFindReservation.Size = new Size(205, 31);
+            btnFindReservation.Size = new Size(172, 38);
             btnFindReservation.TabIndex = 4;
             btnFindReservation.Text = "Find Reservation";
             btnFindReservation.UseVisualStyleBackColor = true;
@@ -102,7 +103,7 @@
             panel1.Controls.Add(comboBoxCustomer);
             panel1.Location = new Point(3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(755, 224);
+            panel1.Size = new Size(689, 224);
             panel1.TabIndex = 5;
             // 
             // panel2
@@ -116,12 +117,12 @@
             panel2.Controls.Add(dateTimeFrom);
             panel2.Location = new Point(3, 232);
             panel2.Name = "panel2";
-            panel2.Size = new Size(755, 349);
+            panel2.Size = new Size(689, 227);
             panel2.TabIndex = 6;
             // 
             // btnCheckOut
             // 
-            btnCheckOut.Location = new Point(609, 275);
+            btnCheckOut.Location = new Point(478, 157);
             btnCheckOut.Margin = new Padding(4, 5, 4, 5);
             btnCheckOut.Name = "btnCheckOut";
             btnCheckOut.Size = new Size(107, 38);
@@ -132,7 +133,7 @@
             // 
             // btnCheckIn
             // 
-            btnCheckIn.Location = new Point(469, 275);
+            btnCheckIn.Location = new Point(338, 157);
             btnCheckIn.Margin = new Padding(4, 5, 4, 5);
             btnCheckIn.Name = "btnCheckIn";
             btnCheckIn.Size = new Size(107, 38);
@@ -144,7 +145,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(21, 107);
+            label4.Location = new Point(85, 101);
             label4.Name = "label4";
             label4.Size = new Size(60, 25);
             label4.TabIndex = 7;
@@ -153,15 +154,15 @@
             // comboBoxRoom
             // 
             comboBoxRoom.FormattingEnabled = true;
-            comboBoxRoom.Location = new Point(214, 99);
+            comboBoxRoom.Location = new Point(245, 93);
             comboBoxRoom.Name = "comboBoxRoom";
-            comboBoxRoom.Size = new Size(502, 33);
+            comboBoxRoom.Size = new Size(340, 33);
             comboBoxRoom.TabIndex = 8;
             // 
             // dateTimeTo
             // 
             dateTimeTo.Format = DateTimePickerFormat.Short;
-            dateTimeTo.Location = new Point(487, 21);
+            dateTimeTo.Location = new Point(433, 16);
             dateTimeTo.Name = "dateTimeTo";
             dateTimeTo.Size = new Size(152, 31);
             dateTimeTo.TabIndex = 6;
@@ -169,7 +170,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(21, 27);
+            label3.Location = new Point(85, 21);
             label3.Name = "label3";
             label3.Size = new Size(153, 25);
             label3.TabIndex = 4;
@@ -178,7 +179,7 @@
             // dateTimeFrom
             // 
             dateTimeFrom.Format = DateTimePickerFormat.Short;
-            dateTimeFrom.Location = new Point(214, 21);
+            dateTimeFrom.Location = new Point(245, 15);
             dateTimeFrom.Name = "dateTimeFrom";
             dateTimeFrom.Size = new Size(152, 31);
             dateTimeFrom.TabIndex = 5;
@@ -187,10 +188,13 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(761, 585);
+            BackColor = Color.MintCream;
+            ClientSize = new Size(694, 459);
             Controls.Add(panel2);
             Controls.Add(panel1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ReservationFormChkInOut";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "ReservationFormChkInOut";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

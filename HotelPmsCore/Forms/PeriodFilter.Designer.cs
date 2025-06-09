@@ -135,7 +135,6 @@
             Controls.Add(label1);
             Name = "PeriodFilter";
             Text = "PeriodFilter";
-            //Load += PeriodFilter_Load;
             Shown += PeriodFilter_Shown;
             ResumeLayout(false);
             PerformLayout();

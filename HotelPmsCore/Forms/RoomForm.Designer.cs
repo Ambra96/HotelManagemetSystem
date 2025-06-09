@@ -30,14 +30,14 @@
         {
             components = new System.ComponentModel.Container();
             dataGridViewRoom = new DataGridView();
-            roomBindingSource = new BindingSource(components);
-            NxtBttn = new Button();
-            PrvBttn = new Button();
             roomNumberDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             floorDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             PeopleCapacity = new DataGridViewTextBoxColumn();
             WinterPrice = new DataGridViewTextBoxColumn();
             SummerPrice = new DataGridViewTextBoxColumn();
+            roomBindingSource = new BindingSource(components);
+            NxtBttn = new Button();
+            PrvBttn = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridViewRoom).BeginInit();
             ((System.ComponentModel.ISupportInitialize)roomBindingSource).BeginInit();
             SuspendLayout();
@@ -48,39 +48,17 @@
             dataGridViewRoom.AllowUserToDeleteRows = false;
             dataGridViewRoom.AutoGenerateColumns = false;
             dataGridViewRoom.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewRoom.BackgroundColor = SystemColors.ButtonFace;
+            dataGridViewRoom.BackgroundColor = Color.MintCream;
             dataGridViewRoom.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewRoom.Columns.AddRange(new DataGridViewColumn[] { roomNumberDataGridViewTextBoxColumn, floorDataGridViewTextBoxColumn, PeopleCapacity, WinterPrice, SummerPrice });
             dataGridViewRoom.DataSource = roomBindingSource;
-            dataGridViewRoom.Location = new Point(12, 89);
+            dataGridViewRoom.Location = new Point(8, 52);
             dataGridViewRoom.Name = "dataGridViewRoom";
             dataGridViewRoom.ReadOnly = true;
             dataGridViewRoom.RowHeadersWidth = 62;
             dataGridViewRoom.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewRoom.Size = new Size(1471, 626);
+            dataGridViewRoom.Size = new Size(1487, 675);
             dataGridViewRoom.TabIndex = 0;
-            // 
-            // roomBindingSource
-            // 
-            roomBindingSource.DataSource = typeof(Models.Room);
-            // 
-            // NxtBttn
-            // 
-            NxtBttn.Location = new Point(1350, 27);
-            NxtBttn.Name = "NxtBttn";
-            NxtBttn.Size = new Size(48, 34);
-            NxtBttn.TabIndex = 4;
-            NxtBttn.Text = ">";
-            NxtBttn.UseVisualStyleBackColor = true;
-            // 
-            // PrvBttn
-            // 
-            PrvBttn.Location = new Point(1277, 27);
-            PrvBttn.Name = "PrvBttn";
-            PrvBttn.Size = new Size(48, 34);
-            PrvBttn.TabIndex = 3;
-            PrvBttn.Text = "<";
-            PrvBttn.UseVisualStyleBackColor = true;
             // 
             // roomNumberDataGridViewTextBoxColumn
             // 
@@ -126,6 +104,28 @@
             SummerPrice.MinimumWidth = 8;
             SummerPrice.Name = "SummerPrice";
             SummerPrice.ReadOnly = true;
+            // 
+            // roomBindingSource
+            // 
+            roomBindingSource.DataSource = typeof(Models.Room);
+            // 
+            // NxtBttn
+            // 
+            NxtBttn.Location = new Point(1330, 12);
+            NxtBttn.Name = "NxtBttn";
+            NxtBttn.Size = new Size(48, 34);
+            NxtBttn.TabIndex = 4;
+            NxtBttn.Text = ">";
+            NxtBttn.UseVisualStyleBackColor = true;
+            // 
+            // PrvBttn
+            // 
+            PrvBttn.Location = new Point(1257, 12);
+            PrvBttn.Name = "PrvBttn";
+            PrvBttn.Size = new Size(48, 34);
+            PrvBttn.TabIndex = 3;
+            PrvBttn.Text = "<";
+            PrvBttn.UseVisualStyleBackColor = true;
             // 
             // RoomForm
             // 

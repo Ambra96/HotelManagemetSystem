@@ -22,7 +22,7 @@ namespace HotelPmsCore.Forms
             comboBoxCustomer.DisplayMember = "LastName";
             comboBoxCustomer.ValueMember = "Id";
             comboBoxCustomer.SelectedIndex = -1;
-        
+
             btnCheckIn.Enabled = false;
             btnCheckOut.Enabled = false;
         }
@@ -93,7 +93,7 @@ namespace HotelPmsCore.Forms
                 currentReservation.CheckOutDate = DateTime.Now;
                 context.SaveChanges();
                 MessageBox.Show("Check-out successful!");
-                btnCheckOut.Enabled = false; 
+                btnCheckOut.Enabled = false;
             }
             else
             {
@@ -101,7 +101,7 @@ namespace HotelPmsCore.Forms
             }
         }
 
-
+       
     }
 }
 
