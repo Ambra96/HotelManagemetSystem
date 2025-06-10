@@ -259,7 +259,7 @@ namespace HotelPmsCore.Forms
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "CustomerEditForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "CustomerEditForm";
+            Text = "New/Edit Customer ";
             Load += CustomerEditForm_Load;
             ((System.ComponentModel.ISupportInitialize)bindingSourceCustomer).EndInit();
             ((System.ComponentModel.ISupportInitialize)errorProvider).EndInit();

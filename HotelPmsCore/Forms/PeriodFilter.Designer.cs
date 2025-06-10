@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PeriodFilter));
             dateTimePickerEnd = new DateTimePicker();
             dateTimePickerStart = new DateTimePicker();
             textBoxName = new TextBox();
@@ -41,7 +42,7 @@
             // 
             // dateTimePickerEnd
             // 
-            dateTimePickerEnd.Location = new Point(385, 220);
+            dateTimePickerEnd.Location = new Point(309, 219);
             dateTimePickerEnd.Name = "dateTimePickerEnd";
             dateTimePickerEnd.ShowCheckBox = true;
             dateTimePickerEnd.Size = new Size(230, 31);
@@ -49,7 +50,7 @@
             // 
             // dateTimePickerStart
             // 
-            dateTimePickerStart.Location = new Point(385, 133);
+            dateTimePickerStart.Location = new Point(309, 132);
             dateTimePickerStart.Name = "dateTimePickerStart";
             dateTimePickerStart.ShowCheckBox = true;
             dateTimePickerStart.Size = new Size(230, 31);
@@ -57,7 +58,7 @@
             // 
             // textBoxName
             // 
-            textBoxName.Location = new Point(385, 52);
+            textBoxName.Location = new Point(309, 51);
             textBoxName.Name = "textBoxName";
             textBoxName.Size = new Size(230, 31);
             textBoxName.TabIndex = 19;
@@ -65,65 +66,69 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(131, 220);
+            label3.Location = new Point(129, 219);
             label3.Name = "label3";
-            label3.Size = new Size(83, 25);
+            label3.Size = new Size(79, 25);
             label3.TabIndex = 18;
-            label3.Text = "EndDate:";
+            label3.Text = "EndDate";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(131, 133);
+            label2.Location = new Point(129, 132);
             label2.Name = "label2";
-            label2.Size = new Size(89, 25);
+            label2.Size = new Size(85, 25);
             label2.TabIndex = 17;
-            label2.Text = "StartDate:";
+            label2.Text = "StartDate";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(131, 52);
+            label1.Location = new Point(129, 51);
             label1.Name = "label1";
-            label1.Size = new Size(63, 25);
+            label1.Size = new Size(59, 25);
             label1.TabIndex = 16;
-            label1.Text = "Name:";
+            label1.Text = "Name";
             // 
             // ButtonCancel
             // 
-            ButtonCancel.Location = new Point(466, 350);
+            ButtonCancel.BackColor = Color.Brown;
+            ButtonCancel.Location = new Point(438, 335);
             ButtonCancel.Name = "ButtonCancel";
-            ButtonCancel.Size = new Size(95, 37);
+            ButtonCancel.Size = new Size(94, 42);
             ButtonCancel.TabIndex = 24;
             ButtonCancel.Text = "Cancel";
-            ButtonCancel.UseVisualStyleBackColor = true;
+            ButtonCancel.UseVisualStyleBackColor = false;
             ButtonCancel.Click += ButtonCancel_Click;
             // 
             // ButtonOk
             // 
-            ButtonOk.Location = new Point(180, 350);
+            ButtonOk.BackColor = Color.LightSteelBlue;
+            ButtonOk.Location = new Point(137, 335);
             ButtonOk.Name = "ButtonOk";
-            ButtonOk.Size = new Size(58, 37);
+            ButtonOk.Size = new Size(94, 42);
             ButtonOk.TabIndex = 23;
             ButtonOk.Text = "Ok";
-            ButtonOk.UseVisualStyleBackColor = true;
+            ButtonOk.UseVisualStyleBackColor = false;
             ButtonOk.Click += ButtonOk_Click;
             // 
             // ButtonClFilter
             // 
-            ButtonClFilter.Location = new Point(268, 350);
+            ButtonClFilter.BackColor = Color.LightSteelBlue;
+            ButtonClFilter.Location = new Point(265, 335);
             ButtonClFilter.Name = "ButtonClFilter";
-            ButtonClFilter.Size = new Size(174, 36);
+            ButtonClFilter.Size = new Size(137, 42);
             ButtonClFilter.TabIndex = 22;
             ButtonClFilter.Text = "Clear Filter";
-            ButtonClFilter.UseVisualStyleBackColor = true;
+            ButtonClFilter.UseVisualStyleBackColor = false;
             ButtonClFilter.Click += ButtonClFilter_Click;
             // 
             // PeriodFilter
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            BackColor = Color.MintCream;
+            ClientSize = new Size(694, 459);
             Controls.Add(ButtonCancel);
             Controls.Add(ButtonOk);
             Controls.Add(ButtonClFilter);
@@ -133,8 +138,10 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "PeriodFilter";
-            Text = "PeriodFilter";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Filter Period";
             Shown += PeriodFilter_Shown;
             ResumeLayout(false);
             PerformLayout();

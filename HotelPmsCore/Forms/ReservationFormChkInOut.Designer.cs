@@ -195,7 +195,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ReservationFormChkInOut";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "ReservationFormChkInOut";
+            Text = "CheckIn/Out";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);

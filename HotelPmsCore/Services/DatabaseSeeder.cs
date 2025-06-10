@@ -9,7 +9,7 @@
 //    public class DatabaseSeeder
 //    {
 //        private readonly HotelPmsCoreContext context;
-//        private readonly Argon2 hasher; 
+//        private readonly Argon2 hasher;
 
 //        public DatabaseSeeder(HotelPmsCoreContext context, Argon2 hasher)
 //        {
@@ -30,7 +30,7 @@
 
 //        private void SeedTypedCategories()
 //        {
-  
+
 //            var typedCategories = new List<TypedCategory>
 //            {
 //                // Staff Speciality
@@ -75,7 +75,7 @@
 //            context.SaveChanges();
 //        }
 
-     
+
 //        private void SeedCustomers()
 //        {
 //            var customers = new List<Customer>
@@ -99,7 +99,7 @@
 
 //        private void SeedRooms()
 //        {
-            
+
 //            var roomTypes = context.TypedCategories.Where(tc => tc.Type == 2).ToList();
 
 //            var rooms = new List<Room>
@@ -170,7 +170,7 @@
 
 //        private void SeedReservations()
 //        {
-           
+
 //            var customers = context.Customers.Take(5).ToList();
 //            var rooms = context.Rooms.Take(5).ToList();
 

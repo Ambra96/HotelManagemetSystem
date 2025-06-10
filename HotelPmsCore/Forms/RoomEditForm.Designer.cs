@@ -184,7 +184,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "RoomEditForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "RoomEditForm";
+            Text = "New/Edit Room";
             ((System.ComponentModel.ISupportInitialize)roomBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)numCapacity).EndInit();
             ((System.ComponentModel.ISupportInitialize)numSummer).EndInit();

@@ -159,8 +159,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "CustomerFilter";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "CustomerFilter";
-   
+            Text = "Filter Customer";
             Shown += CustomerFilter_Shown;
             ResumeLayout(false);
             PerformLayout();

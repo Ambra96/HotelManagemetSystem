@@ -129,7 +129,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "StaffEditForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "StaffEditForm";
+            Text = "New/Edit Staff";
             ((System.ComponentModel.ISupportInitialize)StaffBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();

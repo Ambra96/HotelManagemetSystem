@@ -35,6 +35,6 @@ namespace HotelPmsCore.Forms
             DialogResult = DialogResult.Cancel;
         }
 
- 
+     
     }
 }

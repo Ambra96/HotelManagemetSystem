@@ -131,7 +131,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "RoomFilter";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "RoomFilter";
+            Text = "Filter Room";
             Shown += RoomFilter_Shown;
             ((System.ComponentModel.ISupportInitialize)numCapacity).EndInit();
             ResumeLayout(false);

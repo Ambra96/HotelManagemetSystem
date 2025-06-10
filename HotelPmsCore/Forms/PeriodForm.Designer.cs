@@ -41,14 +41,15 @@
             // dataGridViewPeriod
             // 
             dataGridViewPeriod.AutoGenerateColumns = false;
+            dataGridViewPeriod.BackgroundColor = Color.MintCream;
             dataGridViewPeriod.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewPeriod.Columns.AddRange(new DataGridViewColumn[] { nameDataGridViewTextBoxColumn, startDateDataGridViewTextBoxColumn, endDateDataGridViewTextBoxColumn });
             dataGridViewPeriod.DataSource = periodBindingSource;
-            dataGridViewPeriod.Location = new Point(1, 5);
+            dataGridViewPeriod.Location = new Point(12, 12);
             dataGridViewPeriod.Name = "dataGridViewPeriod";
             dataGridViewPeriod.RowHeadersWidth = 62;
             dataGridViewPeriod.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewPeriod.Size = new Size(797, 444);
+            dataGridViewPeriod.Size = new Size(1449, 647);
             dataGridViewPeriod.TabIndex = 0;
             // 
             // nameDataGridViewTextBoxColumn
@@ -83,8 +84,10 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            BackColor = Color.FromArgb(49, 55, 55);
+            ClientSize = new Size(1473, 671);
             Controls.Add(dataGridViewPeriod);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "PeriodForm";
             Text = "Period";
             ((System.ComponentModel.ISupportInitialize)dataGridViewPeriod).EndInit();

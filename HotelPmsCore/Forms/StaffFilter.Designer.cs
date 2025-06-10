@@ -119,7 +119,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "StaffFilter";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "StaffFilter";
+            Text = "Filter Staff";
             Shown += StaffFilter_Shown;
             ResumeLayout(false);
             PerformLayout();

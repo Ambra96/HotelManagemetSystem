@@ -72,16 +72,16 @@
             // dataGridViewCategory
             // 
             dataGridViewCategory.AutoGenerateColumns = false;
+            dataGridViewCategory.BackgroundColor = Color.MintCream;
             dataGridViewCategory.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCategory.Columns.AddRange(new DataGridViewColumn[] { idDataGridViewTextBoxColumn1, descriptionDataGridViewTextBoxColumn1, typeDataGridViewTextBoxColumn1 });
             dataGridViewCategory.DataSource = typedCategoryBindingSource;
-            dataGridViewCategory.Dock = DockStyle.Fill;
-            dataGridViewCategory.Location = new Point(0, 0);
+            dataGridViewCategory.Location = new Point(12, 12);
             dataGridViewCategory.MultiSelect = false;
             dataGridViewCategory.Name = "dataGridViewCategory";
             dataGridViewCategory.RowHeadersWidth = 62;
             dataGridViewCategory.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewCategory.Size = new Size(814, 446);
+            dataGridViewCategory.Size = new Size(1471, 703);
             dataGridViewCategory.TabIndex = 0;
             // 
             // idDataGridViewTextBoxColumn1
@@ -112,8 +112,10 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(814, 446);
+            BackColor = Color.FromArgb(49, 55, 55);
+            ClientSize = new Size(1495, 727);
             Controls.Add(dataGridViewCategory);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "CategoryForm";
             Text = "CategoryForm";
             ((System.ComponentModel.ISupportInitialize)typedCategoryBindingSource).EndInit();

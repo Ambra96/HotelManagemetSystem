@@ -47,9 +47,9 @@
             backPicPanel.Controls.Add(LoginButton);
             backPicPanel.Controls.Add(passwordtext);
             backPicPanel.Controls.Add(usernametext);
-            backPicPanel.Location = new Point(-2, -4);
+            backPicPanel.Location = new Point(12, 12);
             backPicPanel.Name = "backPicPanel";
-            backPicPanel.Size = new Size(639, 430);
+            backPicPanel.Size = new Size(663, 447);
             backPicPanel.TabIndex = 0;
             // 
             // CancelButton
@@ -109,8 +109,8 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
-            ClientSize = new Size(636, 426);
+            BackColor = Color.LightSteelBlue;
+            ClientSize = new Size(687, 471);
             Controls.Add(backPicPanel);
             FormBorderStyle = FormBorderStyle.None;
             Name = "LoginForm";

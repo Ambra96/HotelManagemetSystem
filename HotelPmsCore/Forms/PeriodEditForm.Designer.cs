@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PeriodEditForm));
             dateTimePickerEnd = new DateTimePicker();
             dateTimePickerStart = new DateTimePicker();
             textBoxName = new TextBox();
@@ -43,21 +44,21 @@
             // 
             // dateTimePickerEnd
             // 
-            dateTimePickerEnd.Location = new Point(392, 231);
+            dateTimePickerEnd.Location = new Point(293, 225);
             dateTimePickerEnd.Name = "dateTimePickerEnd";
             dateTimePickerEnd.Size = new Size(230, 31);
             dateTimePickerEnd.TabIndex = 15;
             // 
             // dateTimePickerStart
             // 
-            dateTimePickerStart.Location = new Point(392, 144);
+            dateTimePickerStart.Location = new Point(293, 138);
             dateTimePickerStart.Name = "dateTimePickerStart";
             dateTimePickerStart.Size = new Size(230, 31);
             dateTimePickerStart.TabIndex = 14;
             // 
             // textBoxName
             // 
-            textBoxName.Location = new Point(392, 63);
+            textBoxName.Location = new Point(293, 57);
             textBoxName.Name = "textBoxName";
             textBoxName.Size = new Size(230, 31);
             textBoxName.TabIndex = 13;
@@ -65,55 +66,58 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(138, 231);
+            label3.Location = new Point(138, 225);
             label3.Name = "label3";
-            label3.Size = new Size(83, 25);
+            label3.Size = new Size(79, 25);
             label3.TabIndex = 12;
-            label3.Text = "EndDate:";
+            label3.Text = "EndDate";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(138, 144);
+            label2.Location = new Point(138, 138);
             label2.Name = "label2";
-            label2.Size = new Size(89, 25);
+            label2.Size = new Size(85, 25);
             label2.TabIndex = 11;
-            label2.Text = "StartDate:";
+            label2.Text = "StartDate";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(138, 63);
+            label1.Location = new Point(138, 57);
             label1.Name = "label1";
-            label1.Size = new Size(63, 25);
+            label1.Size = new Size(59, 25);
             label1.TabIndex = 10;
-            label1.Text = "Name:";
+            label1.Text = "Name";
             // 
             // Savebutton
             // 
-            Savebutton.Location = new Point(199, 348);
+            Savebutton.BackColor = Color.LightSteelBlue;
+            Savebutton.Location = new Point(181, 353);
             Savebutton.Name = "Savebutton";
-            Savebutton.Size = new Size(120, 46);
+            Savebutton.Size = new Size(94, 42);
             Savebutton.TabIndex = 16;
             Savebutton.Text = "Save";
-            Savebutton.UseVisualStyleBackColor = true;
+            Savebutton.UseVisualStyleBackColor = false;
             Savebutton.Click += Savebutton_Click;
             // 
             // Cancelbutton
             // 
-            Cancelbutton.Location = new Point(453, 348);
+            Cancelbutton.BackColor = Color.Brown;
+            Cancelbutton.Location = new Point(392, 353);
             Cancelbutton.Name = "Cancelbutton";
-            Cancelbutton.Size = new Size(120, 46);
+            Cancelbutton.Size = new Size(94, 42);
             Cancelbutton.TabIndex = 17;
             Cancelbutton.Text = "Cancel";
-            Cancelbutton.UseVisualStyleBackColor = true;
+            Cancelbutton.UseVisualStyleBackColor = false;
             Cancelbutton.Click += Cancelbutton_Click;
             // 
             // PeriodEditForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            BackColor = Color.MintCream;
+            ClientSize = new Size(694, 459);
             Controls.Add(Cancelbutton);
             Controls.Add(Savebutton);
             Controls.Add(dateTimePickerEnd);
@@ -122,8 +126,10 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "PeriodEditForm";
-            Text = "PeriodEditForm";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "New/Edit Period";
             ((System.ComponentModel.ISupportInitialize)bindingSourcePeriod).EndInit();
             ResumeLayout(false);
             PerformLayout();

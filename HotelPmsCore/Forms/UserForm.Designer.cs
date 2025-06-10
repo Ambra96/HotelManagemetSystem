@@ -30,9 +30,9 @@
         {
             components = new System.ComponentModel.Container();
             dataGridViewUser = new DataGridView();
-            userBindingSource = new BindingSource(components);
-            fullNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             usernameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            fullNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            userBindingSource = new BindingSource(components);
             ((System.ComponentModel.ISupportInitialize)dataGridViewUser).BeginInit();
             ((System.ComponentModel.ISupportInitialize)userBindingSource).BeginInit();
             SuspendLayout();
@@ -40,28 +40,17 @@
             // dataGridViewUser
             // 
             dataGridViewUser.AutoGenerateColumns = false;
+            dataGridViewUser.BackgroundColor = Color.MintCream;
             dataGridViewUser.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewUser.Columns.AddRange(new DataGridViewColumn[] { usernameDataGridViewTextBoxColumn, fullNameDataGridViewTextBoxColumn });
             dataGridViewUser.DataSource = userBindingSource;
-            dataGridViewUser.Location = new Point(2, 1);
+            dataGridViewUser.Location = new Point(12, 12);
             dataGridViewUser.MultiSelect = false;
             dataGridViewUser.Name = "dataGridViewUser";
             dataGridViewUser.RowHeadersWidth = 62;
             dataGridViewUser.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewUser.Size = new Size(800, 437);
+            dataGridViewUser.Size = new Size(1449, 647);
             dataGridViewUser.TabIndex = 0;
-            // 
-            // userBindingSource
-            // 
-            userBindingSource.DataSource = typeof(Models.User);
-            // 
-            // fullNameDataGridViewTextBoxColumn
-            // 
-            fullNameDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            fullNameDataGridViewTextBoxColumn.DataPropertyName = "FullName";
-            fullNameDataGridViewTextBoxColumn.HeaderText = "FullName";
-            fullNameDataGridViewTextBoxColumn.MinimumWidth = 8;
-            fullNameDataGridViewTextBoxColumn.Name = "fullNameDataGridViewTextBoxColumn";
             // 
             // usernameDataGridViewTextBoxColumn
             // 
@@ -71,12 +60,26 @@
             usernameDataGridViewTextBoxColumn.MinimumWidth = 8;
             usernameDataGridViewTextBoxColumn.Name = "usernameDataGridViewTextBoxColumn";
             // 
+            // fullNameDataGridViewTextBoxColumn
+            // 
+            fullNameDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            fullNameDataGridViewTextBoxColumn.DataPropertyName = "FullName";
+            fullNameDataGridViewTextBoxColumn.HeaderText = "FullName";
+            fullNameDataGridViewTextBoxColumn.MinimumWidth = 8;
+            fullNameDataGridViewTextBoxColumn.Name = "fullNameDataGridViewTextBoxColumn";
+            // 
+            // userBindingSource
+            // 
+            userBindingSource.DataSource = typeof(Models.User);
+            // 
             // UserForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            BackColor = Color.FromArgb(49, 55, 55);
+            ClientSize = new Size(1473, 671);
             Controls.Add(dataGridViewUser);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "UserForm";
             Text = "UserForm";
             ((System.ComponentModel.ISupportInitialize)dataGridViewUser).EndInit();

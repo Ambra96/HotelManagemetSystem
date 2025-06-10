@@ -18,75 +18,102 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CategoryEditForm));
             txtId = new TextBox();
             txtDescription = new TextBox();
             SaveBttn = new Button();
             CancelBttn = new Button();
             typedCategoryBindingSource = new BindingSource(components);
+            label1 = new Label();
+            label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)typedCategoryBindingSource).BeginInit();
             SuspendLayout();
             // 
             // txtId
             // 
-            txtId.Location = new Point(62, 47);
+            txtId.Location = new Point(324, 86);
             txtId.Margin = new Padding(4, 5, 4, 5);
             txtId.Name = "txtId";
-            txtId.PlaceholderText = "Id";
-            txtId.Size = new Size(124, 31);
+            txtId.Size = new Size(220, 31);
             txtId.TabIndex = 0;
             // 
             // txtDescription
             // 
-            txtDescription.Location = new Point(62, 109);
+            txtDescription.Location = new Point(324, 170);
             txtDescription.Margin = new Padding(4, 5, 4, 5);
             txtDescription.Name = "txtDescription";
-            txtDescription.PlaceholderText = "Description";
             txtDescription.Size = new Size(220, 31);
             txtDescription.TabIndex = 1;
             // 
             // SaveBttn
             // 
-            SaveBttn.Location = new Point(62, 172);
+            SaveBttn.BackColor = Color.LightSteelBlue;
+            SaveBttn.Location = new Point(190, 322);
             SaveBttn.Margin = new Padding(4, 5, 4, 5);
             SaveBttn.Name = "SaveBttn";
-            SaveBttn.Size = new Size(94, 47);
+            SaveBttn.Size = new Size(94, 42);
             SaveBttn.TabIndex = 2;
             SaveBttn.Text = "Save";
-            SaveBttn.UseVisualStyleBackColor = true;
+            SaveBttn.UseVisualStyleBackColor = false;
             SaveBttn.Click += SaveBttn_Click;
             // 
             // CancelBttn
             // 
-            CancelBttn.Location = new Point(188, 172);
+            CancelBttn.BackColor = Color.Brown;
+            CancelBttn.Location = new Point(378, 322);
             CancelBttn.Margin = new Padding(4, 5, 4, 5);
             CancelBttn.Name = "CancelBttn";
-            CancelBttn.Size = new Size(94, 47);
+            CancelBttn.Size = new Size(94, 42);
             CancelBttn.TabIndex = 3;
             CancelBttn.Text = "Cancel";
-            CancelBttn.UseVisualStyleBackColor = true;
+            CancelBttn.UseVisualStyleBackColor = false;
             CancelBttn.Click += CancelBttn_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(131, 86);
+            label1.Name = "label1";
+            label1.Size = new Size(30, 25);
+            label1.TabIndex = 4;
+            label1.Text = "ID";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(131, 170);
+            label2.Name = "label2";
+            label2.Size = new Size(102, 25);
+            label2.TabIndex = 5;
+            label2.Text = "Description";
             // 
             // CategoryEditForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(384, 280);
+            BackColor = Color.MintCream;
+            ClientSize = new Size(694, 459);
+            Controls.Add(label2);
+            Controls.Add(label1);
             Controls.Add(CancelBttn);
             Controls.Add(SaveBttn);
             Controls.Add(txtDescription);
             Controls.Add(txtId);
             FormBorderStyle = FormBorderStyle.FixedDialog;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4, 5, 4, 5);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "CategoryEditForm";
-            StartPosition = FormStartPosition.CenterParent;
-            Text = "Edit Category";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "New/Edit Category";
             ((System.ComponentModel.ISupportInitialize)typedCategoryBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
         private BindingSource typedCategoryBindingSource;
+        private Label label1;
+        private Label label2;
         //private TextBox txtDescription;
         //private NumericUpDown numType;   
         //private Button btnSave;

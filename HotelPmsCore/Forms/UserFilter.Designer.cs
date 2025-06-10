@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserFilter));
             textBoxFullName = new TextBox();
             label3 = new Label();
             textBoxUsername = new TextBox();
@@ -39,71 +40,75 @@
             // 
             // textBoxFullName
             // 
-            textBoxFullName.Location = new Point(398, 153);
+            textBoxFullName.Location = new Point(321, 155);
             textBoxFullName.Name = "textBoxFullName";
-            textBoxFullName.Size = new Size(201, 31);
+            textBoxFullName.Size = new Size(223, 31);
             textBoxFullName.TabIndex = 13;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(161, 159);
+            label3.Location = new Point(124, 164);
             label3.Name = "label3";
-            label3.Size = new Size(90, 25);
+            label3.Size = new Size(86, 25);
             label3.TabIndex = 12;
-            label3.Text = "FullName:";
+            label3.Text = "FullName";
             // 
             // textBoxUsername
             // 
-            textBoxUsername.Location = new Point(398, 66);
+            textBoxUsername.Location = new Point(321, 68);
             textBoxUsername.Name = "textBoxUsername";
-            textBoxUsername.Size = new Size(201, 31);
+            textBoxUsername.Size = new Size(223, 31);
             textBoxUsername.TabIndex = 10;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(161, 66);
+            label1.Location = new Point(124, 71);
             label1.Name = "label1";
-            label1.Size = new Size(95, 25);
+            label1.Size = new Size(91, 25);
             label1.TabIndex = 8;
-            label1.Text = "Username:";
+            label1.Text = "Username";
             // 
             // ButtonCancel
             // 
-            ButtonCancel.Location = new Point(478, 317);
+            ButtonCancel.BackColor = Color.Brown;
+            ButtonCancel.Location = new Point(450, 326);
             ButtonCancel.Name = "ButtonCancel";
-            ButtonCancel.Size = new Size(95, 37);
+            ButtonCancel.Size = new Size(94, 42);
             ButtonCancel.TabIndex = 27;
             ButtonCancel.Text = "Cancel";
-            ButtonCancel.UseVisualStyleBackColor = true;
+            ButtonCancel.UseVisualStyleBackColor = false;
             ButtonCancel.Click += ButtonCancel_Click;
             // 
             // ButtonOk
             // 
-            ButtonOk.Location = new Point(192, 317);
+            ButtonOk.BackColor = Color.LightSteelBlue;
+            ButtonOk.Location = new Point(124, 326);
             ButtonOk.Name = "ButtonOk";
-            ButtonOk.Size = new Size(58, 37);
+            ButtonOk.Size = new Size(94, 42);
             ButtonOk.TabIndex = 26;
             ButtonOk.Text = "Ok";
-            ButtonOk.UseVisualStyleBackColor = true;
+            ButtonOk.UseVisualStyleBackColor = false;
             ButtonOk.Click += ButtonOk_Click;
             // 
             // ButtonClFilter
             // 
-            ButtonClFilter.Location = new Point(280, 317);
+            ButtonClFilter.BackColor = Color.LightSteelBlue;
+            ButtonClFilter.Location = new Point(266, 326);
             ButtonClFilter.Name = "ButtonClFilter";
-            ButtonClFilter.Size = new Size(174, 36);
+            ButtonClFilter.Size = new Size(137, 42);
             ButtonClFilter.TabIndex = 25;
             ButtonClFilter.Text = "Clear Filter";
-            ButtonClFilter.UseVisualStyleBackColor = true;
+            ButtonClFilter.UseVisualStyleBackColor = false;
             ButtonClFilter.Click += ButtonClFilter_Click;
             // 
             // UserFilter
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            BackColor = Color.MintCream;
+            ClientSize = new Size(694, 459);
             Controls.Add(ButtonCancel);
             Controls.Add(ButtonOk);
             Controls.Add(ButtonClFilter);
@@ -111,8 +116,10 @@
             Controls.Add(label3);
             Controls.Add(textBoxUsername);
             Controls.Add(label1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "UserFilter";
-            Text = "UserFilter";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Filter User";
             Shown += UserFilter_Shown;
             ResumeLayout(false);
             PerformLayout();
