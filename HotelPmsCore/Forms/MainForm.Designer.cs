@@ -49,8 +49,10 @@
             DeleteButton = new Button();
             ExitButton = new Button();
             NewButton = new Button();
+            label2 = new Label();
             MainPanel.SuspendLayout();
             settingsPanel.SuspendLayout();
+            settingsContentPanel.SuspendLayout();
             toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ButtonPanel.SuspendLayout();
@@ -69,6 +71,7 @@
             // settingsPanel
             // 
             settingsPanel.BackColor = Color.LightGray;
+            settingsPanel.BackgroundImage = (Image)resources.GetObject("settingsPanel.BackgroundImage");
             settingsPanel.Controls.Add(settingsContentPanel);
             settingsPanel.Controls.Add(toolStrip1);
             settingsPanel.Location = new Point(3, 0);
@@ -79,11 +82,13 @@
             // 
             // settingsContentPanel
             // 
+            settingsContentPanel.BackColor = Color.MintCream;
+            settingsContentPanel.Controls.Add(label2);
             settingsContentPanel.Dock = DockStyle.Fill;
             settingsContentPanel.Location = new Point(0, 33);
             settingsContentPanel.Name = "settingsContentPanel";
             settingsContentPanel.Size = new Size(1489, 719);
-            settingsContentPanel.TabIndex = 1;
+            settingsContentPanel.TabIndex = 2;
             // 
             // toolStrip1
             // 
@@ -350,6 +355,17 @@
             NewButton.UseVisualStyleBackColor = false;
             NewButton.Click += NewButton_Click;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 9F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            label2.ForeColor = SystemColors.Highlight;
+            label2.Location = new Point(1079, 596);
+            label2.Name = "label2";
+            label2.Size = new Size(392, 50);
+            label2.TabIndex = 0;
+            label2.Text = "For technical support, contact us at:\nsupport@example.com or call +30 210 1234567";
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -373,6 +389,8 @@
             MainPanel.ResumeLayout(false);
             settingsPanel.ResumeLayout(false);
             settingsPanel.PerformLayout();
+            settingsContentPanel.ResumeLayout(false);
+            settingsContentPanel.PerformLayout();
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -404,8 +422,9 @@
         private ToolStripMenuItem menuItemPeriods;
         private ToolStripMenuItem menuItemCategories;
         private ToolStripMenuItem menuItemUsers;
-        private Panel settingsContentPanel;
         private Button BttnFilters;
+        private Panel settingsContentPanel;
+        private Label label2;
 
         public int NewBttn_Click { get; private set; }
     }

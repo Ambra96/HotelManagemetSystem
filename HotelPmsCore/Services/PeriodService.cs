@@ -4,6 +4,7 @@ using HotelPmsCore.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 
 namespace HotelPmsCore.Services
@@ -37,6 +38,8 @@ namespace HotelPmsCore.Services
                 query = query.Where(p => p.EndDate <= end);
 
             BndSource.DataSource = query.OrderBy(p => p.Id).ToList();
+
+
         }
 
     }

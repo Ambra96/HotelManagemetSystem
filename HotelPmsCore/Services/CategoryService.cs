@@ -10,7 +10,7 @@ namespace HotelPmsCore.Services
 {
     public class CategoryService : PagedService<CategoryForm, CategoryEditForm, TypedCategory>
     {
-        public int? CategoryType { get; set; } //= 2;
+        public int? CategoryType { get; set; }
 
         public CategoryService(HotelPmsCoreContext context) : base(context) { }
 

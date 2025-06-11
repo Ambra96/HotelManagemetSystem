@@ -33,7 +33,7 @@ namespace HotelPmsCore
                     services.AddScoped<StaffService>();
                     services.AddScoped<Argon2>();
                     services.AddScoped<DataSeed>();
-                    //services.AddScoped<DatabaseSeeder>();
+                 
 
                     // -- Forms
                     services.AddTransient<MainForm>();

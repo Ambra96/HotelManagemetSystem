@@ -11,6 +11,7 @@ namespace HotelPmsCore.Forms
         private IModule currentModule;
         private Form activeForm;
 
+
         public MainForm()
         {
             InitializeComponent();
@@ -62,6 +63,7 @@ namespace HotelPmsCore.Forms
 
         private void button_customers_Click(object sender, EventArgs e)
         {
+            //dashboard.Hide();
             settingsPanel.Visible = false;
             ButtonPanel.Visible = true;
             OpenModule<CustomerForm>();
@@ -185,7 +187,7 @@ namespace HotelPmsCore.Forms
 
         }
 
-       
+     
     }
 }
 //temporary

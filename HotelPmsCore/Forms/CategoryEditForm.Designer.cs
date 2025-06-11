@@ -26,6 +26,8 @@
             typedCategoryBindingSource = new BindingSource(components);
             label1 = new Label();
             label2 = new Label();
+            label3 = new Label();
+            comboType = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)typedCategoryBindingSource).BeginInit();
             SuspendLayout();
             // 
@@ -39,7 +41,7 @@
             // 
             // txtDescription
             // 
-            txtDescription.Location = new Point(324, 170);
+            txtDescription.Location = new Point(324, 147);
             txtDescription.Margin = new Padding(4, 5, 4, 5);
             txtDescription.Name = "txtDescription";
             txtDescription.Size = new Size(220, 31);
@@ -81,11 +83,28 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(131, 170);
+            label2.Location = new Point(131, 147);
             label2.Name = "label2";
             label2.Size = new Size(102, 25);
             label2.TabIndex = 5;
             label2.Text = "Description";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(131, 212);
+            label3.Name = "label3";
+            label3.Size = new Size(49, 25);
+            label3.TabIndex = 6;
+            label3.Text = "Type";
+            // 
+            // comboType
+            // 
+            comboType.FormattingEnabled = true;
+            comboType.Location = new Point(324, 212);
+            comboType.Name = "comboType";
+            comboType.Size = new Size(220, 33);
+            comboType.TabIndex = 7;
             // 
             // CategoryEditForm
             // 
@@ -93,6 +112,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.MintCream;
             ClientSize = new Size(694, 459);
+            Controls.Add(comboType);
+            Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(CancelBttn);
@@ -114,6 +135,8 @@
         private BindingSource typedCategoryBindingSource;
         private Label label1;
         private Label label2;
+        private Label label3;
+        private ComboBox comboType;
         //private TextBox txtDescription;
         //private NumericUpDown numType;   
         //private Button btnSave;

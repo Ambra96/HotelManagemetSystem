@@ -31,6 +31,7 @@ namespace HotelPmsCore.Forms
             textBoxName.Text = "";
             dateTimePickerStart.Value = DateTime.Today;
             dateTimePickerEnd.Value = DateTime.Today;
+            
         }
 
         private void ButtonCancel_Click(object sender, EventArgs e)
