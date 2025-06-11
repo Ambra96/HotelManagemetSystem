@@ -21,6 +21,8 @@ namespace HotelPmsCore
         public LoginForm(Data.HotelPmsCoreContext context)
         {
             InitializeComponent();
+            //this.AcceptButton = LoginButton;
+            //this.CancelButton = CancelButton;
             this.context = context;
         }
 

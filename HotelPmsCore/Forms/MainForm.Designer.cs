@@ -27,14 +27,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             MainPanel = new Panel();
-            settingsPanel = new Panel();
-            settingsContentPanel = new Panel();
-            toolStrip1 = new ToolStrip();
-            toolStripButton1 = new ToolStripButton();
-            toolStripDropDownButton1 = new ToolStripDropDownButton();
-            menuItemPeriods = new ToolStripMenuItem();
-            menuItemCategories = new ToolStripMenuItem();
-            menuItemUsers = new ToolStripMenuItem();
             pictureBox1 = new PictureBox();
             label1 = new Label();
             button_rooms = new Button();
@@ -49,96 +41,31 @@
             DeleteButton = new Button();
             ExitButton = new Button();
             NewButton = new Button();
+            toolStrip1 = new ToolStrip();
+            toolStripButton1 = new ToolStripButton();
+            toolStripDropDownButton1 = new ToolStripDropDownButton();
+            menuItemPeriods = new ToolStripMenuItem();
+            menuItemCategories = new ToolStripMenuItem();
+            menuItemUsers = new ToolStripMenuItem();
+            settingsContentPanel = new Panel();
             label2 = new Label();
+            settingsPanel = new Panel();
             MainPanel.SuspendLayout();
-            settingsPanel.SuspendLayout();
-            settingsContentPanel.SuspendLayout();
-            toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ButtonPanel.SuspendLayout();
+            toolStrip1.SuspendLayout();
+            settingsContentPanel.SuspendLayout();
+            settingsPanel.SuspendLayout();
             SuspendLayout();
             // 
             // MainPanel
             // 
-            MainPanel.Anchor = AnchorStyles.None;
             MainPanel.BackColor = Color.WhiteSmoke;
             MainPanel.Controls.Add(settingsPanel);
             MainPanel.Location = new Point(207, 196);
             MainPanel.Name = "MainPanel";
             MainPanel.Size = new Size(1492, 692);
             MainPanel.TabIndex = 0;
-            // 
-            // settingsPanel
-            // 
-            settingsPanel.BackColor = Color.LightGray;
-            settingsPanel.BackgroundImage = (Image)resources.GetObject("settingsPanel.BackgroundImage");
-            settingsPanel.Controls.Add(settingsContentPanel);
-            settingsPanel.Controls.Add(toolStrip1);
-            settingsPanel.Location = new Point(3, 0);
-            settingsPanel.Name = "settingsPanel";
-            settingsPanel.Size = new Size(1489, 752);
-            settingsPanel.TabIndex = 0;
-            settingsPanel.Leave += settingsPanel_Leave;
-            // 
-            // settingsContentPanel
-            // 
-            settingsContentPanel.BackColor = Color.MintCream;
-            settingsContentPanel.Controls.Add(label2);
-            settingsContentPanel.Dock = DockStyle.Fill;
-            settingsContentPanel.Location = new Point(0, 33);
-            settingsContentPanel.Name = "settingsContentPanel";
-            settingsContentPanel.Size = new Size(1489, 719);
-            settingsContentPanel.TabIndex = 2;
-            // 
-            // toolStrip1
-            // 
-            toolStrip1.ImageScalingSize = new Size(24, 24);
-            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripButton1, toolStripDropDownButton1 });
-            toolStrip1.Location = new Point(0, 0);
-            toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(1489, 33);
-            toolStrip1.TabIndex = 0;
-            toolStrip1.Text = "toolStrip1";
-            // 
-            // toolStripButton1
-            // 
-            toolStripButton1.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            toolStripButton1.Image = (Image)resources.GetObject("toolStripButton1.Image");
-            toolStripButton1.ImageTransparentColor = Color.Magenta;
-            toolStripButton1.Name = "toolStripButton1";
-            toolStripButton1.Size = new Size(34, 28);
-            toolStripButton1.Text = "toolStripButton1";
-            // 
-            // toolStripDropDownButton1
-            // 
-            toolStripDropDownButton1.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            toolStripDropDownButton1.DropDownItems.AddRange(new ToolStripItem[] { menuItemPeriods, menuItemCategories, menuItemUsers });
-            toolStripDropDownButton1.Image = (Image)resources.GetObject("toolStripDropDownButton1.Image");
-            toolStripDropDownButton1.ImageTransparentColor = Color.Magenta;
-            toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-            toolStripDropDownButton1.Size = new Size(42, 28);
-            toolStripDropDownButton1.Text = "toolStripDropDownButton1";
-            // 
-            // menuItemPeriods
-            // 
-            menuItemPeriods.Name = "menuItemPeriods";
-            menuItemPeriods.Size = new Size(198, 34);
-            menuItemPeriods.Text = "Periods";
-            menuItemPeriods.Click += menuItemPeriods_Click;
-            // 
-            // menuItemCategories
-            // 
-            menuItemCategories.Name = "menuItemCategories";
-            menuItemCategories.Size = new Size(198, 34);
-            menuItemCategories.Text = "Categories";
-            menuItemCategories.Click += menuItemCategories_Click;
-            // 
-            // menuItemUsers
-            // 
-            menuItemUsers.Name = "menuItemUsers";
-            menuItemUsers.Size = new Size(198, 34);
-            menuItemUsers.Text = "Users";
-            menuItemUsers.Click += menuItemUsers_Click;
             // 
             // pictureBox1
             // 
@@ -355,6 +282,66 @@
             NewButton.UseVisualStyleBackColor = false;
             NewButton.Click += NewButton_Click;
             // 
+            // toolStrip1
+            // 
+            toolStrip1.ImageScalingSize = new Size(24, 24);
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripButton1, toolStripDropDownButton1 });
+            toolStrip1.Location = new Point(0, 0);
+            toolStrip1.Name = "toolStrip1";
+            toolStrip1.Size = new Size(1489, 33);
+            toolStrip1.TabIndex = 0;
+            toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripButton1
+            // 
+            toolStripButton1.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStripButton1.Image = (Image)resources.GetObject("toolStripButton1.Image");
+            toolStripButton1.ImageTransparentColor = Color.Magenta;
+            toolStripButton1.Name = "toolStripButton1";
+            toolStripButton1.Size = new Size(34, 28);
+            toolStripButton1.Text = "toolStripButton1";
+            // 
+            // toolStripDropDownButton1
+            // 
+            toolStripDropDownButton1.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStripDropDownButton1.DropDownItems.AddRange(new ToolStripItem[] { menuItemPeriods, menuItemCategories, menuItemUsers });
+            toolStripDropDownButton1.Image = (Image)resources.GetObject("toolStripDropDownButton1.Image");
+            toolStripDropDownButton1.ImageTransparentColor = Color.Magenta;
+            toolStripDropDownButton1.Name = "toolStripDropDownButton1";
+            toolStripDropDownButton1.Size = new Size(42, 28);
+            toolStripDropDownButton1.Text = "toolStripDropDownButton1";
+            // 
+            // menuItemPeriods
+            // 
+            menuItemPeriods.Name = "menuItemPeriods";
+            menuItemPeriods.Size = new Size(198, 34);
+            menuItemPeriods.Text = "Periods";
+            menuItemPeriods.Click += menuItemPeriods_Click;
+            // 
+            // menuItemCategories
+            // 
+            menuItemCategories.Name = "menuItemCategories";
+            menuItemCategories.Size = new Size(198, 34);
+            menuItemCategories.Text = "Categories";
+            menuItemCategories.Click += menuItemCategories_Click;
+            // 
+            // menuItemUsers
+            // 
+            menuItemUsers.Name = "menuItemUsers";
+            menuItemUsers.Size = new Size(198, 34);
+            menuItemUsers.Text = "Users";
+            menuItemUsers.Click += menuItemUsers_Click;
+            // 
+            // settingsContentPanel
+            // 
+            settingsContentPanel.BackColor = Color.MintCream;
+            settingsContentPanel.Controls.Add(label2);
+            settingsContentPanel.Dock = DockStyle.Bottom;
+            settingsContentPanel.Location = new Point(0, 36);
+            settingsContentPanel.Name = "settingsContentPanel";
+            settingsContentPanel.Size = new Size(1489, 716);
+            settingsContentPanel.TabIndex = 2;
+            // 
             // label2
             // 
             label2.AutoSize = true;
@@ -365,6 +352,17 @@
             label2.Size = new Size(392, 50);
             label2.TabIndex = 0;
             label2.Text = "For technical support, contact us at:\nsupport@example.com or call +30 210 1234567";
+            // 
+            // settingsPanel
+            // 
+            settingsPanel.BackColor = Color.LightGray;
+            settingsPanel.Controls.Add(settingsContentPanel);
+            settingsPanel.Controls.Add(toolStrip1);
+            settingsPanel.Location = new Point(3, 0);
+            settingsPanel.Name = "settingsPanel";
+            settingsPanel.Size = new Size(1489, 752);
+            settingsPanel.TabIndex = 0;
+            settingsPanel.Leave += settingsPanel_Leave;
             // 
             // MainForm
             // 
@@ -387,14 +385,14 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "MainForm";
             MainPanel.ResumeLayout(false);
-            settingsPanel.ResumeLayout(false);
-            settingsPanel.PerformLayout();
-            settingsContentPanel.ResumeLayout(false);
-            settingsContentPanel.PerformLayout();
-            toolStrip1.ResumeLayout(false);
-            toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ButtonPanel.ResumeLayout(false);
+            toolStrip1.ResumeLayout(false);
+            toolStrip1.PerformLayout();
+            settingsContentPanel.ResumeLayout(false);
+            settingsContentPanel.PerformLayout();
+            settingsPanel.ResumeLayout(false);
+            settingsPanel.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -415,16 +413,16 @@
         private Button EditButton;
         private Button DeleteButton;
         private Button ExitButton;
+        private Button BttnFilters;
         private Panel settingsPanel;
+        private Panel settingsContentPanel;
+        private Label label2;
         private ToolStrip toolStrip1;
         private ToolStripButton toolStripButton1;
         private ToolStripDropDownButton toolStripDropDownButton1;
         private ToolStripMenuItem menuItemPeriods;
         private ToolStripMenuItem menuItemCategories;
         private ToolStripMenuItem menuItemUsers;
-        private Button BttnFilters;
-        private Panel settingsContentPanel;
-        private Label label2;
 
         public int NewBttn_Click { get; private set; }
     }
