@@ -30,10 +30,10 @@
         {
             components = new System.ComponentModel.Container();
             dataGridView1 = new DataGridView();
+            staffBindingSource = new BindingSource(components);
             firstnameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             lastnameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            specialityDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            staffBindingSource = new BindingSource(components);
+            SpecialityId = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)staffBindingSource).BeginInit();
             SuspendLayout();
@@ -43,7 +43,7 @@
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.BackgroundColor = Color.MintCream;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { firstnameDataGridViewTextBoxColumn, lastnameDataGridViewTextBoxColumn, specialityDataGridViewTextBoxColumn });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { firstnameDataGridViewTextBoxColumn, lastnameDataGridViewTextBoxColumn, SpecialityId });
             dataGridView1.DataSource = staffBindingSource;
             dataGridView1.Location = new Point(3, 3);
             dataGridView1.MultiSelect = false;
@@ -53,6 +53,10 @@
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(1466, 666);
             dataGridView1.TabIndex = 0;
+            // 
+            // staffBindingSource
+            // 
+            staffBindingSource.DataSource = typeof(Models.Staff);
             // 
             // firstnameDataGridViewTextBoxColumn
             // 
@@ -70,17 +74,13 @@
             lastnameDataGridViewTextBoxColumn.MinimumWidth = 8;
             lastnameDataGridViewTextBoxColumn.Name = "lastnameDataGridViewTextBoxColumn";
             // 
-            // specialityDataGridViewTextBoxColumn
+            // SpecialityId
             // 
-            specialityDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            specialityDataGridViewTextBoxColumn.DataPropertyName = "Speciality";
-            specialityDataGridViewTextBoxColumn.HeaderText = "Speciality";
-            specialityDataGridViewTextBoxColumn.MinimumWidth = 8;
-            specialityDataGridViewTextBoxColumn.Name = "specialityDataGridViewTextBoxColumn";
-            // 
-            // staffBindingSource
-            // 
-            staffBindingSource.DataSource = typeof(Models.Staff);
+            SpecialityId.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            SpecialityId.DataPropertyName = "SpecialityId";
+            SpecialityId.HeaderText = "SpecialityId";
+            SpecialityId.MinimumWidth = 8;
+            SpecialityId.Name = "SpecialityId";
             // 
             // StaffForm
             // 
@@ -100,9 +100,9 @@
         #endregion
 
         private DataGridView dataGridView1;
+        private BindingSource staffBindingSource;
         private DataGridViewTextBoxColumn firstnameDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn lastnameDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn specialityDataGridViewTextBoxColumn;
-        private BindingSource staffBindingSource;
+        private DataGridViewTextBoxColumn SpecialityId;
     }
 }

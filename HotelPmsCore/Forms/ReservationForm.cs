@@ -42,6 +42,35 @@ namespace HotelPmsCore.Forms
                 .Include(r => r.Room)
                 .ToList();
         }
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "Customer" && e.Value is Customer cust)
+                e.Value = cust.LastName;
+            else if (dataGridView1.Columns[e.ColumnIndex].Name == "Room" && e.Value is Room room)
+                e.Value = room.RoomNumber;
+        }
+        private void dataGridView1_CurrentCellDirtyStateChanged(object sender, EventArgs e)
+        {
+            if (dataGridView1.IsCurrentCellDirty)
+                dataGridView1.CommitEdit(DataGridViewDataErrorContexts.Commit);
+        }
+
+        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+           
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "Canceled")
+            {
+                var reservation = dataGridView1.Rows[e.RowIndex].DataBoundItem as Reservation;
+                if (reservation != null)
+                {
+                    context.Reservations.Update(reservation);
+                    context.SaveChanges();
+                    MessageBox.Show("Canceled status saved!");
+                }
+            }
+        }
+
+
 
         private void BtnSearchRooms_Click(object sender, EventArgs e)
         {
@@ -65,18 +94,51 @@ namespace HotelPmsCore.Forms
             {
                 MessageBox.Show("No available rooms for these dates/people.", "Info");
                 comboBoxRoom.DataSource = null;
+                dataGridView1.DataSource = null;
                 textBoxPrice.Text = "";
                 textBoxTotal.Text = "";
                 return;
             }
+            dataGridView1.AutoGenerateColumns = false;
+            dataGridView1.Columns.Clear();
 
+            dataGridView1.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "RoomNumber",
+                HeaderText = "Room",
+                DataPropertyName = "RoomNumber"
+            });
+            dataGridView1.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "Floor",
+                HeaderText = "Floor",
+                DataPropertyName = "Floor"
+            });
+            dataGridView1.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "PeopleCapacity",
+                HeaderText = "Capacity",
+                DataPropertyName = "PeopleCapacity"
+            });
+            dataGridView1.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "Price",
+                HeaderText = "Price",
+                DataPropertyName = "WinterPrice" 
+            });
+            dataGridView1.Columns.Add(new DataGridViewTextBoxColumn
+            {
+                Name = "Price",
+                HeaderText = "Summer Price",
+                DataPropertyName = "SummerPrice" 
+            });
+
+            dataGridView1.DataSource = availableRooms;
+            // Fill combobox with available rooms
             comboBoxRoom.DataSource = availableRooms;
             comboBoxRoom.DisplayMember = "RoomNumber";
             comboBoxRoom.ValueMember = "Id";
             comboBoxRoom.SelectedIndex = 0;
-
-
-            dataGridView1.DataSource = availableRooms;
         }
 
         private void ComboBoxRoom_SelectedIndexChanged(object sender, EventArgs e)
@@ -143,12 +205,20 @@ namespace HotelPmsCore.Forms
             context.SaveChanges();
 
             MessageBox.Show("Reservation created!");
+            dataGridView1.AutoGenerateColumns = true;
 
+            var reservations = context.Reservations.Include(r => r.Customer).Include(r => r.Room).ToList();
 
-            dataGridView1.DataSource = context.Reservations
-                .Include(r => r.Customer)
-                .Include(r => r.Room)
-                .ToList();
+            dataGridView1.DataSource = reservations;
+
+            // Select the new reservation in the grid
+            int rowIndex = reservations.FindIndex(r => r.Id == reservation.Id);
+            if (rowIndex >= 0)
+            {
+                dataGridView1.ClearSelection();
+                dataGridView1.Rows[rowIndex].Selected = true;
+                dataGridView1.FirstDisplayedScrollingRowIndex = rowIndex;
+            }
         }
 
         private void BtnNewCustomer_Click(object sender, EventArgs e)

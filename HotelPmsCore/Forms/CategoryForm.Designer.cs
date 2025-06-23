@@ -81,7 +81,7 @@
             dataGridViewCategory.Name = "dataGridViewCategory";
             dataGridViewCategory.RowHeadersWidth = 62;
             dataGridViewCategory.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewCategory.Size = new Size(1471, 703);
+            dataGridViewCategory.Size = new Size(1471, 648);
             dataGridViewCategory.TabIndex = 0;
             // 
             // idDataGridViewTextBoxColumn1
